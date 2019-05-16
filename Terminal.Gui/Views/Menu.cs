@@ -138,6 +138,7 @@ namespace Terminal.Gui {
 					break;
 				}
 			} */
+
 			return new Rect (x, y, maxW + 2, items.Length + 2);
 		}
 
@@ -145,6 +146,13 @@ namespace Terminal.Gui {
 		{
 			this.barItems = barItems;
 			this.host = host;
+			current = -1;
+			for (int i = 0; i < barItems.Children.Length; i++) {
+				if (barItems.Children[i] != null) {
+					current = i;
+					break;
+				}
+			}
 			ColorScheme = Colors.Menu;
 			CanFocus = true;
 		}
