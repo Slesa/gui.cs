@@ -1,44 +1,264 @@
+using System;
+
 namespace OldSchool 
 {
   public enum TitlePosition
   {
-    OL, // oben links
-    OZ, // oben zentriert
-    OR, // oben rechts
-    UL, // unten links 
-    UZ, // unten zentriert
-    UR  // unten rechts
+    TopLeft,      // oben links
+    TopCenter,    // oben zentriert
+    TopRight,     // oben rechts
+    BottomLeft,   // unten links 
+    BottomCenter, // unten zentriert
+    BottomRight   // unten rechts
   }
 
-  public enum TitleFrame
+  public enum Frame
   {
-    None,   // Kein Rahmen
-    Single, // Einfacher Rahmen
-    Double, // Doppelter Rahmen
-    Thick   // Dicker Rahmen
+    None,     // Kein Rahmen
+    Single,   // Einfacher Rahmen
+    Double,   // Doppelter Rahmen
+    Thick,    // Dicker Rahmen
+    Block,    // Blockrahmen
   }
 
   // Struktur eines Fensters
   public class Win
   {
-    int _posX; // X-Position des Fensters (Links)
-    int _posY; // Y-Position des Fenster (Oben)
-    int _width;  // Breite des Fensters
-    int _height; // Hoehe des Fensters
     int _curX; // X-Position des Cursors
     int _curY; // Y-Position des Cursors
-//  WORD*         pwBuffer;                        /* Puffer fuer den Hintergrund */
-//  CHAR*         pcTitle;                         /* Titel des Fensters      */
+    int [,,] _content;
+    int [,,] _background;
+    int _frameAttr;
+    int _titleAttr;
+    int _textAttr;
 //  INT           iTitlePos;                       /* Position des Titels     */
-//  INT           iFrame;                          /* Art des Rahmens         */
 //  WORD          wFlags;                          /* Die Fenster-Flags       */
-//  WORD          wAttrText;                       /* Attribut von normalem Text */
-//  WORD          wAttrFrame;                      /* Attribut des Fensterrahmens */
-//  WORD          wAttrTitle;                      /* Attribut des Fenstertitels */
 //  WORD          wAttrShadow;                     /* Attribut des Fensterschattens */
 
+    public int PosX { get; } 
+    public int PosY { get; } 
+    public int Width { get; }
+    public int Height { get; }
 
- SWin* CDECL    WinEinrichten   PARAM(( WORD, WORD, WORD, WORD ));
+    string _title;
+    public string Title {
+      get => _title;
+      set { _title =value; DrawFrame(); DrawTitle(); }
+    }
+
+    Frame _frame;
+    public Frame Frame { 
+      get => _frame;
+      set { _frame = value; DrawFrame(); DrawTitle(); }
+    }
+
+    bool _visible;
+    public bool Visible {
+      get => _visible;
+      set {
+        if( _visible==value ) return; 
+        _visible = value;
+        if( _visible ) { 
+          SaveWin();
+          DrawFrame(); 
+          DrawTitle(); 
+          Redraw();
+        } else {
+          RestoreWin();
+        }
+      }
+    }
+
+    public Win(int x, int y, int w, int h)
+    {
+      PosX = x;
+      PosY = y;
+      Width = w;
+      Height = h;
+      _visible = false;
+      _content = new int [w, h, 2];
+      _background = new int [w, h, 2];
+      _frameAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+      _titleAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+      _textAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+      Frame = Frame.Double;
+
+      Cls();
+    }
+
+		public int CenterCol(int width=0)
+		{
+			return (Width-width) / 2;
+		}
+    
+		public int CenterRow(int height=0)
+		{
+			return (Height-height) / 2;
+		}
+
+    public void Cls()
+    {
+      var line = new string(' ', Width-2);
+      for(var i=0; i<Height-2; i++) {
+        Ssa(0, i, line, _textAttr);  
+      }
+    }
+
+    public void Sza(int col, int row, char ch, int attr)
+    {
+      if( Visible )
+        Vio.Sza(PosX+col+1, PosY+row+1, ch, attr);
+      _content[col,row,0] = ch;
+      _content[col,row,1] = attr;
+    }
+
+    public void Ssa(int col, int row, string text, int attr)
+    {
+      if( Visible )
+        Vio.Ssa(PosX+col+1, PosY+row+1, text, attr);
+      for(int i=0; i<text.Length; i++) {
+        _content[col+i,row,0] = text[i];
+        _content[col+i,row,1] = attr;
+      }
+    }
+
+    public void Printf(string text)
+    {
+      var maxCol = Width-2;
+      var maxRow = Height-2;
+      var col = _curX;
+      var row = _curY;
+      for(var i=0; i<text.Length; i++)
+      {
+        switch( text[i] )
+        {
+          case '\b':
+            if( col>0 ) col--;
+            break;
+          case '\r':
+            col = 0;
+            break;
+          case '\n':
+            if( row==maxRow ) 
+              ; //ScrollUp();
+            else
+              row++;
+              col = 0;
+            break;
+          default:
+            Sza( col, row, (char)text[i], _textAttr );
+            if( ++col == maxCol ) {
+              col = 0;
+              if( row==maxRow )
+                ; //ScrollUp();
+              else
+                row++;
+            }
+            break;
+        }
+      }
+      _curX = col;
+      _curY =row;
+    }
+
+    void Redraw() 
+    {
+      for(var i=0; i<Width-2; i++) {
+        for(var n=0; n<Height-2; n++) {
+          Vio.Sza(PosX+i+1, PosY+n+1, (char)_content[i,n,0], _content[i,n,1]);
+        }
+      }
+    }
+
+    void DrawTitle()
+    {
+      if( !Visible ) return;
+      if( string.IsNullOrEmpty(Title) ) return;
+      var pos = PosX + CenterCol(Title.Length);
+/*  WORD          wLen;
+  WORD          wSpalte;
+  WORD          wZeile;
+  BOOL          boMouse      = MouHide();
+  wLen = strlen( win->pcTitle );
+  if( win->iTitlePos < 3 )
+   wZeile = win->wPosY - 1;
+  else
+   wZeile = win->wPosY + win->wHeight - 1;
+  switch( win->iTitlePos )
+  {
+   case WIN_TITEL_OL:
+   case WIN_TITEL_UL:
+        wSpalte = win->wPosX;
+        break;
+   case WIN_TITEL_OR:
+   case WIN_TITEL_UR:
+        wSpalte = win->wPosX+win->wWidth-wLen-1;
+        break;
+   case WIN_TITEL_OZ:
+   case WIN_TITEL_UZ:
+        wSpalte = win->wPosX+(win->wWidth-wLen)/2;
+        break;
+  } */
+      Vio.Ssa( pos, PosY, Title, _titleAttr );
+    }
+
+    void DrawFrame()
+    {
+      if( !Visible ) return;
+      var width = PosX+Width-1;
+      var height = PosY+Height-1;
+      var chars = GetFrameChars() ;
+      Vio.Sza( PosX, PosY, chars.TopLeft, _frameAttr );
+      Vio.Sza( width, PosY, chars.TopRight, _frameAttr );
+      Vio.Sza( PosX, height, chars.BottomLeft, _frameAttr );
+      Vio.Sza( width, height, chars.BottomRight, _frameAttr );
+      for(var i=PosX+1; i<width; i++)
+      {
+        Vio.Sza( i, PosY, chars.HLine, _frameAttr );
+        Vio.Sza( i, height, chars.HLine, _frameAttr );
+      }
+      for(var i=PosY+1; i<height; i++)
+      {
+        Vio.Sza( PosX, i, chars.VLine, _frameAttr );
+        Vio.Sza( width, i, chars.VLine, _frameAttr );
+      }
+    }
+
+    void RestoreWin()
+    {
+      for(var i=0; i<Width; i++) {
+        for(var n=0; n<Height; n++) {
+           Vio.Sza(i+PosX, n+PosY, (char)_background[i, n, 0], _background[i, n, 1]);
+        }
+      }
+    }
+
+    void SaveWin()
+    {
+      for(var i=0; i<Width; i++) {
+        for(var n=0; n<Height; n++) {
+          _background[i, n, 0] = Vio.Lz(i+PosX, n+PosY);
+          _background[i, n, 1] = Vio.La(i+PosX, n+PosY);
+        }
+      }
+    }
+
+    IFrame GetFrameChars() 
+    {
+      switch(Frame)
+      {
+        case Frame.None: return NoFrame.Instance;
+        case Frame.Single: return SingleFrame.Instance;
+        case Frame.Double: return DoubleFrame.Instance;
+        case Frame.Thick: return ThickFrame.Instance;
+        case Frame.Block: return BlockFrame.Instance;
+      }
+      return SingleFrame.Instance;
+    }
+  }
+}
+
+#if NOT
  VOID  CDECL    WinEntfernen    PARAM(( SWin* ));
  VOID  CDECL    WinAktivieren   PARAM(( SWin* ));
  VOID  CDECL    WinVerstecken   PARAM(( SWin* ));
@@ -118,19 +338,6 @@ PRIVATE SWin*  WinCurrent   = NULL;             /* Aktuelles Fenster       */
   return( temp );                                /* Fensterdeskriptor zurueckliefern */
  }
 
- VOID CDECL     WinEntfernen ( win )
- SWin*          win;                             /* Zu loeschendes Fenster  */
- {
-  if( win==NULL ) return;                        /* Falsches Handle: Fehler melden */
-  if( win->wFlags&WIN_FLG_SAVE )
-  {
-   WinRestore( win );                             /* Hintergrund restaurieren */
-   MemFree( win->pwBuffer, (win->wWidth+3) * (win->wHeight+2) * 2 );  /* Speicher des Puffers freigeben */
-  }
-  if( win->pcTitle ) MemFree( win->pcTitle, 0L ); /*strlen( win->pcTitle ) );*/
-  if( win==WinCurrent ) WinCurrent = NULL;
-  MemFree( win, sizeof( SWin ) );                /* Speicher des Fensters freigeben */
- }
 
  VOID CDECL     WinAktivieren( win )
  SWin*          win;                             /* Zu aktivierendes Fenster */
@@ -219,29 +426,7 @@ PRIVATE SWin*  WinCurrent   = NULL;             /* Aktuelles Fenster       */
   return( WinCurrent );
  }
 
- VOID  CDECL    WinCls       ( void )
- {
-  BOOL          boMouse      = MouHide();
-  if( WinCurrent==NULL )                         /* Falls kein Fenster aktuell */
-  {
-   VioClear();                                   /* Gesamten Bildschirm loeschen */
-   ScrSetCurPos( 0, 0 );                         /* Cursor nach links oben  */
-  }
-  else                                           /* Hier ist Fenster aktiv  */
-  {
-   VioSwza( WinCurrent->wPosX                    /* Fensterinhalt loeschen  */
-          , WinCurrent->wPosY
-          , WinCurrent->wWidth-1
-          , WinCurrent->wHeight-1
-          , ' '
-          , WinCurrent->wAttrText
-          );                                     /* Cursor nach links oben  */
-//   WinCurrent->Vio->SetCursor( WinCurrent->wPosX, WinCurrent->wPosY );
-   WinCurrent->wCurX = WinCurrent->wCurY = 0;    /* Cursorposition resettieren */
-  }
-  if( boMouse ) MouShow();
- }
-
+ 
  VOID  CDECL    WinSa        ( wX, wY, wAttr )
  WORD           wX;                              /* X-Position des Attributs */
  WORD           wY;                              /* Y-Position des Attributs */
@@ -415,73 +600,6 @@ PRIVATE SWin*  WinCurrent   = NULL;             /* Aktuelles Fenster       */
   if( boMouse ) MouShow();
  }
 
- INT  CDECL     WinPrintf    ( CHAR* pcformat, CPPARGS )
- {
-  INT           iRet;
-  va_list       argptr;
-  CHAR*         pcBuffer;
-  CHAR*         pc;
-  WORD          wMaxx;
-  WORD          wMaxy;
-  WORD          wSpalte      = WinCurrent->wCurX+WinCurrent->wPosX;
-  WORD          wZeile       = WinCurrent->wCurY+WinCurrent->wPosY;
-  BOOL          boMouse      = MouHide();
-  if( WinCurrent==NULL )
-  {
-   wMaxx = VioGetMaxCol()-1;
-   wMaxy = VioGetMaxRow()-1;
-  }
-  else
-  {
-   wMaxx = WinCurrent->wPosX+WinCurrent->wWidth-1;
-   wMaxy = WinCurrent->wPosY+WinCurrent->wHeight-1;
-  }
-  pcBuffer = MemAlloc( (wMaxx+1)*(wMaxy+1 ) );
-  if( pcBuffer==NULL ) return( 0 );
-  va_start( argptr, pcformat );
-  iRet = vsprintf( pcBuffer, pcformat, argptr );
-  pc = pcBuffer;
-  if( iRet>0 )
-  {
-   for( ; *pc; pc++ )
-   {
-    switch( *pc )
-    {
-     case '\b':
-          wSpalte--;
-          break;
-     case '\r':
-          wSpalte = ( WinCurrent==NULL ) ? 0 : WinCurrent->wPosX;
-          break;
-     case '\n':
-          wSpalte = ( WinCurrent==NULL ) ? 0 : WinCurrent->wPosX;
-          if( wZeile==wMaxy ) WinScrollUp();
-          else wZeile++;
-          break;
-     case '\f':
-     case '\v': break;
-     default:
-          VioSz( wSpalte, wZeile, *pc );
-          if( ++wSpalte == wMaxx )
-          {
-           wSpalte = ( WinCurrent==NULL ) ? 0 : WinCurrent->wPosX;
-           wZeile++;
-           if( wZeile==wMaxy )
-           {
-            WinScrollUp();
-            wZeile--;
-           }
-          }
-    }
-   }
-  }
-  WinCurrent->wCurX = wSpalte - WinCurrent->wPosX;
-  WinCurrent->wCurY = wZeile - WinCurrent->wPosY;
-  va_end( argptr );
-  MemFree( pcBuffer, (wMaxx+1)*(wMaxy+1) );
-  if( boMouse ) MouShow();
-  return( iRet );
- }
 
  VOID CDECL     WinScrollUp  ( void )
  {
@@ -644,66 +762,7 @@ PRIVATE SWin*  WinCurrent   = NULL;             /* Aktuelles Fenster       */
   if( boMouse ) MouShow();
  }
 
- VOID CDECL     WinShowTitle ( win )
- SWin*          win;
- {
-  WORD          wLen;
-  WORD          wSpalte;
-  WORD          wZeile;
-  BOOL          boMouse      = MouHide();
-  wLen = strlen( win->pcTitle );
-  if( win->iTitlePos < 3 )
-   wZeile = win->wPosY - 1;
-  else
-   wZeile = win->wPosY + win->wHeight - 1;
-  switch( win->iTitlePos )
-  {
-   case WIN_TITEL_OL:
-   case WIN_TITEL_UL:
-        wSpalte = win->wPosX;
-        break;
-   case WIN_TITEL_OR:
-   case WIN_TITEL_UR:
-        wSpalte = win->wPosX+win->wWidth-wLen-1;
-        break;
-   case WIN_TITEL_OZ:
-   case WIN_TITEL_UZ:
-        wSpalte = win->wPosX+(win->wWidth-wLen)/2;
-        break;
-  }
-  VioSsa( wSpalte, wZeile, win->pcTitle, win->wAttrTitle );
-  if( boMouse ) MouShow();
- }
 
- VOID CDECL     WinShowFrame ( win )
- SWin*          win;
- {
-  INT           i;
-  BOOL          boMouse      = MouHide();
-  WORD          wBreite      = win->wPosX+win->wWidth-1;
-  WORD          wHoehe       = win->wPosY+win->wHeight-1;
-  WORD          wAttr        = win->wAttrFrame;
-  BYTE          RZ[4][6]     = { { ' ', ' ', ' ', ' ', ' ', ' ' }
-                               , { 'Ú', '¿', 'À', 'Ù', 'Ä', '³' }
-                               , { 'É', '»', 'È', '¼', 'Í', 'º' }
-                               , { 'Û', 'Û', 'Û', 'Û', 'Û', 'Û' }
-                               };
-  VioSza( win->wPosX-1, win->wPosY-1, RZ[win->iFrame][0], wAttr );
-  VioSza( wBreite, win->wPosY-1, RZ[win->iFrame][1], wAttr );
-  VioSza( win->wPosX-1, wHoehe, RZ[win->iFrame][2], wAttr );
-  VioSza( wBreite, wHoehe, RZ[win->iFrame][3], wAttr );
-  for( i=win->wPosX; i<wBreite; i++ )
-  {
-   VioSza( i, win->wPosY-1, RZ[win->iFrame][4], wAttr);
-   VioSza( i, wHoehe,     RZ[win->iFrame][4], wAttr);
-  }
-  for( i=win->wPosY; i<wHoehe; i++ )
-  {
-   VioSza( win->wPosX-1, i, RZ[win->iFrame][5], wAttr);
-   VioSza( wBreite,    i, RZ[win->iFrame][5], wAttr);
-  }
-  if( boMouse ) MouShow();
- }
 
  INT   CDECL    WinGetHotkey    ( pcText )
  CHAR*          pcText;
@@ -737,92 +796,4 @@ PRIVATE SWin*  WinCurrent   = NULL;             /* Aktuelles Fenster       */
   return( -1 );
  }
 
-#ifdef          _TEST_WIN_
-
- #include       <conio.h>
-
- VOID           main         ( void )
- {
-  CHAR          ch;
-  SWin*         win;
-  SWin*         win1;
-  SWin*         win2;
-  SWin*         win3;
-  SWin*         win4;
-  SWin*         winm;
-  SWin*         winold       = NULL;
-  BOOL          boFertig     = FALSE;
-  VioInit( VIO_132x25 );
-  VioBackground();
-  VioStatus( " ~[F1]~ Fenstertest ~[F2]~ Test des Fensters", VH( BLAU, WEISS ), VH( ROT, WEISS ) );
-  if( ( win1 = WinEinrichten( 1, 1, 14, 4 ) ) == NULL )
-  {
-   printf( "Failed WinEinrichten\n" );
-   return;
-  }
-  WinCursor( WIN_CUR_HIDE );
-  WinSetRahmentyp( win1, WIN_FRAME_SINGLE );
-  WinSchattenEin( win1 );
-  if( ( win2 = WinEinrichten( VioGetMaxCol()-17, 1, 14, 4 ) ) == NULL )
-  {
-   printf( "Failed WinEinrichten\n" );
-   return;
-  }
-  WinCursor( WIN_CUR_HIDE );
-  WinSetRahmentyp( win2, WIN_FRAME_SINGLE );
-  WinSchattenEin( win2 );
-  if( ( win3 = WinEinrichten( 1, VioGetMaxRow()-7, 14, 4 ) ) == NULL )
-  {
-   printf( "Failed WinEinrichten\n" );
-   return;
-  }
-  WinCursor( WIN_CUR_HIDE );
-  WinSetRahmentyp( win3, WIN_FRAME_SINGLE );
-  WinSchattenEin( win3 );
-  if( ( win4 = WinEinrichten( VioGetMaxCol()-17, VioGetMaxRow()-7, 14, 4 ) ) == NULL )
-  {
-   printf( "Failed WinEinrichten\n" );
-   return;
-  }
-  WinCursor( WIN_CUR_HIDE );
-  WinSetRahmentyp( win4, WIN_FRAME_SINGLE );
-  WinSchattenEin( win4 );
-  if( ( winm = WinEinrichten( VioCenterCol( 20 ), VioCenterRow( 5 ), 20, 5 ) ) == NULL )
-  {
-   printf( "Failed 2\n" );
-   return;
-  }
-  WinAktivieren( winm );
-  WinCls();
-  WinSetTitel( winm, " Mittiges Fenster", WIN_TITEL_OZ );
-  WinAktivieren( winm );
-  WinPrintf( "Videomodus: %d\n", ScrGetMode() );
-  WinPrintf( "Spalten...: %d\n", VioGetMaxCol() );
-  WinPrintf( "Zeilen....: %d", VioGetMaxRow() );
-  while( !boFertig )
-  {
-   switch( ch = getch() )
-   {
-    case '1': win = win1; break;
-    case '2': win = win2; break;
-    case '3': win = win3; break;
-    case '4': win = win4; break;
-    case 27: boFertig = TRUE;
-   }
-   if( winold ) WinVerstecken( winold );
-   if( boFertig ) break;
-   winold = win;
-   WinAktivieren( win );
-   WinCls();
-   WinPrintf( " Dies ist Fenster %c", ch );
-  }
-  WinPrintf( "Dies ist Fenster Eins\n" );
-  WinEntfernen( winm );
-  WinEntfernen( win1 );
-  WinEntfernen( win2 );
-  WinEntfernen( win3 );
-  WinEntfernen( win4 );
-  VioDone();
- }
-
-#endif 
+#endif

@@ -7,19 +7,18 @@ class Demo {
   {
     Vio.Init();                           // Bildschirm vorbereiten
     Vio.Background();                     // Hintergrund malen
-    Vio.Status(" ~ESC~ Quit", 112, 115);
-    sprintf(cTemp, "Max Y.....: %d", VioGetMaxY());
-    VioSs(INFO_POS, 1, cTemp);
-    sprintf(cTemp, "Max Col...: %d", VioGetMaxCol());
-    VioSs(INFO_POS, 2, cTemp);
+    Vio.Status(" [~ESC~] Quit  [~F1~] Добрый день");
+    var colInfo = $"Column..: {Vio.Columns}";
+    var rowInfo = $"Rows....: {Vio.Rows}";
+    Vio.Ss(3, 3, colInfo);
+    Vio.Ssa(3, 4, rowInfo, Colors.MakeAttr(ConsoleColor.Yellow, ConsoleColor.Magenta));
 
     while (true)
     {
         var ch = Console.ReadKey();
-        if (ch.Key != ConsoleKey.Escape) break;
+        if (ch.Key == ConsoleKey.Escape) break;
     }
 
-    Console.ReadKey();
     Vio.Done();                           // Bildschirm restaurieren
     return 0;
   }

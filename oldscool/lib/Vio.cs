@@ -76,6 +76,42 @@ namespace OldSchool
 
     }
 
+    public static int Columns => _cols;
+    public static int Rows => _rows;
+
+		public static int CenterCol(int width=0)
+		{
+			return (Columns-width) / 2;
+		}
+    
+		public static int CenterRow(int height=0)
+		{
+			return (Rows-height) / 2;
+		}
+
+    public static void Ss(int col, int row, string text)
+    {
+      for(int i=0; i<text.Length; i++)
+        Sz(col+i, row, text[i]);
+    }
+
+    public static void Ssa(int col, int row, string text, int attr)
+    {
+      Console.SetCursorPosition(col, row);
+      Console.BackgroundColor = Colors.Background(attr);
+      Console.ForegroundColor = Colors.Foreground(attr);
+      Console.Write (text);
+      for(int i=0; i<text.Length; i++) {
+        contents[col+i,row,0] = text[i];
+        contents[col+i,row,1] = attr;
+      }
+    }
+
+    public static int Lz(int col, int row)
+    {
+      return contents[col,row,0];
+    }
+
     public static void Sz(int col, int row, char ch)
     {
       contents[col,row,0] = ch;
@@ -83,6 +119,11 @@ namespace OldSchool
       Console.BackgroundColor = Colors.Background(contents[col, row, 1]);
       Console.ForegroundColor = Colors.Foreground(contents[col, row, 1]);
       Console.Write ((char)ch);
+    }
+
+    public static int La(int col, int row)
+    {
+      return contents[col,row,1];
     }
 
     public static void Sa(int col, int row, int attr)
@@ -105,21 +146,34 @@ namespace OldSchool
     {
       var savedRow = Console.CursorTop;
       var savedCol = Console.CursorLeft;
+      var line = new string('\u2592', _cols);
 
+      Console.CursorLeft = 0;
       for(var row=0; row<_rows; row++)
       {
-        for(var col=0; col<_cols; col++)
-        {
-          Console.CursorTop = row;
-          Console.CursorLeft = col;
-
-          Vio.Sza( col, row, '\u2592', Colors.MakeAttr(ConsoleColor.Cyan, ConsoleColor.White));
-          //Vio.Sz( col, row, '\u2592' );
-        }
+        Console.CursorTop = row;
+        Vio.Ssa(0, row, line, Colors.MakeAttr(ConsoleColor.Cyan, ConsoleColor.Black));
       }
 
       Console.CursorTop = savedRow;
       Console.CursorLeft = savedCol;
+    }
+
+    public static void Status(string text)
+    {
+      var normAttr = Colors.MakeAttr(ConsoleColor.Black, ConsoleColor.Gray);
+      var invAttr = Colors.MakeAttr(ConsoleColor.DarkRed, ConsoleColor.Gray);
+      var attr = normAttr;
+      var col = 0;
+      var strings = text.Split('~');
+      for(int i=0; i<strings.Length; i++)
+      {
+        Ssa(col, _rows-1, strings[i], attr);
+        attr = attr==normAttr ? invAttr : normAttr;
+        col += strings[i].Length;
+      }
+      var left = new string(' ', _cols-col);
+      Ssa(col, _rows-1, left, normAttr);
     }
   }
 }

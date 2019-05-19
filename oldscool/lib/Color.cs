@@ -82,13 +82,12 @@ namespace OldSchool
     }
     public static ConsoleColor Foreground (int attr)
     {
-      var value = ((attr) & 0xffff);
+      var value = (attr >> 16);
       return (ConsoleColor) value;
     }
     public static ConsoleColor Background (int attr)
     {
-      // Encode the colors into the int value.
-      var value = (attr >> 16);
+      var value = ((attr) & 0xffff);
       return (ConsoleColor) value;
     }
 
