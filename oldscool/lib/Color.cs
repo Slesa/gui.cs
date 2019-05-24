@@ -90,6 +90,5 @@ namespace OldSchool
       var value = ((attr) & 0xffff);
       return (ConsoleColor) value;
     }
-
   }
 }
