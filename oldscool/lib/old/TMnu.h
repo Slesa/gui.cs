@@ -7,20 +7,6 @@
 
 namespace Hilevel
 {
-	// Struktur eines Menu-Eintrags
-	class			TMnuEntry
-	{
-	public:
-		TMnuEntry();
-		TMnuEntry(int x, int y, const QString& text, int hotkey=0, const QString& status=QString::null);
-	public:
-		int			m_X;									//! X-Position des Eintrags
-		int			m_Y;									//! Y-Position des Eintrags
-		int			m_Hotkey;								//! Hotkey des Eintrags
-		QString		m_Text;									//! Menupunkt-Text
-		QString		m_Status;								//! Statuszeile des Eintrags
-	};
-
 	class			TMnu
 	{
 	public:

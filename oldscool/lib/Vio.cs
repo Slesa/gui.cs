@@ -159,21 +159,26 @@ namespace OldSchool
       Console.CursorLeft = savedCol;
     }
 
-    public static void Status(string text)
-    {
-      var normAttr = Colors.MakeAttr(ConsoleColor.Black, ConsoleColor.Gray);
-      var invAttr = Colors.MakeAttr(ConsoleColor.DarkRed, ConsoleColor.Gray);
-      var attr = normAttr;
-      var col = 0;
-      var strings = text.Split('~');
-      for(int i=0; i<strings.Length; i++)
-      {
-        Ssa(col, _rows-1, strings[i], attr);
-        attr = attr==normAttr ? invAttr : normAttr;
-        col += strings[i].Length;
-      }
-      var left = new string(' ', _cols-col);
-      Ssa(col, _rows-1, left, normAttr);
-    }
-  }
+	public static void Status(string text)
+	{
+		var normAttr = Colors.MakeAttr(ConsoleColor.Black, ConsoleColor.Gray);
+		var invAttr = Colors.MakeAttr(ConsoleColor.DarkRed, ConsoleColor.Gray);
+		Status(text, normAttr, invAttr);
+	}
+
+	public static void Status(string text, int normAttr, int invAttr)
+	{
+		var attr = normAttr;
+		var col = 0;
+		var strings = text.Split('~');
+		for(int i=0; i<strings.Length; i++)
+		{
+			Ssa(col, _rows-1, strings[i], attr);
+			attr = attr==normAttr ? invAttr : normAttr;
+			col += strings[i].Length;
+		}
+		var left = new string(' ', _cols-col);
+		Ssa(col, _rows-1, left, normAttr);
+	}
+} 
 }

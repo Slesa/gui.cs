@@ -21,6 +21,11 @@ namespace OldSchool
     Block,    // Blockrahmen
   }
 
+  public enum Cursor
+  {
+	  Off,        // Kein Cursor
+  }
+
   // Struktur eines Fensters
   public class Win
   {
@@ -39,6 +44,7 @@ namespace OldSchool
     public int PosY { get; } 
     public int Width { get; }
     public int Height { get; }
+	public Cursor Cursor { get; set; }
 
     string _title;
     public string Title {
@@ -68,6 +74,8 @@ namespace OldSchool
         }
       }
     }
+
+	public void Remove() {}
 
     public Win(int x, int y, int w, int h)
     {

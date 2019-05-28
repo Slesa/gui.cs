@@ -1,22 +1,3 @@
-#include			"hilevel/tmsg.h"
-#include			<ncurses.h> 
-#include			<QStringList> 
-#include			<QDebug>
-
-namespace Hilevel
-{
-	TMsg::TMsg(TVio& vio)
-	: m_Vio(vio)
-	, m_Win(0)
-	{
-	}
-
-	TMsg::~TMsg()
-	{
-		if( m_Win )
-			delete m_Win;
-	}
-	
 	int TMsg::show(int x, int y, const QString& text, Modes mode, const QString& status)
 	{
 		// Wenn mode=MELDUNG_DAUER2, dann einfach Fenster schließen und raus
@@ -103,7 +84,6 @@ namespace Hilevel
 		if( height>m_Vio.getMaxRow() )
 			height = m_Vio.getMaxRow()-2;
 	}
-}
 
 #if 0
  /***************************************************************************/

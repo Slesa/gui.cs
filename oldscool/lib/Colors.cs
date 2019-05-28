@@ -80,6 +80,12 @@ namespace OldSchool
       var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
       return value;
     }
+    public static int MakeAttr (Color f, Color b)
+    {
+      // Encode the colors into the int value.
+      var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
+      return value;
+    }
     public static ConsoleColor Foreground (int attr)
     {
       var value = (attr >> 16);

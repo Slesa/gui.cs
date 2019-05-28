@@ -3,22 +3,6 @@
 
 namespace Hilevel
 {
-	TMnuEntry::TMnuEntry()
-	: m_X(0)
-	, m_Y(0)
-	, m_Hotkey(0)
-	{
-	}
-
-	TMnuEntry::TMnuEntry(int x, int y, const QString& text, int hotkey, const QString& status)
-	: m_X(x)
-	, m_Y(y)
-	, m_Hotkey(hotkey)
-	, m_Text(text)
-	, m_Status(status)
-	{
-	}
-
 	TMnu::TMnu(TVio& vio)
 	: m_Vio(vio)
 	, m_Current(0)
@@ -28,41 +12,9 @@ namespace Hilevel
 	{
 	}
 	
-	TMnu::~TMnu()
-	{
-		qDeleteAll(m_Entries);
-		if( m_Win )
-			delete m_Win;
-	}
-
-	void TMnu::add(TMnuEntry* entry)
-	{
-		m_MaxWidth = qMax(entry->m_X+entry->m_Text.length(), m_MaxWidth);
-		m_MaxHeight = qMax(entry->m_Y, m_MaxHeight);
-		TVio::debug(QString("maxw=%1 | %2, maxh=%3 | %4")
-			.arg(entry->m_X+entry->m_Text.length()).arg(m_MaxWidth).arg(entry->m_Y).arg(m_MaxHeight));
-		m_Entries.insert(m_Entries.count(), entry);
-	}
-	
-	void TMnu::add(int x, int y, const QString& text, int hotkey, const QString& status)
-	{
-		TMnuEntry* entry = new TMnuEntry(x, y, text, hotkey, status);
-		add(entry);
-	}
 
 	int TMnu::handle(const QString& title, int x, int y, KeyCodes exits)
 	{
-		if( !m_Entries.count() )
-			return -1;
-		if( !m_Win ) {
-			int height = m_MaxHeight+2;
-			int width = m_MaxWidth+2;
-			m_Win = new TWin(m_Vio, x, y, width, height, title.toLatin1());
-			m_Win->cursor(TWin::CurOff);						// Cursor abschalten
-			m_Win->setBackground(TColors::MnuText);
-			m_Win->setFrame(TWin::FrameSingle, TColors::MnuFrame);
-			m_Win->setTitle(title, TWin::TitleOZ, TColors::MnuTitle);
-		}
 		m_Win->clear();
 		for(int i=0; i<m_Entries.count(); i++) {
 			TMnuEntry* entry = m_Entries[i];
