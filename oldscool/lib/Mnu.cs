@@ -75,10 +75,11 @@ namespace OldSchool
 			// m_Win->setFrame(TWin::FrameSingle, TColors::MnuFrame);
 			//m_Win->setTitle(title, TWin::TitleOZ, TColors::MnuTitle);
 
-			var win = new Win(x, y, _maxWidth+2, _maxHeight+2) { Title = title };
+			var win = new Win(x, y, _maxWidth+2, _maxHeight+2);
+			win.SetTitle(title, TitlePosition.TopCenter, Palette.Instance.Get(AttributeRole.MnuTitle));
 			// win.setBackground()
 			// win.Cursor = Cursor.Off;
-			win.Frame = Frame.Single;
+			win.SetFrameType(FrameType.Single, Palette.Instance.Get(AttributeRole.MnuFrame));
 			return win;
 		}
 

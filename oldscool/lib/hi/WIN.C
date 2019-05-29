@@ -46,14 +46,6 @@
   temp->iTitlePos = WIN_TITEL_OZ;                /* Titelposition: Oben zentriert */
   temp->iFrame    = WIN_FRAME_DOUBLE;            /* Standard: Kein Rahmen   */
   temp->pwBuffer  = MemAlloc( (temp->wWidth+3) * (temp->wHeight+2) * 2 );
-  if( VioIsMono() )
-  {
-   temp->wAttrText   = NORMAL;
-   temp->wAttrFrame  = INVERS;
-   temp->wAttrTitle  = INVERS;
-   temp->wAttrShadow = NORMAL;
-  }
-  else
   {
    temp->wAttrText   = VH( WEISS, BLAU );
    temp->wAttrFrame  = VH( WEISS, BLAU );
@@ -125,21 +117,6 @@
   }
  }
 
- VOID CDECL     WinSetTitel  ( win, pcStr, iPos )
- SWin*          win;                             /* Zu bearbeitendes Fenster */
- CHAR*          pcStr;                           /* Neuer Titel des Fensters */
- INT            iPos;                            /* Position des Titels     */
- {
-  if( ( win==NULL ) || ( iPos<WIN_TITEL_OL ) || ( iPos>WIN_TITEL_UR ) ) return;
-  win->iTitlePos = iPos;                         /* Position merken          */
-  if( win->pcTitle ) MemFree( win->pcTitle, 0L );
-  if( pcStr!=NULL ) win->pcTitle   = strdup( pcStr );
-  if( win==WinCurrent )
-  {
-   WinShowFrame( win );
-   WinShowTitle( win );
-  }
- }
 
  VOID CDECL     WinSetAttrib ( win, wText, wFrame, wTitle )
  SWin*          win;
@@ -556,16 +533,16 @@
    {
     for( i=win->wPosY+1; i<=wStop && i<VioGetMaxRow(); i++ )
     {
-     VioSza( wStart, i, '±', win->wAttrShadow );
+     VioSza( wStart, i, 'ï¿½', win->wAttrShadow );
      if( wStart<VioGetMaxCol()-1 )
-      VioSza( wStart+1, i, '±', win->wAttrShadow );
+      VioSza( wStart+1, i, 'ï¿½', win->wAttrShadow );
     }
     wStart = win->wPosY+win->wHeight;
     if( wStart < VioGetMaxRow() )
     {
      wStop  = win->wPosX+win->wWidth;
      for( i=win->wPosX+1; i<wStop && i< VioGetMaxCol(); i++ )
-      VioSza( i, wStart, '±', win->wAttrShadow );
+      VioSza( i, wStart, 'ï¿½', win->wAttrShadow );
     }
    }
    else
@@ -589,67 +566,8 @@
   if( boMouse ) MouShow();
  }
 
- VOID CDECL     WinShowTitle ( win )
- SWin*          win;
- {
-  WORD          wLen;
-  WORD          wSpalte;
-  WORD          wZeile;
-  BOOL          boMouse      = MouHide();
-  wLen = strlen( win->pcTitle );
-  if( win->iTitlePos < 3 )
-   wZeile = win->wPosY - 1;
-  else
-   wZeile = win->wPosY + win->wHeight - 1;
-  switch( win->iTitlePos )
-  {
-   case WIN_TITEL_OL:
-   case WIN_TITEL_UL:
-        wSpalte = win->wPosX;
-        break;
-   case WIN_TITEL_OR:
-   case WIN_TITEL_UR:
-        wSpalte = win->wPosX+win->wWidth-wLen-1;
-        break;
-   case WIN_TITEL_OZ:
-   case WIN_TITEL_UZ:
-        wSpalte = win->wPosX+(win->wWidth-wLen)/2;
-        break;
-  }
-  VioSsa( wSpalte, wZeile, win->pcTitle, win->wAttrTitle );
-  if( boMouse ) MouShow();
- }
-
- VOID CDECL     WinShowFrame ( win )
- SWin*          win;
- {
-  INT           i;
-  BOOL          boMouse      = MouHide();
-  WORD          wBreite      = win->wPosX+win->wWidth-1;
-  WORD          wHoehe       = win->wPosY+win->wHeight-1;
-  WORD          wAttr        = win->wAttrFrame;
-  BYTE          RZ[4][6]     = { { ' ', ' ', ' ', ' ', ' ', ' ' }
-                               , { 'Ú', '¿', 'À', 'Ù', 'Ä', '³' }
-                               , { 'É', '»', 'È', '¼', 'Í', 'º' }
-                               , { 'Û', 'Û', 'Û', 'Û', 'Û', 'Û' }
-                               };
-  VioSza( win->wPosX-1, win->wPosY-1, RZ[win->iFrame][0], wAttr );
-  VioSza( wBreite, win->wPosY-1, RZ[win->iFrame][1], wAttr );
-  VioSza( win->wPosX-1, wHoehe, RZ[win->iFrame][2], wAttr );
-  VioSza( wBreite, wHoehe, RZ[win->iFrame][3], wAttr );
-  for( i=win->wPosX; i<wBreite; i++ )
-  {
-   VioSza( i, win->wPosY-1, RZ[win->iFrame][4], wAttr);
-   VioSza( i, wHoehe,     RZ[win->iFrame][4], wAttr);
-  }
-  for( i=win->wPosY; i<wHoehe; i++ )
-  {
-   VioSza( win->wPosX-1, i, RZ[win->iFrame][5], wAttr);
-   VioSza( wBreite,    i, RZ[win->iFrame][5], wAttr);
-  }
-  if( boMouse ) MouShow();
- }
-
+ 
+ 
  INT   CDECL    WinGetHotkey    ( pcText )
  CHAR*          pcText;
  {

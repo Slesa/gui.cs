@@ -1,13 +1,3 @@
-/****************************************************************************/
-/* WIN.H                                                                    */
-/* ------------------------------------------------------------------------ */
-/* Definition der Fensterstruktur und der Funktionen zum Zugriff auf diese. */
-/****************************************************************************/
-#ifndef         _WIN_
-
- #define        _WIN_
- #include       "defs/Typedefs.h"                /* Grundlegende Datentypen */
-
  /* ----------- Typdefinition: ein Fenster -------------------------------- */
  #ifndef UNIX
  #pragma        pack(1)
@@ -31,19 +21,6 @@
   WORD          wAttrShadow;                     /* Attribut des Fensterschattens */
  } SWin;
 
- /* ----------- Konstanten fuer die Titelposition ------------------------- */
- #define        WIN_TITEL_OL   0                 /* oben, linksbuendig      */
- #define        WIN_TITEL_OZ   1                 /* oben, zentriert         */
- #define        WIN_TITEL_OR   2                 /* oben, rechtsbuendig     */
- #define        WIN_TITEL_UL   3                 /* unten, linksbuendig     */
- #define        WIN_TITEL_UZ   4                 /* unten, zentriert        */
- #define        WIN_TITEL_UR   5                 /* unten, rechtsbuendig    */
-
- /* ----------- Konstanten fuer die Rahmenart ----------------------------- */
- #define        WIN_FRAME_NONE   0               /* Kein Rahmen             */
- #define        WIN_FRAME_SINGLE 1               /* Einfacher Rahmen        */
- #define        WIN_FRAME_DOUBLE 2               /* Doppelter Rahmen        */
- #define        WIN_FRAME_THICK  3               /* Dicker Rahmen           */
 
  /* ----------- Konstanten fuer die Fensterflags -------------------------- */
  #define        WIN_FLG_SHADOW   BIT0            /* Schatten ist an         */
@@ -52,11 +29,6 @@
  #define        WIN_FLG_CURBLOCK BIT3            /* Cursor ist auf Block    */
  #define        WIN_FLG_ATTRIB   BIT4            /* User-Defined Attribute  */
  #define        WIN_FLG_1ST      BIT5            /* Fenster zum ersten Mal aktiviert */
-
- /* ----------- Konmstanten fuer den Fenstercursor ------------------------ */
- #define        WIN_CUR_HIDE    0                /* Cursor verstecken       */
- #define        WIN_CUR_LINE    1                /* Linien-Cursor           */
- #define        WIN_CUR_BLOCK   2                /* Block-Cursor            */
 
  /* ----------- Prototypen ------------------------------------------------ */
  DECLSTART
@@ -91,5 +63,3 @@
  VOID  CDECL    WinHot          PARAM(( WORD, WORD, CHAR*, WORD, WORD ));
  INT   CDECL    WinGetHotkey    PARAM(( CHAR* ));
  DECLEND
-
-#endif

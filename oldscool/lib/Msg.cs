@@ -39,7 +39,7 @@ namespace OldSchool
 			Vio.Status(status, Palette.Instance.Get(AttributeRole.MsgStatusLine), Palette.Instance.Get(AttributeRole.MsgStatusLine));
 			if( _win==null ) { 
 				_win = new Win(x, y, width+6, height+4);
-				_win.Cursor = Cursor.Off;
+				_win.CursorType = CursorType.Off;
 			}
 			// _win->setBackground(Palette.Instance.Get(AttributeRole.MsgText));
 			// _win->Frame = Frame.Single; //  TWin::FrameSingle, TColors::MsgFrame);
