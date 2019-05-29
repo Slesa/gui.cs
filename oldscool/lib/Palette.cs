@@ -7,6 +7,10 @@ namespace OldSchool
 	public enum AttributeRole
 	{
 		Background,                 // Background of the program
+		WinFrame,                   // Windows, frame
+		WinTitle,                   // Windows, title
+		WinText,                    // Windows, text
+		WinShadow,                  // Windows, shadow
 		MsgFrame,                   // Messages, frame
 		MsgTitle,                   // Messages, title
 		MsgText,                    // Messages, text
@@ -69,6 +73,10 @@ namespace OldSchool
 		void CreatePalette() {
 			_colors = new Dictionary<AttributeRole, int>();
 			_colors[AttributeRole.Background] = Colors.MakeAttr(Color.Black, Color.Cyan);
+			_colors[AttributeRole.WinFrame] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttributeRole.WinTitle] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttributeRole.WinText] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttributeRole.WinShadow] = Colors.MakeAttr(Color.Gray, Color.Cyan);
 			_colors[AttributeRole.MsgFrame] = Colors.MakeAttr(Color.White, Color.Blue);
 			_colors[AttributeRole.MsgTitle] = Colors.MakeAttr(Color.White, Color.Blue);
 			_colors[AttributeRole.MsgText] = Colors.MakeAttr(Color.White, Color.Blue);

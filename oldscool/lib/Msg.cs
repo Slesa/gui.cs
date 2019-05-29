@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace OldSchool 
@@ -46,38 +47,36 @@ namespace OldSchool
 
 			// _win->Print(text);
 			// _win->Update();
-			var ret = 0;
+			ConsoleKeyInfo key;
 			switch( mode )
 			{
 				case MsgMode.Info:
 					// TODO: use ev
 					// _win->setTitle(" <Taste> ", TitlePosition.BottomRight); //, TColors::MsgTitle);
-					do {
-						ret = getch();
-						if( !ret )
-							continue;
-					} while( ret==ERR );
+					//do {
+						key = Console.ReadKey(true);
+					//} while( key<0 );
 					break;
 				case MsgMode.YesNo:
 					// TODO: use ev
 					// _win->setTitle(" <Return>=JA <F10>=NEIN ",TitlePosition.BottomRight); //, TColors::MsgTitle);
 					do {
-						ret = getch();
-						if( ret==KEY_CANCEL || ret==KEY_F(10) )
+						key = Console.ReadKey(true);
+						if( key.Key==ConsoleKey.Escape || key.Key==ConsoleKey.F10 )
 							break;
-					} while( ret!='\n' );
+					} while( key.Key!=ConsoleKey.Enter );
 					break;
 				case MsgMode.F1_F2:
 					do {
-						ret = getch();
-						if( ret==KEY_F(2) )
+						key = Console.ReadKey(true);
+						if( key.Key==ConsoleKey.F2 )
 							break;
-					} while( ret!=KEY_F(1) );
+					} while( key.Key==ConsoleKey.F1 );
 					break;
 				case MsgMode.Show:
 					return 0;                 // Show window and return immediately
 			}
-			if( mode!=Show ) {
+			if( mode!=MsgMode.Show ) {
 				_win.Remove();
 			}
 			return 0;

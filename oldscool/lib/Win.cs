@@ -31,8 +31,8 @@ namespace OldSchool
 	// A window part of the screen
 	public class Win
 	{
-		static int DefTitleAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
-		static int DefFrameAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+		public static int DefTitleAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+		public static int DefFrameAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
 
     int _curX; // X-Position des Cursors
     int _curY; // Y-Position des Cursors
@@ -64,54 +64,53 @@ namespace OldSchool
 		Cls();
     }
 
-	int CenterCol(int len=0)
-	{
-		return (Width-len) / 2;
-	}
-	int CenterRow(int height=0)
-	{
-		return (Height-height) / 2;
-	}
+		int CenterCol(int len=0)
+		{
+			return (Width-len) / 2;
+		}
+		int CenterRow(int height=0)
+		{
+			return (Height-height) / 2;
+		}
 
-	public int PosX { get; } 
-	public int PosY { get; } 
-	public int Width { get; }
-    public int Height { get; }
-	public CursorType CursorType { get; set; }
+		public int PosX { get; } 
+		public int PosY { get; } 
+		public int Width { get; }
+		public int Height { get; }
+		public CursorType CursorType { get; set; }
 
-	#region Title
+		#region Title
 
-	string _title;
-	TitlePosition _titlePosition;
-    int _titleAttr;
-	public string Title { get => _title; }
-	public TitlePosition TitlePosition { get => _titlePosition; }
-      
-    void SetTitle(string title, TitlePosition position, int attribute) { 
-		_title = title;
-		_titlePosition = position; 
-		_titleAttr = attribute;
-		DrawFrame(); 
-		DrawTitle(); 
-	}
-    
-	#endregion Title
+		string _title;
+		TitlePosition _titlePosition;
+		int _titleAttr;
+		public string Title { get => _title; }
+		public TitlePosition TitlePosition { get => _titlePosition; }
+		public void SetTitle(string title, TitlePosition position, int attribute) { 
+			_title = title;
+			_titlePosition = position; 
+			_titleAttr = attribute;
+			DrawFrame(); 
+			DrawTitle(); 
+		}
 
-	#region Frame
+		#endregion Title
 
-	FrameType _frameType;
-	int _frameAttr;
+		#region Frame
 
-	public FrameType FrameType { get => _frameType; }
-	void SetFrame(FrameType frameType, int attribute)
-	{
-		_frameType = frameType;
-		_frameAttr = attribute;
-		DrawFrame();
-		DrawTitle();
-	}
+		FrameType _frameType;
+		int _frameAttr;
 
-	#endregion Frame
+		public FrameType FrameType { get => _frameType; }
+		public void SetFrame(FrameType frameType, int attribute)
+		{
+			_frameType = frameType;
+			_frameAttr = attribute;
+			DrawFrame();
+			DrawTitle();
+		}
+
+		#endregion Frame
 
     bool _visible;
     public bool Visible {
@@ -261,7 +260,7 @@ namespace OldSchool
 			        col = PosX + Width - Title.Length - 1;
 					break;
 			}
-			Vio.Ssa( row, col, Title, _titleAttr );
+			Vio.Ssa( col, row, Title, _titleAttr );
 		}
 
 		void DrawFrame()
@@ -269,7 +268,7 @@ namespace OldSchool
 			if( !Visible ) return;
 			var width = PosX+Width-1;
 			var height = PosY+Height-1;
-			var chars = GetFrameChars() ;
+			var chars = GetFrameChars();
 			Vio.Sza( PosX, PosY, chars.TopLeft, _frameAttr );
 			Vio.Sza( width, PosY, chars.TopRight, _frameAttr );
 			Vio.Sza( PosX, height, chars.BottomLeft, _frameAttr );
@@ -286,15 +285,43 @@ namespace OldSchool
 			}
 		}
 
+		void DrawShadow()
+		{
+			if( !Visible ) return;
+			var stop = PosY+Height-1;
+			for(var i=0; i<=stop; i++)
+				Vio.Sa( PosX, i, _attrShadow );
+/*
+  if( wStart < VioGetMaxCol() )    
+  {
+   wStop  = win->wPosY+win->wHeight; 
+   {
+    wStop  = win->wPosY+win->wHeight;
+    for( i=win->wPosY+1; i<=wStop && i<VioGetMaxRow(); i++ )
+    {
+     VioSa( wStart, i, win->wAttrShadow );
+     if( wStart<VioGetMaxCol()-1 )
+      VioSa( wStart+1, i, win->wAttrShadow );
+    }
+    wStart = win->wPosY+win->wHeight;
+    if( wStart < VioGetMaxRow() )
+    {
+     wStop  = win->wPosX+win->wWidth;
+     for( i=win->wPosX+1; i<wStop && i< VioGetMaxCol(); i++ )
+      VioSa( i, wStart, win->wAttrShadow );
+    }
+   }
+  }
+ */
 		IFrame GetFrameChars() 
 		{
-			switch(Frame)
+			switch(FrameType)
 			{
-				case Frame.None: return NoFrame.Instance;
-				case Frame.Single: return SingleFrame.Instance;
-				case Frame.Double: return DoubleFrame.Instance;
-				case Frame.Thick: return ThickFrame.Instance;
-				case Frame.Block: return BlockFrame.Instance;
+				case FrameType.None: return NoFrame.Instance;
+				case FrameType.Single: return SingleFrame.Instance;
+				case FrameType.Double: return DoubleFrame.Instance;
+				case FrameType.Thick: return ThickFrame.Instance;
+				case FrameType.Block: return BlockFrame.Instance;
 			}
 			return SingleFrame.Instance;
 		}

@@ -79,7 +79,7 @@ namespace OldSchool
 			win.SetTitle(title, TitlePosition.TopCenter, Palette.Instance.Get(AttributeRole.MnuTitle));
 			// win.setBackground()
 			// win.Cursor = Cursor.Off;
-			win.SetFrameType(FrameType.Single, Palette.Instance.Get(AttributeRole.MnuFrame));
+			win.SetFrame(FrameType.Single, Palette.Instance.Get(AttributeRole.MnuFrame));
 			return win;
 		}
 
