@@ -5,17 +5,6 @@
 
 namespace Hilevel
 {
-	TVio::TVio()
-	: m_Init(false)
-	{
-		debug("-----------------------------------------------------------------------------------------------------");
-	}
-	
-	TVio::~TVio()
-	{
-		done();
-	}
-
 	void TVio::init()
 	{
 		if( m_Init )
@@ -35,7 +24,6 @@ namespace Hilevel
 	void TVio::done()
 	{
 		if( m_Init )
-			endwin();
 		m_Init = false;
 	}
 

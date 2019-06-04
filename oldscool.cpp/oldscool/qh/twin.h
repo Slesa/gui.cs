@@ -16,34 +16,6 @@ namespace Hilevel
 	: public QObject
 	{
 	public:
-		// -------- Konstanten fuer die Titelposition -----------------------------------------------------------------
-		enum		TitlePos
-		{
-			TitleOL			= 0								//! oben, linksbündig
-		,	TitleUL			= 1								//! unten, linksbündig
-		,	TitleOZ			= 2								//! oben, zentriert
-		,	TitleUZ			= 3								//! unten, zentriert
-		,	TitleOR			= 4								//! oben, rechtsbündig
-		,	TitleUR			= 5								//! unten, rechtsbündig
-		};
-		// -------- Konstanten fuer die Rahmenart ---------------------------------------------------------------------
-		enum		FrameType
-		{
-			FrameNone		= 0								//! Kein Rahmen
-		,	FrameSingle		= 1								//! Einfacher Rahmen
-		,	FrameDouble		= 2								//! Doppelter Rahmen
-		,	FrameThick		= 3								//! Dicker Rahmen
-		};
-		enum		Cursors
-		{
-			CurOff			= 0								//!< Cursor ausschalten
-		,	CurLine			= 1								//!< Cursor ist auf Linie
-		,	CurBlock		= 2								//!< Cursor ist auf Block
-		};
-	public:	// ---- ctor/dtor -----------------------------------------------------------------------------------------
-		TWin(TVio& vio, int x, int y, int width, int height, const char* name);
-		~TWin();
-	public:
 		/*!	\return Liefert die Spalte des Fensters.
 			\brief X-Position ermitteln.
 		*/
