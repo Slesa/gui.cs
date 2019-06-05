@@ -12,145 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb66f1fd-0438-41ca-8084-3cb20c53584f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../oldscool/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Win.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vio.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTDLG.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTGLOBAL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTINTERN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTMNU.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTMSM.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTOOLS.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTTYPEN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTUTL.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTVIO.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/CTWIN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGHILFE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGHTOOL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGINDEX.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGINFO.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGLADEN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGMAUS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGNACHR.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGOPTIO.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGPALET.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGSHELL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGSPEIC.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/DLGWARN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IBEEP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IDIALOG.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IFEHLER.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IINITVAR.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/ILIESZK.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IMNUMW.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/IMNUUTIL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MAKE.BAT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUAKTIV.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUDEAKT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUEINGA.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUEINR.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUENTF.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUMARK.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUOPTIO.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUSPALE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUSRTYP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MNUSSCHA.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/MSMAUS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLALTCD.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLCLRAN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLCRERR.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLCURS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLDNGUE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLDRIVE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLEVENT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLGROSS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLKBFLG.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLKLEIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLLINIE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLPAUSE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLRAHME.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLSCHAT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLSHELL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLSTOP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLSTRLW.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLSTRUP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLTASTE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLTON.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLTTS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/UTLUHRTK.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/VIO.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/VIONEW.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINAKTIV.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINCLS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINCPUTS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINCURS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINEINR.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINENTF.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINGCURS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINISAKT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINPRNTF.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINPUTCH.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSATT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSCHAT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSCPOS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSCRDN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSCRUP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSCTYP.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSRAHM.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINSTITL.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINVERST.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINZEINF.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/ct/WINZLOES.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/DLG.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/DLG.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/DLGWIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/DLGWIN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVENT.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVENT.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVKEYB.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVKEYB.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVMOUSE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVMOUSE.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVSCHON.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/EVSCHON.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/LSTWIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/LSTWIN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/MNU.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/MNU.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/MSGWIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/MSGWIN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/PALETTE.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/PALETTE.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/VIO.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/VIO.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/VIOBIOS.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/VIOBIOS.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/WIN.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/hi/WIN.H" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/hilevel.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tcolors.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tcolors.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tlst.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tlst.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tmnu.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tmnu.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tmsg.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tmsg.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tvio.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/tvio.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/twin.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lib/qh/twin.h" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../oldscool/Colors.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../oldscool/Colors.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/qh/tcolors.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/qh/tcolors.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/qh/tvio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/qh/tvio.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/qh/tvio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/qh/tvio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -164,7 +38,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor" />
@@ -173,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="242">
+              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -191,10 +65,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1914" />
-    <option name="width" value="1932" />
-    <option name="height" value="1206" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="204" />
+    <option name="y" value="158" />
+    <option name="width" value="1260" />
+    <option name="height" value="765" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -202,7 +77,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,6 +88,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,24 +127,22 @@
       <option name="presentableId" value="Default" />
       <updated>1559595054893</updated>
       <workItem from="1559595056508" duration="817000" />
+      <workItem from="1559718641603" duration="31000" />
+      <workItem from="1559765550512" duration="475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="817000" />
+    <option name="totallyTimeSpent" value="1931000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1914" y="0" width="1932" height="1206" extended-state="6" />
+    <frame x="204" y="158" width="1260" height="765" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.178762" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19237147" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CMake" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32861635" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -277,10 +150,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,8 +170,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        <state relative-caret-position="242">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
         </state>
       </provider>
     </entry>
