@@ -18,15 +18,15 @@ namespace OldScool {
 		static void	sleep(int msecs);
 		static int	getColumns();
 		static int	getRows();
-		static bool	hasColors();
+		static bool	canColors();
 		static int	getColorCount();
 	public:
-		void doBackground();
-		int centerCol(int len=0)
+		void doBackground() const;
+		int centerCol(int len=0) const
 		{
 			return (getColumns()-len) / 2;
 		}
-		int centerRow(int height=0)
+		int centerRow(int height=0) const
 		{
 			return (getRows()-height) / 2;
 		}
@@ -35,15 +35,15 @@ namespace OldScool {
 			return _colors;
 		}
 	public:
-		void clear();
-		void gotoxy(int x, int y);
-		void sa(int x, int y, int col);
-		void sz(int x, int y, char ch);
-		void sza(int x, int y, char ch, int col);
-		void ss(int x, int y, const string& str);
-		void ssa(int x, int y, const string& str, int col);
-		void status(const string& str, int colnorm, int colinv);
-		void statusOff();
+		void clear() const;
+		void gotoxy(int x, int y) const;
+		void sa(int x, int y, int col) const;
+		void sz(int x, int y, char ch) const;
+		void sza(int x, int y, char ch, int col) const;
+		void ss(int x, int y, const string& str) const;
+		void ssa(int x, int y, string str, int col) const;
+		void status(string str, int colnorm, int colinv) const;
+		void statusOff() const;
 	private:
 		void init();
 		void done();

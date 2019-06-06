@@ -1,5 +1,5 @@
 #include "Vio.h"
-#include <curses.h>
+#include <ncurses.h>
 #include <fstream>
 
 namespace OldScool {
@@ -56,7 +56,7 @@ namespace OldScool {
 		::napms(msecs);
 	}
 
-	bool Vio::hasColors()
+	bool Vio::canColors()
 	{
 		return has_colors();
 	}
@@ -76,32 +76,32 @@ namespace OldScool {
 		return COLORS;
 	}
 
-	void Vio::doBackground()
+	void Vio::doBackground()const
 	{
 		if( has_colors() )
 			::bkgd(_colors.getBackground());
 	}
 
-	void Vio::clear()
+	void Vio::clear() const
 	{
 		::clear();
 	}
 
-	void Vio::gotoxy(int x, int y)
+	void Vio::gotoxy(int x, int y) const
 	{
 		::move(y, x);
 	}
 
-	void Vio::sa(int x, int y, int col)
+	void Vio::sa(int x, int y, int col) const
 	{
 	}
 
-	void Vio::sz(int x, int y, char ch)
+	void Vio::sz(int x, int y, char ch) const
 	{
 		mvaddch(y, x, ch);
 	}
 
-	void Vio::sza(int x, int y, char ch, int col)
+	void Vio::sza(int x, int y, char ch, int col) const
 	{
 		::move(y, x);
 		::attrset(_colors.getColor(col));
@@ -109,12 +109,12 @@ namespace OldScool {
 		::attroff(_colors.getColor(col));
 	}
 
-	void Vio::ss(int x, int y, const string& str)
+	void Vio::ss(int x, int y, const string& str) const
 	{
 		mvaddstr(y, x, str.c_str());
 	}
 
-	void Vio::ssa(int x, int y, const string& str, int col)
+	void Vio::ssa(int x, int y, string str, int col) const
 	{
 		::move(y, x);
 		::attrset(_colors.getColor(col));
@@ -122,7 +122,7 @@ namespace OldScool {
 		::attroff(_colors.getColor(col));
 	}
 
-	void Vio::status(const string& str, int colnorm, int colinv)
+	void Vio::status(string str, int colnorm, int colinv) const
 	{
 		int x, y;
 		getyx(stdscr, y, x);
@@ -148,7 +148,7 @@ namespace OldScool {
 		::refresh();
 	}
 
-	void Vio::statusOff()
+	void Vio::statusOff() const
 	{
 		status(" ", ColorRole::Background, ColorRole::Background);
 	}

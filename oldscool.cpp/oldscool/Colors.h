@@ -6,6 +6,9 @@ namespace OldScool {
 
 	enum ColorRole {
 		Background,
+		WinFrame,
+		WinTitle,
+		WinText,
 		MsgFrame,
 		MsgTitle,
 		MsgText,
@@ -36,8 +39,8 @@ namespace OldScool {
 		void configure();
 
 	public:
-		int getBackground();
-		int getColor(int index);
+		int getBackground() const;
+		int getColor(int index) const;
 
 	private:
 		AttribMap _attribMap;

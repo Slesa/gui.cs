@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(vio)
+project(win)
 
 include_directories(${CMAKE_SOURCE_DIR}/../../oldscool)
 link_directories(${CMAKE_SOURCE_DIR}/../../lib)
@@ -11,9 +11,7 @@ set(CURSES_NEED_WIDE TRUE)
 
 include(FindCurses)
 
-# find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIRS})
-# target_link_libraries( ${CURSES_LIBRARIES} )
 
-add_executable(vio main.cpp)
-target_link_libraries(vio oldscool ${CURSES_LIBRARIES}  )
+add_executable(win main.cpp)
+target_link_libraries(win oldscool ${CURSES_LIBRARIES}  )

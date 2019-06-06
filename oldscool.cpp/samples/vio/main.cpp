@@ -1,30 +1,40 @@
 #include <iostream>
-#include "oldscool/Vio.h"
-#include "oldscool/Colors.h"
+#include <sstream>
+#include <ncurses.h>
+#include "Vio.h"
+#include "Colors.h"
 
 int main() {
 
-	#define INFO_POS 61
+	#define LABEL_POS 21
+    #define VALUE_POS 51
 
 	auto vio = new Vio();
-	vio->Clear();
+	vio->clear();
+	vio->doBackground();
 
 	auto done = false;
+	std::ostringstream ss;
 	while( !done ) {
 
-		vio->Status( " ~F1~ Please Select a driver", ColorRole::, 115 );
-		sprintf( cTemp, "Columns.....: %d", vio->getColumns() );
-		vio->Ss( INFO_POS, 2, cTemp );
-		sprintf( cTemp, "Rows........: %d", vio->getRows() );
-		vio->Ss( INFO_POS, 3, cTemp );
-		sprintf( cTemp, "Can color...: %s", vio->canColor()() ? "Yes" : "No" );
-		vio->Ss( INFO_POS, 4, cTemp );
+		vio->status( " ~F1~ Please Select a driver  ~F2~ Искать", ColorRole::LstStatusLine, ColorRole::LstStatusInvers );
 
-		auto ret = getkey();
+		ss << vio->getColumns();
+		vio->ss( LABEL_POS, 2, "Columns.....:");
+		vio->ssa( VALUE_POS, 2, ss.str(), ColorRole::MsgFrame);
+
+		ss << vio->getRows();
+		vio->ss( LABEL_POS, 3, "Rows........:");
+		vio->ssa( VALUE_POS, 3, ss.str(), ColorRole::MsgFrame);
+
+		vio->ss( LABEL_POS, 4, "Can color...:" );
+		vio->ssa( VALUE_POS, 4, vio->canColors() ? "Yes" : "No", ColorRole::MsgFrame);
+
+		auto ret = getch();
 		if(ret==27) done = true;
 	}
 
-	vio->Done();
+	delete vio;
 
     return 0;
 }

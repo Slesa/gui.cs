@@ -1,5 +1,5 @@
 #include "Colors.h"
-#include <curses.h>
+#include <ncurses.h>
 
 namespace OldScool {
 
@@ -9,6 +9,10 @@ namespace OldScool {
 
 	void Colors::configure() {
 		init_pair(Background, COLOR_BLACK, COLOR_CYAN); _attribMap[Background] = A_BOLD;
+		// Windows
+		init_pair(WinFrame, COLOR_WHITE, COLOR_BLUE);
+		init_pair(WinTitle, COLOR_WHITE, COLOR_BLUE);
+		init_pair(WinText, COLOR_WHITE, COLOR_BLUE);
 		// Message Windows
 		init_pair(MsgFrame, COLOR_WHITE, COLOR_BLUE);
 		init_pair(MsgTitle, COLOR_WHITE, COLOR_BLUE);
@@ -33,11 +37,11 @@ namespace OldScool {
 
 	}
 
-	int Colors::getBackground() {
-		return COLOR_PAIR(Background)|_attribMap[Background]/*|ACS_BOARD*/;
+	int Colors::getBackground() const {
+		return COLOR_PAIR(Background)|_attribMap.at(Background)/*|ACS_BOARD*/;
 	}
 
-	int getColor(int index) {
+	int Colors::getColor(int index) const {
 		return COLOR_PAIR(index); //|_attribMap[index]/*|ACS_BOARD*/;
 	}
 
