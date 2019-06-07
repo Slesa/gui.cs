@@ -12,25 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12657297-da30-4181-8b69-9ff91a0fffb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../samples/vio/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/win.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/win/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/01-HelloWorld.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/01-HelloWorld/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/02-Atributes.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ncurses/02-Atributes/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Colors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Colors.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Colors.h" beforeDir="false" afterPath="$PROJECT_DIR$/Colors.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qh/twin.h" beforeDir="false" afterPath="$PROJECT_DIR$/qh/twin.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../samples/vio/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/vio/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../samples/vio/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/vio/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../samples/vio/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/vio/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../samples/win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/win/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +46,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Vio.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="136" column="33" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+            <state relative-caret-position="276">
+              <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -58,13 +59,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qh/twin.cpp">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-              <folding>
-                <element signature="e#4882#25414#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="7" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -72,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qh/twin.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
+            <state relative-caret-position="255">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
@@ -90,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Vio.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="285">
               <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
@@ -102,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Colors.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+            <state relative-caret-position="390">
+              <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -129,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Win.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="465">
+              <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
               <folding>
                 <element signature="e#47#64#0" expanded="true" />
               </folding>
@@ -163,13 +161,13 @@
         <option value="$PROJECT_DIR$/qh/tcolors.h" />
         <option value="$PROJECT_DIR$/qh/tvio.h" />
         <option value="$PROJECT_DIR$/qh/tvio.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/Vio.cpp" />
         <option value="$PROJECT_DIR$/Vio.h" />
         <option value="$PROJECT_DIR$/Colors.h" />
         <option value="$PROJECT_DIR$/Colors.cpp" />
         <option value="$PROJECT_DIR$/qh/twin.h" />
         <option value="$PROJECT_DIR$/Win.h" />
+        <option value="$PROJECT_DIR$/Vio.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -185,6 +183,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,7 +200,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,18 +242,19 @@
       <workItem from="1559682216512" duration="3911000" />
       <workItem from="1559718676818" duration="10460000" />
       <workItem from="1559767170464" duration="4134000" />
-      <workItem from="1559803927745" duration="2817000" />
+      <workItem from="1559803927745" duration="3416000" />
+      <workItem from="1559940154457" duration="2988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25282000" />
+    <option name="totallyTimeSpent" value="28869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="46" width="1932" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.12140575" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.122470714" />
       <window_info id="Structure" order="1" sideWeight="0.50498337" side_tool="true" weight="0.18253969" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -266,7 +265,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.4994664" visible="true" weight="0.22570194" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4994664" visible="true" weight="0.22570194" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053364" side_tool="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -338,44 +337,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/qh/twin.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Vio.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="136" column="33" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+        <state relative-caret-position="360">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#4882#25414#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vio.h">
+    <entry file="file://$PROJECT_DIR$/qh/twin.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="e#46#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qh/tvio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qh/tvio.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -386,12 +361,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qh/twin.cpp">
+    <entry file="file://$PROJECT_DIR$/Colors.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="390">
+          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
-            <element signature="e#4882#25414#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -403,29 +378,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Colors.cpp">
+    <entry file="file://$PROJECT_DIR$/qh/tvio.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qh/twin.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Win.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="465">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding>
             <element signature="e#47#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="7" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qh/tvio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="e#46#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>

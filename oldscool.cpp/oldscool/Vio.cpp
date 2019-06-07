@@ -78,8 +78,10 @@ namespace OldScool {
 
 	void Vio::doBackground()const
 	{
-		if( has_colors() )
+		if( has_colors() ) {
 			::bkgd(_colors.getBackground());
+			refresh();
+		}
 	}
 
 	void Vio::clear() const
