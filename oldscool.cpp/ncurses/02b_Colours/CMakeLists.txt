@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(02_Atributes)
+project(02b_Colours)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -10,5 +10,5 @@ include(FindCurses)
 
 include_directories(${CURSES_INCLUDE_DIRS})
 
-add_executable(02_Atributes main.cpp)
-target_link_libraries(02_Atributes ${CURSES_LIBRARIES}  )
+add_executable(02b_Colours main.cpp)
+target_link_libraries(02b_Colours ${CURSES_LIBRARIES}  )
