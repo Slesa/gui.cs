@@ -14,7 +14,7 @@ int main() {
 
 	setlocale(LC_ALL, "");
 
-	string line;
+	/* string line;
 	ifstream myfile ("txt.txt");
 	if (myfile.is_open())
 	{
@@ -23,12 +23,12 @@ int main() {
 			cout << line << '\n';
 		}
 		myfile.close();
-	}
+	} */
 	//while(true) { auto tmp = getch(); if(tmp==27) break; }
 
 	auto vio = new Vio();
 	vio->clear();
-	// vio->doBackground();
+	vio->doBackground();
 
 	auto done = false;
 	while( !done ) {

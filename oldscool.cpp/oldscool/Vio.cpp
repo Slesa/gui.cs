@@ -1,14 +1,16 @@
 #include "Vio.h"
 #include <ncursesw/ncurses.h>
 #include <fstream>
+#include <iostream>
 
 namespace OldScool {
 
 	// http://www.melvilletheatre.com/articles/ncurses-extended-characters/index.html
 
 	Vio::Vio()
+	: _currAttrib(0)
 	{
-		debug(L"-----------------------------------------------------------------------------------------------------");
+		// debug(L"-----------------------------------------------------------------------------------------------------");
 		init();
 	}
 
@@ -35,9 +37,9 @@ namespace OldScool {
 		endwin();
 	}
 
-	void Vio::debug(const wstring& str, bool newLine)
+	void Vio::debug(const string& str, bool newLine)
 	{
-		wofstream os;
+		ofstream os;
 		os.open("viodebug.txt");
 		os << str;
 		if (newLine) os << "\n";
@@ -84,10 +86,25 @@ namespace OldScool {
 
 	void Vio::doBackground()const
 	{
-		if( has_colors() ) {
-			::bkgd(_palette.getBackground() | ACS_CKBOARD);
-			refresh();
+		string bg;
+		bg.append(getColumns(), ACS_CKBOARD);
+
+		move(0, 0);
+	// cout << "Background: " << bg; getch();
+		// if( has_colors() )
+		::attrset(_palette.get(AttribRole::Background));
+		for(auto i=0; i<getRows(); i++) {
+			for (auto n = 0; n < getColumns(); n++) {
+				::attrset(_palette.get(AttribRole::Background));
+				addch(ACS_CKBOARD);
+			}
 		}
+			//mvaddstr(i, 0, bg.c_str());
+		//if( has_colors() ) {
+		//	::bkgd(/*_palette.getBackground() |*/ /*ACS_CKBOARD*/ '*');
+		::attrset(_palette.get(AttribRole::MnuHotInvers));
+		::refresh();
+		//}
 	}
 
 	void Vio::clear() const
@@ -132,38 +149,56 @@ namespace OldScool {
 
 	void Vio::status(const string& str, int colnorm, int colinv) const
 	{
-		//int x, y;
-		//getyx(stdscr, y, x);
-		int col = colnorm;
+		int x, y;
+		getyx(stdscr, y, x);
 		int column = 0;
 		int maxcol = getColumns();
 		int row = getRows()-1;
-/*
-		for (std::string::const_iterator i=str.begin(); i<str.end(); ++i) {
-//	debug(QString("TVio::status, row %1 status(%2)").arg(row).arg(cp));
-			if( *i=='~' ) {
-				col = (col==colnorm) ? colinv : colnorm;
-				continue;
-			}
-//	debug(QString("TVio::status, cp[%1] = %2").arg(i).arg(cp[i]));
-			_sza(column++, row, *i, col);
-			if( column==maxcol )
-				break;
-		}
-		for(int n=column; n<maxcol; n++)
-			_sza(n, row, ' ', col);
-			*/
-		mvaddstr(row, 0, str.c_str());
-//		::printw(str.c_str());
-		//_ssa(0, row, str, col);
 
-		//::move(y, x);
+		move(row, 0);
+
+		auto attr = colnorm;
+		auto text = str;
+		while( !text.empty() ) {
+			::attrset(_palette.get(attr));
+			auto pos = text.find('~');
+			if( pos!=string::npos ) {
+				auto substr = text.substr(0, pos);
+				// cout << "Substr " << substr << '\n';
+				::addstr(substr.c_str());
+				column += substr.length();
+				attr = (attr==colnorm) ? colinv : colnorm;
+				text = text.substr(pos+1);
+				// cout << "Text " << text << '\n';
+				// getch();
+			}
+			else {
+				if( column+text.length()>maxcol)
+					text = text.substr(0, maxcol-column);
+				else
+					text.append(maxcol-text.length(), ' ');
+				::addstr(text.c_str());
+				// cout << "Remain " << text << '\n';
+				break;
+			}
+		}
+
+		::move(y, x);
 		::refresh();
 	}
 
 	void Vio::statusOff() const
 	{
 		status(" ", AttribRole::Background, AttribRole::Background);
+	}
+
+	int Vio::getAttr() const {
+		return _currAttrib;
+	}
+
+	void Vio::setAttr(int attrib) {
+		_currAttrib = attrib;
+		::attrset(_currAttrib);
 	}
 
 	/* void Vio::_sa(int x, int y, int col) const

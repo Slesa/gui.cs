@@ -8,7 +8,7 @@ namespace OldScool {
 	}
 
 	void Palette::configure() {
-		init_pair(Background, COLOR_CYAN, COLOR_BLACK); _attribMap[Background] = A_BOLD;
+		init_pair(Background, COLOR_BLACK, COLOR_CYAN); _attribMap[Background] = A_BOLD;
 		// Windows
 		init_pair(WinFrame, COLOR_WHITE, COLOR_BLUE);
 		init_pair(WinTitle, COLOR_WHITE, COLOR_BLUE);

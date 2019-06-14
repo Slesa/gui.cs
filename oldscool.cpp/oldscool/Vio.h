@@ -12,7 +12,7 @@ namespace OldScool {
 		Vio();
 		~Vio();
 	public:	// ---- static funkcions ----------------------------------------------------------------------------------
-		static void	debug(const wstring& str, bool newline=true);
+		static void	debug(const string& str, bool newline=true);
 		static void	beep();
 		static void	flash();
 		static void	sleep(int msecs);
@@ -45,6 +45,8 @@ namespace OldScool {
 		void status(const string& str, int colnorm, int colinv) const;
 		void statusOff() const;
 	private:
+		int getAttr() const;
+		void setAttr(int attrib);
 		void _sa(int x, int y, int col) const;
 		void _sz(int x, int y, wchar_t ch) const;
 		void _sza(int x, int y, wchar_t ch, int col) const;
@@ -54,6 +56,7 @@ namespace OldScool {
 		void init();
 		void done();
 		Palette _palette;
+		int _currAttrib;
 	};
 
 }
