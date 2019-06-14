@@ -1,14 +1,14 @@
-#include "Colors.h"
-#include <ncurses.h>
+#include "Palette.h"
+#include <ncursesw/ncurses.h>
 
 namespace OldScool {
 
-	Colors::Colors() {
+	Palette::Palette() {
 
 	}
 
-	void Colors::configure() {
-		init_pair(Background, COLOR_BLACK, COLOR_CYAN); _attribMap[Background] = A_BOLD;
+	void Palette::configure() {
+		init_pair(Background, COLOR_CYAN, COLOR_BLACK); _attribMap[Background] = A_BOLD;
 		// Windows
 		init_pair(WinFrame, COLOR_WHITE, COLOR_BLUE);
 		init_pair(WinTitle, COLOR_WHITE, COLOR_BLUE);
@@ -37,12 +37,18 @@ namespace OldScool {
 
 	}
 
-	int Colors::getBackground() const {
-		return COLOR_PAIR(Background)|_attribMap.at(Background)/*|ACS_BOARD*/;
+	int Palette::getBackground() const {
+		return COLOR_PAIR(Background) | getAttrib(Background);
 	}
 
-	int Colors::getColor(int index) const {
-		return COLOR_PAIR(index); //|_attribMap[index]/*|ACS_BOARD*/;
+	int Palette::get(int index) const {
+		return COLOR_PAIR(index) | getAttrib(index);
 	}
 
+	int Palette::getAttrib(AttribRole index) const {
+		auto it = _attribMap.find(index);
+		if( it!=_attribMap.end() )
+			return (*it).second;
+		return 0;
+	}
 }

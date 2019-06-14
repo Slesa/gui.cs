@@ -1,7 +1,7 @@
 #ifndef OLDSCOOL_VIO_H
 #define OLDSCOOL_VIO_H
 #include <string>
-#include "Colors.h"
+#include "Palette.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ namespace OldScool {
 		Vio();
 		~Vio();
 	public:	// ---- static funkcions ----------------------------------------------------------------------------------
-		static void	debug(const string& str, bool newline=true);
+		static void	debug(const wstring& str, bool newline=true);
 		static void	beep();
 		static void	flash();
 		static void	sleep(int msecs);
@@ -30,24 +30,30 @@ namespace OldScool {
 		{
 			return (getRows()-height) / 2;
 		}
-		Colors& getColors()
+		Palette& getPalette()
 		{
-			return _colors;
+			return _palette;
 		}
 	public:
 		void clear() const;
 		void gotoxy(int x, int y) const;
 		void sa(int x, int y, int col) const;
-		void sz(int x, int y, char ch) const;
-		void sza(int x, int y, char ch, int col) const;
+		void sz(int x, int y, wchar_t ch) const;
+		void sza(int x, int y, wchar_t ch, int col) const;
 		void ss(int x, int y, const string& str) const;
-		void ssa(int x, int y, string str, int col) const;
-		void status(string str, int colnorm, int colinv) const;
+		void ssa(int x, int y, const string& str, int col) const;
+		void status(const string& str, int colnorm, int colinv) const;
 		void statusOff() const;
+	private:
+		void _sa(int x, int y, int col) const;
+		void _sz(int x, int y, wchar_t ch) const;
+		void _sza(int x, int y, wchar_t ch, int col) const;
+		void _ss(int x, int y, const string& str) const;
+		void _ssa(int x, int y, const string& str, int col) const;
 	private:
 		void init();
 		void done();
-		Colors _colors;
+		Palette _palette;
 	};
 
 }

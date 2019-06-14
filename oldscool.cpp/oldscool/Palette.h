@@ -1,11 +1,12 @@
-#ifndef OLDSCOOL_COLORS_H
-#define OLDSCOOL_COLORS_H
+#ifndef OLDSCOOL_PALETTE_H
+#define OLDSCOOL_PALETTE_H
 #include <map>
 
 namespace OldScool {
 
-	enum ColorRole {
+	enum AttribRole {
 		Background,
+		Shadow,
 		WinFrame,
 		WinTitle,
 		WinText,
@@ -29,19 +30,24 @@ namespace OldScool {
 		MnuStatusInvers,
 	};
 
-	class Colors {
+
+	class Palette {
 
 	public:
-		typedef std::map<ColorRole, int> AttribMap;
+		// Attrib Map is to declare light colours
+		typedef std::map<AttribRole, int> AttribMap;
 
 	public:
-		Colors();
+		Palette();
 		void configure();
 
 	public:
 		int getBackground() const;
-		int getColor(int index) const;
+		int get(int index) const;
 
+	private:
+		int getAttrib(AttribRole index) const;
+		int getAttrib(int index) const { return getAttrib((AttribRole)index); }
 	private:
 		AttribMap _attribMap;
 	};
@@ -50,4 +56,4 @@ namespace OldScool {
 
 using namespace OldScool;
 
-#endif //OLDSCOOL_COLORS_H
+#endif //OLDSCOOL_PALETTE_H
