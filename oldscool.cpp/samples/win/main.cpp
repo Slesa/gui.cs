@@ -22,7 +22,7 @@ int main() {
 
 	auto vio = new Vio();
 	vio->doBackground();
-	vio->status( "~F1~ Fenstertest ~F2~ Искать", AttribRole::LstStatusLine, AttribRole::LstStatusInvers);
+	vio->status( "~F1~ Help ~F2~ Искать | ~1~st Win ~2~nd Win ~3~rd Win ~4~th Win ~m~iddle Win \uE030", AttribRole::LstStatusLine, AttribRole::LstStatusInvers);
 
 
 	createWindows(*vio);
@@ -80,6 +80,10 @@ static void createWindows(const Vio& vio) {
 		_wins[i]->print( toString("Win y............: ", _wins[i]->getY()) );
 		_wins[i]->print( toString("Win width........: ", _wins[i]->getWidth()) );
 		_wins[i]->print( toString("Win height.......: ", _wins[i]->getHeight()) );
+        _wins[i]->ss( 25, 1, "ss" );
+        _wins[i]->ssa( 25, 2, "ssa", vio.getPalette().get(AttribRole::MnuHotkey));
+        _wins[i]->sz( 25, 3, 'z' );
+        _wins[i]->sza( 25, 4, 'A', vio.getPalette().get(AttribRole::MnuHotkey) );
 	}
 }
 
@@ -91,7 +95,7 @@ static string toString(string label, int value) {
 static int windowWidth(const Vio& vio) {
 	return vio.getColumns()/2-5;
 }
-static int windowHeight(const Vio& vio) {http://www.areamobile.de/specials/26338-lesertest-das-jolla-smartphone-mit-sailfish-os
+static int windowHeight(const Vio& vio) {
 	return vio.getRows()/2-5;
 }
 

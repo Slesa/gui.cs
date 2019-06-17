@@ -92,17 +92,18 @@ namespace OldScool {
 		move(0, 0);
 	// cout << "Background: " << bg; getch();
 		// if( has_colors() )
+		//auto attr = _palette.get(AttribRole::Background);
 		::attrset(_palette.get(AttribRole::Background));
+//        ::attrset(_palette.get(AttribRole::Background));
 		for(auto i=0; i<getRows(); i++) {
 			for (auto n = 0; n < getColumns(); n++) {
-				::attrset(_palette.get(AttribRole::Background));
 				addch(ACS_CKBOARD);
 			}
 		}
 			//mvaddstr(i, 0, bg.c_str());
 		//if( has_colors() ) {
 		//	::bkgd(/*_palette.getBackground() |*/ /*ACS_CKBOARD*/ '*');
-		::attrset(_palette.get(AttribRole::MnuHotInvers));
+//		::attrset(_palette.get(AttribRole::MnuHotInvers));
 		::refresh();
 		//}
 	}

@@ -23,35 +23,6 @@ namespace Hilevel
 	}
 	
 
-	void TWin::sa(int x, int y, int col)
-	{
-	}
-
-	void TWin::sz(int x, int y, char ch)
-	{
-		mvwaddch(m_Sub, y, x, ch);
-	}
-	
-	void TWin::sza(int x, int y, char ch, int col)
-	{
-		wmove(m_Sub, y, x);
-		wattrset(m_Sub, m_Vio.getColors().getUser(col));
-		waddch(m_Sub, ch);
-		wattroff(m_Sub, m_Vio.getColors().getUser(col));
-	}
-
-	void TWin::ss(int x, int y, const QString& str)
-	{
-		mvwaddstr(m_Sub, y, x, str.toLocal8Bit());
-	}
-
-	void TWin::ssa(int x, int y, const QString& str, int col)
-	{
-		wmove(m_Sub, y, x);
-		wattrset(m_Sub, m_Vio.getColors().getUser(col));
-		waddstr(m_Sub, str.toLocal8Bit());
-		wattroff(m_Sub, m_Vio.getColors().getUser(col));
-	}
 
 
 	void TWin::cursor(Cursors mode)

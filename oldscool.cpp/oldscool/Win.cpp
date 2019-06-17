@@ -1,6 +1,6 @@
 #include <list>
 #include <algorithm>
-#include <ncurses.h>
+#include <ncursesw/ncurses.h>
 #include <cassert>
 #include "Win.h"
 #include "Palette.h"
@@ -66,7 +66,7 @@ namespace OldScool {
 		_frame = frame;
 		_frameAttr = attr;
 		showFrame( isVisible() );
-//		showTitle( isVisible() );
+		showTitle( isVisible() );
 	}
 
 	void Win::setTitle(const string& title, TitlePos pos, int attr) {
@@ -74,7 +74,7 @@ namespace OldScool {
 		_titlePos = pos;
 		_titleAttr = attr;
 		showFrame( isVisible() );
-//		showTitle( isVisible() );
+		showTitle( isVisible() );
 	}
 
 	void Win::show()
@@ -123,8 +123,45 @@ namespace OldScool {
 	void Win::print(const string& str)
 	{
 //		wattrset(m_Sub, m_Win->);
-//		waddstr(_content, str.c_str());
+		::waddstr(_content, str.c_str());
+        if( isVisible() ) ::wrefresh(_content);
 	}
+
+    void Win::sz(int x, int y, char ch)
+    {
+        mvwaddch(_content, y, x, ch);
+        if( isVisible() ) ::wrefresh(_content);
+    }
+
+    void Win::sza(int x, int y, char ch, int col)
+    {
+        // ::wattrset(_content, _vio.getPalette().get(col));
+        // wmove(_Sub, y, x);
+        ::wattron(_content, col);
+        mvwaddch(_content, y, x, ch);
+        ::wattroff(_content, col);
+        if( isVisible() ) ::wrefresh(_content);
+    }
+
+    void Win::ss(int x, int y, const string& str)
+    {
+        mvwaddstr(_content, y, x, str.c_str());
+        if( isVisible() ) ::wrefresh(_content);
+    }
+
+    void Win::ssa(int x, int y, const string& str, int col)
+    {
+        // ::wattrset(_content, _vio.getPalette().get(col));
+        // :: wattron(_content, _vio.getPalette().get(col));
+        ::wattron(_content, col);
+        // wmove(m_Sub, y, x);
+        // color_set(_vio.getPalette().get(col), 0);
+        //::color_set(col, 0);
+        mvwaddstr(_content, y, x, str.c_str());
+        ::wattroff(_content, col);
+        if( isVisible() ) ::wrefresh(_content);
+        // wattroff(m_Sub, m_Vio.getColors().getUser(col));
+    }
 
 	void Win::showWins()
 	{
@@ -134,8 +171,12 @@ namespace OldScool {
 
 	void Win::showFrame(bool refresh)
 	{
-		::wattrset(_window, _vio.getPalette().get(_frameAttr));
+		//::wattrset(_window, _vio.getPalette().get(_frameAttr));
+		::wattron(_window, _frameAttr);
+        // :: wborder(_window, '\u2502', '\u2502', '\u2500', '\u2500', '\u250C', '\u2510', '\u2514', '\u2518');
+        // wborder(WINDOW *win, chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br);
 		::box(_window, 0, 0);
+        ::wattroff(_window, _frameAttr);
 		// ::wattroff(_window, _vio.getPalette().get(_frameAttr));
 		if( _title.empty() )
 			showTitle(false);

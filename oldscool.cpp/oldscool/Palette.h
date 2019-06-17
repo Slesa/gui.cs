@@ -5,7 +5,7 @@
 namespace OldScool {
 
 	enum AttribRole {
-		Background,
+		Background = 1,
 		Shadow,
 		WinFrame,
 		WinTitle,
