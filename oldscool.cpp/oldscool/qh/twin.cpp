@@ -1,116 +1,20 @@
-#include			"hilevel/twin.h"
-#include			<ncurses.h> 
-#include			<QDebug>
+#include "hilevel/twin.h"
+#include <ncurses.h>
+#include <QDebug>
 
 static TWinList		g_Wins;
 
 namespace Hilevel
 {
-	TWin::TWin(TVio& vio, int x, int y, int width, int height, const char* name)
-	: m_Vio(vio)
-	, m_Win(0)
-	, m_Sub(0)
-	, m_Frame(FrameNone)
-	, m_FrameCol(TColors::MsgFrame)
-	, m_TitlePos(TitleOZ)
-	, m_TitleCol(TColors::MsgTitle)
-	{
-		setObjectName(name);
-		if( x<1 ) x = 1;
-		if( y<1 ) y = 1;
-		if( x+width>vio.getMaxCol()-1 ) width = vio.getMaxCol()-1;
-		if( y+height>vio.getMaxRow()-1 ) height = vio.getMaxRow()-1;
-		m_Win = newwin(height+1, width+1, y-1, x-1);
-		m_Sub = subwin(m_Win, height, width, y, x);
-		showFrame();
-	}
-	
-	TWin::~TWin()
-	{
-		if( m_Sub )
-			delwin(m_Sub);
-		if( m_Win )
-			delwin(m_Win);
-		hide();
-	}
+
 /*
 	TWin* TWin::getCurrent()
 	{
 		return m_Current;
 	}
 */
-	int TWin::getX()
-	{
-		return m_Sub->_begx;
-	}
-	
-	int TWin::getY()
-	{
-		return m_Sub->_begy;
-	}
-	
-	int TWin::getMaxCol()
-	{
-		return m_Sub->_maxx;
-	}
-	
-	int TWin::getMaxRow()
-	{
-		return m_Sub->_maxy;
-	}
 
-	void TWin::setFrame(FrameType frame, int col)
-	{
-		m_Frame = frame;
-		m_FrameCol = col;
-		showFrame();
-		showTitle();
-	}
 
-	void TWin::setTitle(const QString& title, TitlePos pos, int col)
-	{
-		m_Title = title;
-		m_TitlePos = pos;
-		m_TitleCol = col;
-		showFrame();
-		showTitle();
-	}
-
-	bool TWin::isVisible()
-	{
-		bool ret = g_Wins.contains(this);
-		TVio::debug(QString("TWin::isVisible %1: %2").arg(objectName()).arg(ret));
-		return ret;
-	}
-
-	void TWin::show()
-	{
-		TVio::debug(QString("TWin::show, showing %1").arg(objectName()));
-		g_Wins.append(this);
-		update();
-//		showWins();
-	}
-
-	void TWin::hide()
-	{
-		TVio::debug(QString("TWin::hide, hiding %1").arg(objectName()));
-		::touchwin(stdscr);
-		::refresh();
-		g_Wins.removeOne(this);
-		showWins();
-/*
-		if( m_Parent && m_Parent->m_Win ) {
-//			TVio::debug("TWin::hide, touching parent");
-			::touchwin(m_Parent->m_Win);
-			::wrefresh(m_Parent->m_Win);
-		} else {
-//			TVio::debug("TWin::hide, touching screen");
-			::touchwin(stdscr);
-			::refresh();
-		}
-		m_Hidden = true;
-*/
-	}
 
 	void TWin::setBackground(int col)
 	{
@@ -118,20 +22,6 @@ namespace Hilevel
 		::wbkgd(m_Sub, m_Vio.getColors().getUser(col));
 	}
 	
-	void TWin::update()
-	{
-		TVio::debug(QString("TWin::update, updating %1").arg(objectName()));
-		::touchwin(m_Win);
-		::wrefresh(m_Win);
-		::touchwin(m_Sub);
-		::wrefresh(m_Sub);
-	}
-
-	void TWin::clear()
-	{
-		::wclear(m_Sub);
-		showFrame();
-	}
 
 	void TWin::sa(int x, int y, int col)
 	{
@@ -163,11 +53,6 @@ namespace Hilevel
 		wattroff(m_Sub, m_Vio.getColors().getUser(col));
 	}
 
-	void TWin::print(const QString& str)
-	{
-//		wattrset(m_Sub, m_Win->);
-		waddstr(m_Sub, str.toLocal8Bit());
-	}
 
 	void TWin::cursor(Cursors mode)
 	{
@@ -184,53 +69,6 @@ namespace Hilevel
 		getyx(m_Sub, y, x);
 	}
 
-	void TWin::showWins()
-	{
-		foreach(TWin* win, g_Wins)
-			win->update();
-	}
-
-	void TWin::showFrame(bool refresh)
-	{
-		wattrset(m_Win, m_Vio.getColors().getUser(m_FrameCol));
-		box(m_Win, 0, 0);
-		wattroff(m_Win, m_Vio.getColors().getUser(m_FrameCol));
-		if( m_Title.isEmpty() )
-			showTitle(false);
-		if( refresh )
-			wrefresh(m_Win);
-	}
-	
-	void TWin::showTitle(bool refresh)
-	{
-		int spalte = 0; 
-		int zeile = m_TitlePos&1 ? m_Win->_maxy : 0;
-		switch( m_TitlePos )
-		{
-		default:
-		case TitleOL:
-		case TitleUL:
-			break;
-		case TitleOR:
-		case TitleUR:
-			spalte = m_Win->_maxx-m_Title.length()-1;
-			break;
-		case TitleOZ:
-		case TitleUZ:
-			spalte = (m_Win->_maxx-m_Title.length())/2;
-			break;
-		}
-		// Achtung, sa benutzt m_Sub, nicht m_Win!
-		wmove(m_Win, zeile, spalte);
-		wattrset(m_Win, m_Vio.getColors().getUser(m_TitleCol));
-		waddstr(m_Win, m_Title.toLocal8Bit());
-		wattroff(m_Win, m_Vio.getColors().getUser(m_TitleCol));
-		if( refresh )
-			wrefresh(m_Win);
-/* PDCurses
-  if( boMouse ) MouShow();
-*/
-	}
 
 	void TWin::hot(int x, int y, const QString& str, int colnorm, int colinv)
 	{

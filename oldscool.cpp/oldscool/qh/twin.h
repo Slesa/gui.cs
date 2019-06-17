@@ -1,35 +1,3 @@
-#ifndef				HILEVEL_TWIN_H
-#define				HILEVEL_TWIN_H
-#include			"hilevel/tvio.h"
-#include			<QObject>
-#include			<QString>
-
-//struct WINDOW;
-struct _win_st;
-
-namespace Hilevel
-{
-	class	TWin;
-	typedef QList<TWin*>	TWinList;
-
-	class			TWin
-	: public QObject
-	{
-	private:
-		TVio&		m_Vio;
-		_win_st*	m_Win;									//! Das Fenster-Handle
-		_win_st*	m_Sub;									//! Das innere Fenster wegen Rahmen
-		FrameType	m_Frame;
-		int			m_FrameCol;
-		QString		m_Title;
-		TitlePos	m_TitlePos;
-		int			m_TitleCol;
-	};	
-}
-
-using namespace Hilevel;
-
-#endif
 
 #if 0
 /****************************************************************************/

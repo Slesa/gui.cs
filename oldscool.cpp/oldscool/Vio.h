@@ -30,7 +30,7 @@ namespace OldScool {
 		{
 			return (getRows()-height) / 2;
 		}
-		Palette& getPalette()
+		const Palette& getPalette() const
 		{
 			return _palette;
 		}

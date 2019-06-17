@@ -6,9 +6,11 @@
 
 using namespace std;
 
+struct _win_st;
+
 namespace OldScool {
 
-	enum TitlePosition
+	enum TitlePos
 	{
 		TopLeft,
 		TopCenter,
@@ -38,23 +40,25 @@ namespace OldScool {
 	class Win {
 
 	public:	// ---- ctor/dtor --------------------------------------------------------------------------------------
-		Win(const Vio& vio, int x, int y, int width, int height, string name);
+		Win(const Vio& vio, int x, int y, int width, int height);
 		~Win();
+
 		int getX();
 		int getY();
-		int getColumns();
-		int getRows();
+		int getWidth();
+		int getHeight();
 		int centerCol(int len=0)
 		{
-			return (getColumns()-len) / 2;
+			return (getWidth()-len) / 2;
 		}
 		int centerRow(int height=0)
 		{
-			return (getRows()-height) / 2;
+			return (getHeight()-height) / 2;
 		}
-		void setFrame(FrameType frame, int col);
-		void setTitle(const string& title, TitlePosition pos, int col);
 		bool isVisible();
+		void setVisible(bool doShow) { if (doShow) show(); else hide(); }
+		void setFrame(FrameType frame, int attr);
+		void setTitle(const string& title, TitlePos pos, int attr);
 		void show();
 		void hide();
 		void setBackground(int col);
@@ -78,7 +82,14 @@ namespace OldScool {
 
 	private:
 		const Vio& _vio;
-
+		_win_st*	_window; //! Windw handle
+		_win_st*	_content; //! Inner window due to frame
+		int			_textAttr;
+		FrameType	_frame;
+		int			_frameAttr;
+		string		_title;
+		TitlePos	_titlePos;
+		int			_titleAttr;
 	};
 
 }
