@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="win" targetName="win" />
+      <config projectName="mnu" targetName="mnu" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03545253-0576-4cd7-8477-2dd3dc9f8614" name="Default Changelist" comment="">
+    <list default="true" id="f3391686-05d2-479b-acdf-8a8696f78e51" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../../ncurses/04_forms/.idea/04_forms.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../ncurses/04_forms/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../ncurses/04_forms/.idea/misc.xml" afterDir="false" />
@@ -24,14 +24,14 @@
       <change afterPath="$PROJECT_DIR$/../../oldscool/Frame.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../oldscool/Mnu.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/mnu.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mnu/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mnu.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
@@ -42,9 +42,9 @@
       <change beforePath="$PROJECT_DIR$/../../oldscool/qh/twin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/qh/twin.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vio/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vio/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vio/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../vio/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../win/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../win/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../win/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../win/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,20 +59,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="16" selection-end-line="17" />
+            <state relative-caret-position="300">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="405">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -88,8 +88,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -112,10 +112,6 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -133,7 +129,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="win" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="win" TARGET_NAME="win" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="win" RUN_TARGET_NAME="win">
+    <configuration name="mnu" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mnu" TARGET_NAME="mnu" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mnu" RUN_TARGET_NAME="mnu">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -141,47 +137,39 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="03545253-0576-4cd7-8477-2dd3dc9f8614" name="Default Changelist" comment="" />
-      <created>1559771129417</created>
+      <changelist id="f3391686-05d2-479b-acdf-8a8696f78e51" name="Default Changelist" comment="" />
+      <created>1560888451837</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1559771129417</updated>
-      <workItem from="1559771131061" duration="897000" />
-      <workItem from="1559806700088" duration="3319000" />
-      <workItem from="1560628450727" duration="3265000" />
-      <workItem from="1560694457598" duration="3960000" />
-      <workItem from="1560715403503" duration="2540000" />
-      <workItem from="1560750913508" duration="2003000" />
-      <workItem from="1560774978707" duration="4857000" />
-      <workItem from="1560837109720" duration="1842000" />
-      <workItem from="1560885327825" duration="2715000" />
-      <workItem from="1560974115615" duration="1197000" />
+      <updated>1560888451837</updated>
+      <workItem from="1560888453238" duration="491000" />
+      <workItem from="1560974115830" duration="2614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26595000" />
+    <option name="totallyTimeSpent" value="3105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="31" width="1932" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13365282" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39955357" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.32721382" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32829374" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="CMake" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -192,24 +180,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../oldscool/Win.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="16" selection-end-line="17" />
+        <state relative-caret-position="300">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="405">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

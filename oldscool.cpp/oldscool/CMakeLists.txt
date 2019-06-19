@@ -14,4 +14,4 @@ include_directories(${CURSES_INCLUDE_DIRS})
 # target_link_libraries( ${CURSES_LIBRARIES} )
 message(STATUS "CURSES_LIBRARIES: ${CURSES_INCLUDE_DIRS}")
 
-add_library(oldscool library.cpp library.h Vio.cpp Vio.h Win.cpp Win.h Palette.cpp Palette.h)
+add_library(oldscool library.cpp library.h Vio.cpp Vio.h Win.cpp Win.h Palette.cpp Palette.h Frame.cpp Frame.h Mnu.cpp Mnu.h)

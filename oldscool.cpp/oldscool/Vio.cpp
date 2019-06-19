@@ -20,6 +20,7 @@ namespace OldScool {
 	}
 
 	void Vio::init() {
+		setlocale(LC_ALL,"");
 		initscr();
 		noecho();
 		if( has_colors() ) {

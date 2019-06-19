@@ -7,8 +7,8 @@ link_directories(${CMAKE_SOURCE_DIR}/../../lib)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(CURSES_NEED_NCURSES TRUE)
 set(CURSES_NEED_WIDE TRUE)
+set(CURSES_NEED_NCURSES TRUE)
 include(FindCurses)
 find_package(Curses REQUIRED CURSES_NEED_WIDE)
 

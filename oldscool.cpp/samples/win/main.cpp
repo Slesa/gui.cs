@@ -21,8 +21,9 @@ static Win* createWindowM(const Vio& vio);
 int main() {
 
 	auto vio = new Vio();
+	vio->clear();
 	vio->doBackground();
-	vio->status( "~F1~ Help ~F2~ Искать | ~1~st Win ~2~nd Win ~3~rd Win ~4~th Win ~m~iddle Win \uE030", AttribRole::LstStatusLine, AttribRole::LstStatusInvers);
+	vio->status( "~F1~ Help ~F2~ Искать \u2500 \u2501 | ~1~st Win ~2~nd Win ~3~rd Win ~4~th Win ~m~iddle Win", AttribRole::LstStatusLine, AttribRole::LstStatusInvers);
 
 
 	createWindows(*vio);

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(vio)
+project(mnu)
 
 include_directories(${CMAKE_SOURCE_DIR}/../../oldscool)
 LINK_DIRECTORIES(/usr/lib64)
@@ -14,10 +14,8 @@ find_package(Curses REQUIRED CURSES_NEED_WIDE)
 
 message(STATUS "CURSES_LIBRARIES: ${CURSES_LIBRARIES}")
 
-# find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIRS})
-# target_link_libraries( ${CURSES_LIBRARIES} )
 
-add_executable(vio main.cpp)
-target_link_libraries(vio oldscool ncursesw formw ) # ${CURSES_LIBRARIES}  )
-#target_link_libraries(vio oldscool ${CURSES_LIBRARIES}  )
+add_executable(mnu main.cpp)
+target_link_libraries(mnu oldscool ncursesw formw ) # ${CURSES_LIBRARIES}  )
+#target_link_libraries(mnu oldscool ${CURSES_LIBRARIES}  )

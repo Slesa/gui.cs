@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Vio.h"
+#include "Frame.h"
 
 using namespace std;
 
@@ -20,15 +21,6 @@ namespace OldScool {
 		BottomRight
 	};
 
-
-	enum FrameType
-	{
-		None,
-		Single,
-		Double,
-		Thick,
-		Block
-	};
 
 	enum CursorType
 	{
@@ -71,12 +63,14 @@ namespace OldScool {
 		void ssa(int x, int y, const string& str, int col);
 		void print(const string& str);
 		void hot(int x, int y, const string& str, int colnorm, int colinv);
+		static int getHotkey(const string& text);
 	public:	// ---- Cursor-Functions ---------------------------------------------------------------------------------
 		void cursor(CursorType mode);
 		void setCursorPos(int x, int y);
 		void getCursorPos(int& x, int& y);
 	private:
 		void showWins();
+		Frame* createFrame(FrameType type);
 		void showFrame(bool refresh=true);
 		void showTitle(bool refresh=true);
 
@@ -85,8 +79,8 @@ namespace OldScool {
 		_win_st*	_window; //! Windw handle
 		_win_st*	_content; //! Inner window due to frame
 		int			_textAttr;
-		FrameType	_frame;
 		int			_frameAttr;
+		Frame*		_frame;
 		string		_title;
 		TitlePos	_titlePos;
 		int			_titleAttr;

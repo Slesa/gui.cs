@@ -509,37 +509,6 @@ namespace Hilevel
   if( boMouse ) MouShow();
  }
 
- INT   CDECL    WinGetHotkey    ( pcText )
- CHAR*          pcText;
- {
-  INT           i;
-  for( i=0; pcText[i]!=0; i++ )
-  {
-   if( pcText[i]=='~' )
-   {
-    if( pcText[i+2]=='~' ) return( toupper( pcText[i+1] ) );
-    if( pcText[i+1]=='F' ) switch( pcText[i+2] )
-    {
-     case '1': switch( pcText[i+3] )
-               {
-                case '0': return( T_F10 );
-                case '1': return( T_F11 );
-                case '2': return( T_F12 );
-               }
-               return( T_F1 );
-     case '2': return( T_F2 );
-     case '3': return( T_F3 );
-     case '4': return( T_F4 );
-     case '5': return( T_F5 );
-     case '6': return( T_F6 );
-     case '7': return( T_F7 );
-     case '8': return( T_F8 );
-     case '9': return( T_F9 );
-    }
-   }
-  }
-  return( -1 );
- }
 
 #ifdef          _TEST_WIN_
 

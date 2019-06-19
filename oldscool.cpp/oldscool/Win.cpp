@@ -14,8 +14,8 @@ namespace OldScool {
 	, _window(0)
 	, _content(0)
 	, _textAttr(AttribRole::WinText)
-	, _frame(FrameType::None)
 	, _frameAttr(AttribRole::WinFrame)
+	, _frame(nullptr)
 	, _titlePos(TitlePos::TopCenter)
 	, _titleAttr(AttribRole::WinTitle)
 	{
@@ -25,10 +25,13 @@ namespace OldScool {
 		if( y+height>vio.getRows()-1 ) height = vio.getRows()-1;
 		_window = newwin(height+2, width+2, y, x);
 		_content = subwin(_window, height, width, y+1, x+1);
+		_frame = createFrame(FrameType::Single);
 		clear();
 	}
 
 	Win::~Win() {
+		if( _frame )
+			delete _frame;
 		if( _content )
 			delwin(_content);
 		if( _window )
@@ -63,7 +66,7 @@ namespace OldScool {
 	}
 
 	void Win::setFrame(FrameType frame, int attr) {
-		_frame = frame;
+		_frame = createFrame(frame);
 		_frameAttr = attr;
 		showFrame( isVisible() );
 		showTitle( isVisible() );
@@ -169,15 +172,33 @@ namespace OldScool {
 			win->update();
 	}
 
+	Frame* Win::createFrame(FrameType type) {
+		if( _frame!=nullptr ) {
+			if( _frame->getType()==type )
+				return _frame;
+			delete _frame;
+		}
+		return Frame::createFrame(type);
+	}
+
 	void Win::showFrame(bool refresh)
 	{
 		//::wattrset(_window, _vio.getPalette().get(_frameAttr));
 		::wattron(_window, _frameAttr);
-        // :: wborder(_window, '\u2502', '\u2502', '\u2500', '\u2500', '\u250C', '\u2510', '\u2514', '\u2518');
+		/*
+		mvwaddch(_window, 0, 0, _frame->topLeft());
+		mvwaddch(_window, 0, getWidth()+2, _frame->topRight());
+		mvwaddch(_window, getHeight()+2, 0, _frame->bottomLeft());
+		mvwaddch(_window, getHeight()+2, getWidth()+2, _frame->bottomRight()); */
+
+		::wborder(_window, _frame->vLine(), _frame->vLine(), _frame->hLine(), _frame->hLine(), _frame->topLeft(), _frame->topRight(), _frame->bottomLeft(), _frame->bottomRight());
+        // :: wborder(_window, u'\u2502', u'\u2502', u'\u2500', u'\u2500', u'\u250C', u'\u2510', u'\u2514', u'\u2518');
         // wborder(WINDOW *win, chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br);
-		::box(_window, 0, 0);
+		//::box(_window, 0, 0);
         ::wattroff(_window, _frameAttr);
 		// ::wattroff(_window, _vio.getPalette().get(_frameAttr));
+
+
 		if( _title.empty() )
 			showTitle(false);
 		if( refresh )
@@ -222,6 +243,59 @@ namespace OldScool {
 		::wrefresh(_window);
 		::touchwin(_content);
 		::wrefresh(_content);
+	}
+
+	int Win::getHotkey(const string& text) {
+
+		auto start = text.find('~');
+		if( start==std::string::npos ) return -1;
+		auto end = text.find('~', start+1);
+		if( end==std::string::npos ) return -1;
+
+		auto buff = text.substr(start+1, end-1);
+		std::transform(buff.begin(), buff.end(), buff.begin(), ::toupper);
+
+		if(buff.length()>1) {
+			if(buff[0]=='F') {
+
+			}
+		}
+		INT i;
+		for (i = 0; pcText[i] != 0; i++) {
+			if (pcText[i] == '~') {
+				if (pcText[i + 2] == '~') return (toupper(pcText[i + 1]));
+				if (pcText[i + 1] == 'F')
+					switch (pcText[i + 2]) {
+						case '1':
+							switch (pcText[i + 3]) {
+								case '0':
+									return (T_F10);
+								case '1':
+									return (T_F11);
+								case '2':
+									return (T_F12);
+							}
+							return (T_F1);
+						case '2':
+							return (T_F2);
+						case '3':
+							return (T_F3);
+						case '4':
+							return (T_F4);
+						case '5':
+							return (T_F5);
+						case '6':
+							return (T_F6);
+						case '7':
+							return (T_F7);
+						case '8':
+							return (T_F8);
+						case '9':
+							return (T_F9);
+					}
+			}
+		}
+		return (-1);
 	}
 
 }
