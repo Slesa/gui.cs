@@ -16,31 +16,6 @@ namespace Hilevel
 
 
 
-	void TWin::setBackground(int col)
-	{
-		::wbkgd(m_Win, m_Vio.getColors().getUser(col));
-		::wbkgd(m_Sub, m_Vio.getColors().getUser(col));
-	}
-	
-
-
-
-	void TWin::cursor(Cursors mode)
-	{
-		curs_set(mode);
-	}
- 
-	void TWin::setCursorPos(int x, int y)
-	{
-		wmove(m_Sub, y, x);
-	}
-		
-	void TWin::getCursorPos(int& x, int& y)
-	{
-		getyx(m_Sub, y, x);
-	}
-
-
 	void TWin::hot(int x, int y, const QString& str, int colnorm, int colinv)
 	{
 		int col = colnorm;

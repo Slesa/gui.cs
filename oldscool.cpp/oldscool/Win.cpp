@@ -39,6 +39,27 @@ namespace OldScool {
 		hide();
 	}
 
+	void Win::setBackground(int col)
+	{
+		::wbkgd(_window, _vio.getPalette().get(col));
+		::wbkgd(_content, _vio.getPalette().get(col));
+	}
+
+	void Win::cursor(CursorType mode)
+	{
+		curs_set(mode);
+	}
+
+	void Win::setCursorPos(int x, int y)
+	{
+		wmove(_content, y, x);
+	}
+
+	void Win::getCursorPos(int& x, int& y)
+	{
+		getyx(_content, y, x);
+	}
+
 	int Win::getX()
 	{
 		return _content->_begx;
@@ -245,6 +266,29 @@ namespace OldScool {
 		::wrefresh(_content);
 	}
 
+	void Win::hot(int x, int y, const string& str, int colnorm, int colinv) {
+		auto column = 0;
+		int maxcol = getWidth();
+		auto attr = colnorm;
+		auto text = str;
+		while( !text.empty() ) {
+			auto pos = text.find('~');
+			if( pos!=string::npos ) {
+				auto substr = text.substr(0, pos);
+				ssa(x+column, y, substr, attr);
+				column += substr.length();
+				attr = (attr==colnorm) ? colinv : colnorm;
+				text = text.substr(pos+1);
+			} else {
+				if( column+text.length()>maxcol)
+					text = text.substr(0, maxcol-column);
+				ssa(x+column, y, text, attr);
+				// cout << "Remain " << text << '\n';
+				break;
+			}
+		}
+	}
+
 	int Win::getHotkey(const string& text) {
 
 		auto start = text.find('~');
@@ -257,45 +301,11 @@ namespace OldScool {
 
 		if(buff.length()>1) {
 			if(buff[0]=='F') {
-
+				auto tmp = buff.substr(1);
+				auto key = atoi(tmp.c_str());
+				return KEY_F(key);
 			}
 		}
-		INT i;
-		for (i = 0; pcText[i] != 0; i++) {
-			if (pcText[i] == '~') {
-				if (pcText[i + 2] == '~') return (toupper(pcText[i + 1]));
-				if (pcText[i + 1] == 'F')
-					switch (pcText[i + 2]) {
-						case '1':
-							switch (pcText[i + 3]) {
-								case '0':
-									return (T_F10);
-								case '1':
-									return (T_F11);
-								case '2':
-									return (T_F12);
-							}
-							return (T_F1);
-						case '2':
-							return (T_F2);
-						case '3':
-							return (T_F3);
-						case '4':
-							return (T_F4);
-						case '5':
-							return (T_F5);
-						case '6':
-							return (T_F6);
-						case '7':
-							return (T_F7);
-						case '8':
-							return (T_F8);
-						case '9':
-							return (T_F9);
-					}
-			}
-		}
-		return (-1);
+		return buff[0];
 	}
-
 }

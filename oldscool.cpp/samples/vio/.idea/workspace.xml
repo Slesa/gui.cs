@@ -12,18 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb66f1fd-0438-41ca-8084-3cb20c53584f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Frame.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Frame.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../win/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../win/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../win/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../win/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,13 +113,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mnu" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -173,17 +163,17 @@
       <workItem from="1560773748852" duration="2270000" />
       <workItem from="1560837069886" duration="1534000" />
       <workItem from="1560885327353" duration="1672000" />
+      <workItem from="1561056053361" duration="93000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31931000" />
+    <option name="totallyTimeSpent" value="32024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="31" width="1932" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14376996" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14536741" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />

@@ -38,8 +38,8 @@ namespace OldScool {
 	}
 
 	void Mnu::add(const string& text, const string& status) {
-		auto hotkey = Win::hotkey()
-		add()
+		auto hotkey = Win::getHotkey(text);
+		add(text, hotkey, status);
 	}
 
 	void Mnu::add(const string& text, int hotkey, const string& status) {
@@ -71,7 +71,6 @@ namespace OldScool {
 			return -1;
 
 		auto win = getWindow(x, y, title);
-		win->clear();
 		for(auto entry: _entries) {
 			win->hot(entry->getX(), entry->getY(), entry->getText(), _vio.getPalette().get(AttribRole::MnuText), _vio.getPalette().get(AttribRole::MnuHotkey));
 		}
@@ -138,8 +137,11 @@ namespace OldScool {
 			_win = new Win(_vio, x, y, width, height);
 			_win->cursor(CurOff);
 			_win->setBackground(_vio.getPalette().get(AttribRole::MnuText));
-			_win->setFrame(FrameType::Single, _vio.getPalette().get(AttribRole::MnuFrame));
+			_win->clear();
+//			_win->setFrame(FrameType::Single, _vio.getPalette().get(AttribRole::MnuFrame));
 			_win->setTitle(title, TitlePos::TopCenter, _vio.getPalette().get(AttribRole::MnuTitle));
+			_win->show();
+			_maxWidth = MAX(_maxWidth, title.length()+2);
 		}
 		return _win;
 	}

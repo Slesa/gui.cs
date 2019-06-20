@@ -27,7 +27,7 @@ namespace OldScool {
 		init_pair(LstStatusInvers, COLOR_RED, COLOR_WHITE);
 		// Menu Windows
 		init_pair(MnuFrame, COLOR_BLACK, COLOR_WHITE);
-		init_pair(MnuTitle, COLOR_BLACK, COLOR_WHITE);
+		init_pair(MnuTitle, COLOR_YELLOW, COLOR_GREEN);
 		init_pair(MnuText, COLOR_BLACK, COLOR_WHITE);
 		init_pair(MnuInvers, COLOR_WHITE, COLOR_BLUE); _attribMap[MnuInvers] = A_BOLD;
 		init_pair(MnuHotkey, COLOR_RED, COLOR_WHITE);
