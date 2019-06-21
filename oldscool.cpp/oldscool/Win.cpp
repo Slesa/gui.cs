@@ -39,10 +39,18 @@ namespace OldScool {
 		hide();
 	}
 
-	void Win::setBackground(int col)
+	void Win::setBackground(AttribRole attribRole)
 	{
-		::wbkgd(_window, _vio.getPalette().get(col));
-		::wbkgd(_content, _vio.getPalette().get(col));
+		_textAttr = attribRole;
+		// ::attrset(_vio.getPalette().get(col));
+		// ::attron(col);
+		// ::wbkgd(_window, _vio.getPalette().get(col));
+		::wbkgdset(_content, _vio.getPalette().get(attribRole) | ' ');
+		::wbkgd(_content, _vio.getPalette().get(attribRole)| ' ');
+		// ::wclear(_content);
+		// ::attroff(col);
+		// ::wrefresh(_content);
+		// ::wrefresh(_content);
 	}
 
 	void Win::cursor(CursorType mode)
@@ -86,17 +94,17 @@ namespace OldScool {
 		return ret;
 	}
 
-	void Win::setFrame(FrameType frame, int attr) {
+	void Win::setFrame(FrameType frame, AttribRole attribRole) {
 		_frame = createFrame(frame);
-		_frameAttr = attr;
+		_frameAttr = attribRole;
 		showFrame( isVisible() );
 		showTitle( isVisible() );
 	}
 
-	void Win::setTitle(const string& title, TitlePos pos, int attr) {
+	void Win::setTitle(const string& title, TitlePos pos, AttribRole attribRole) {
 		_title = title;
 		_titlePos = pos;
-		_titleAttr = attr;
+		_titleAttr = attribRole;
 		showFrame( isVisible() );
 		showTitle( isVisible() );
 	}
@@ -135,13 +143,14 @@ namespace OldScool {
 		//::wattrset(_window, _vio.getPalette().get(_textAttr));
 		//::wclear(_window);
 		// ::wrefresh(_window);
-		::wbkgdset(_content, _vio.getPalette().get(_textAttr));
+		::wbkgdset(_content, _vio.getPalette().get(_textAttr) | ' ');
 		//::wattrset(_content, _vio.getPalette().get(_textAttr));
 		::wclear(_content);
 		//if( isVisible() ) {
 		//	::wrefresh(_content);
 		//}
 		showFrame( isVisible() );
+		showTitle( isVisible() );
 	}
 
 	void Win::print(const string& str)
@@ -157,13 +166,13 @@ namespace OldScool {
         if( isVisible() ) ::wrefresh(_content);
     }
 
-    void Win::sza(int x, int y, char ch, int col)
+    void Win::sza(int x, int y, char ch, AttribRole attribRole)
     {
         // ::wattrset(_content, _vio.getPalette().get(col));
         // wmove(_Sub, y, x);
-        ::wattron(_content, col);
+        ::wattron(_content, attribRole);
         mvwaddch(_content, y, x, ch);
-        ::wattroff(_content, col);
+        ::wattroff(_content, attribRole);
         if( isVisible() ) ::wrefresh(_content);
     }
 
@@ -173,16 +182,16 @@ namespace OldScool {
         if( isVisible() ) ::wrefresh(_content);
     }
 
-    void Win::ssa(int x, int y, const string& str, int col)
+    void Win::ssa(int x, int y, const string& str, AttribRole attribRole)
     {
-        // ::wattrset(_content, _vio.getPalette().get(col));
+        ::wattrset(_content, _vio.getPalette().get(attribRole));
         // :: wattron(_content, _vio.getPalette().get(col));
-        ::wattron(_content, col);
+        ::wattron(_content, attribRole);
         // wmove(m_Sub, y, x);
         // color_set(_vio.getPalette().get(col), 0);
         //::color_set(col, 0);
         mvwaddstr(_content, y, x, str.c_str());
-        ::wattroff(_content, col);
+        ::wattroff(_content, attribRole);
         if( isVisible() ) ::wrefresh(_content);
         // wattroff(m_Sub, m_Vio.getColors().getUser(col));
     }
@@ -228,10 +237,11 @@ namespace OldScool {
 
 	void Win::showTitle(bool refresh)
 	{
-		int spalte = 2;
-		int zeile = _titlePos&1 ? _window->_maxy : 0;
-		switch( _titlePos )
-		{
+		auto spalte = 2;
+		auto zeile = 0;
+		if( _titlePos==TitlePos::BottomLeft || _titlePos==TitlePos::BottomRight || _titlePos==TitlePos::BottomCenter )
+			zeile = _window->_maxy;
+		switch( _titlePos ) {
 			default:
 			case TitlePos::TopLeft:
 			case TitlePos::BottomLeft:
@@ -248,7 +258,9 @@ namespace OldScool {
 		// Achtung, sa benutzt m_Sub, nicht m_Win!
 		::wmove(_window, zeile, spalte);
 		::wattrset(_window, _vio.getPalette().get(_titleAttr));
+		::wattron(_window, _titleAttr);
 		::waddstr(_window, _title.c_str());
+		::wattroff(_window, _titleAttr);
 		//::wattroff(_window, _vio.getPalette().get(_titleAttr));
 		if( refresh )
 			::wrefresh(_window);
@@ -266,10 +278,10 @@ namespace OldScool {
 		::wrefresh(_content);
 	}
 
-	void Win::hot(int x, int y, const string& str, int colnorm, int colinv) {
+	void Win::hot(int x, int y, const string& str, AttribRole normRole, AttribRole invRole) {
 		auto column = 0;
 		int maxcol = getWidth();
-		auto attr = colnorm;
+		auto attr = normRole;
 		auto text = str;
 		while( !text.empty() ) {
 			auto pos = text.find('~');
@@ -277,7 +289,7 @@ namespace OldScool {
 				auto substr = text.substr(0, pos);
 				ssa(x+column, y, substr, attr);
 				column += substr.length();
-				attr = (attr==colnorm) ? colinv : colnorm;
+				attr = (attr==normRole) ? invRole : normRole;
 				text = text.substr(pos+1);
 			} else {
 				if( column+text.length()>maxcol)

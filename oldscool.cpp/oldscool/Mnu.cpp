@@ -1,5 +1,6 @@
 #include <sys/param.h>
 #include <algorithm>
+#include <sstream>
 #include "Mnu.h"
 #include "ncursesw/ncurses.h"
 
@@ -11,7 +12,7 @@ namespace OldScool {
 	{
 	}
 
-	MnuEntry::MnuEntry(int x, int y, const string &text, int hotkey, const string &status)
+	MnuEntry::MnuEntry(int x, int y, const string &text, const string& status, int hotkey)
 	: _x(x)
 	, _y(y)
 	, _hotkey(hotkey)
@@ -37,18 +38,14 @@ namespace OldScool {
 			delete _win;
 	}
 
-	void Mnu::add(const string& text, const string& status) {
-		auto hotkey = Win::getHotkey(text);
-		add(text, hotkey, status);
+	void Mnu::add(const string& text, const string& status, int hotkey) {
+		if( hotkey==0 ) hotkey = Win::getHotkey(text);
+		add(1, _entries.size()+1, text, status, hotkey);
 	}
 
-	void Mnu::add(const string& text, int hotkey, const string& status) {
-		add(1, _entries.size()+1, text, hotkey, status);
-	}
-
-	void Mnu::add(int x, int y, const string& text, int hotkey, const string& status)
+	void Mnu::add(int x, int y, const string& text, const string& status, int hotkey)
 	{
-		MnuEntry* entry = new MnuEntry(x, y, text, hotkey, status);
+		MnuEntry* entry = new MnuEntry(x, y, text, status, hotkey);
 		add(entry);
 	}
 
@@ -71,58 +68,61 @@ namespace OldScool {
 			return -1;
 
 		auto win = getWindow(x, y, title);
-		for(auto entry: _entries) {
-			win->hot(entry->getX(), entry->getY(), entry->getText(), _vio.getPalette().get(AttribRole::MnuText), _vio.getPalette().get(AttribRole::MnuHotkey));
-		}
 
 		auto ret = 0;
 		auto done = false;
 		while( !done ) {
 			auto entry = _entries[_current];
-			win->hot(entry->getX(), entry->getY(), entry->getText(), _vio.getPalette().get(AttribRole::MnuInvers),
-					 _vio.getPalette().get(AttribRole::MnuHotInvers));
-			if (entry->getStatus().length())
-				_vio.status(entry->getStatus(),
-						_vio.getPalette().get(AttribRole::MnuStatusLine),
-						_vio.getPalette().get(AttribRole::MnuStatusInvers));
+			win->hot(entry->getX(), entry->getY(), entry->getText(), AttribRole::MnuInvers, AttribRole::MnuHotInvers);
+			//if (entry->getStatus().length())
+			//	_vio.status(entry->getStatus(), AttribRole::MnuStatusLine, AttribRole::MnuStatusInvers);
 
 			//win->update();
 			ret = getch(); // TODO: evGetKey()
+
+			ostringstream oss;
+			oss << "Key is " << key_name(ret);
+			_vio.status(oss.str(), AttribRole::MnuStatusLine, AttribRole::MnuStatusInvers);
+
 			if (std::find(exitCodes.begin(), exitCodes.end(), ret) != exitCodes.end())
 				return ret;
-
+AGAIN:
 			switch (ret) {
 				case KEY_UP:
-					win->hot(entry->getX(), entry->getY(), entry->getText(),
-							_vio.getPalette().get(AttribRole::MnuText),
-							_vio.getPalette().get(AttribRole::MnuHotkey));
+					win->hot(entry->getX(), entry->getY(), entry->getText(), AttribRole::MnuText, AttribRole::MnuHotkey);
 					if (--_current < 0) _current = _entries.size() - 1;
 					break;
 				case KEY_DOWN:
-					win->hot(entry->getX(), entry->getY(), entry->getText(), _vio.getPalette().get(AttribRole::MnuText),
-							 _vio.getPalette().get(AttribRole::MnuHotkey));
+					win->hot(entry->getX(), entry->getY(), entry->getText(), AttribRole::MnuText, AttribRole::MnuHotkey);
 					if (++_current >= _entries.size()) _current = 0;
 					break;
+				case 27:
+					nodelay(stdscr, true);
+					ret = getch();
+					oss << "Key is now " << key_name(ret);
+					_vio.status(oss.str(), AttribRole::MnuStatusLine, AttribRole::MnuStatusInvers);
+					nodelay(stdscr, false);
+					if( ret==ERR )
+						return -1;
+					goto AGAIN;
+				case '\n':
 				case KEY_ENTER:
 					// case KEY_RETURN:
 					// 	return _current;
-				case KEY_F(10):
+				case KEY_F(9):
 					done = true;
 					break;
 				default: {
 					auto index = 0;
 					for (auto newEntry: _entries) {
 						if (newEntry->getHotkey() == ret) {
-							win->hot(entry->getX(), entry->getY(), entry->getText(),
-									 _vio.getPalette().get(AttribRole::MnuText),
-									 _vio.getPalette().get(AttribRole::MnuHotkey));
+							win->hot(entry->getX(), entry->getY(), entry->getText(), AttribRole::MnuText, AttribRole::MnuHotkey);
 							_current = index;
-							win->hot(newEntry->getX(), newEntry->getY(), newEntry->getText(),
-									 _vio.getPalette().get(AttribRole::MnuInvers),
-									 _vio.getPalette().get(AttribRole::MnuHotInvers));
+							win->hot(newEntry->getX(), newEntry->getY(), newEntry->getText(), AttribRole::MnuInvers, AttribRole::MnuHotInvers);
 							done = true;
 							break;
 						}
+						index++;
 					}
 				}
 			}
@@ -136,12 +136,16 @@ namespace OldScool {
 			auto width = _maxWidth+2;
 			_win = new Win(_vio, x, y, width, height);
 			_win->cursor(CurOff);
-			_win->setBackground(_vio.getPalette().get(AttribRole::MnuText));
+			_win->setBackground(AttribRole::MnuText);
+			_win->setFrame(FrameType::Single, AttribRole::MnuFrame);
+			_win->setTitle(title, TitlePos::TopCenter, AttribRole::MnuTitle);
 			_win->clear();
-//			_win->setFrame(FrameType::Single, _vio.getPalette().get(AttribRole::MnuFrame));
-			_win->setTitle(title, TitlePos::TopCenter, _vio.getPalette().get(AttribRole::MnuTitle));
-			_win->show();
 			_maxWidth = MAX(_maxWidth, title.length()+2);
+
+			for(auto entry: _entries) {
+				_win->hot(entry->getX(), entry->getY(), entry->getText(), AttribRole::MnuText, AttribRole::MnuHotkey);
+			}
+			_win->show();
 		}
 		return _win;
 	}

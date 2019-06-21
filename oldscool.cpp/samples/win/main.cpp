@@ -28,6 +28,7 @@ int main() {
 
 	createWindows(*vio);
 	auto running = true;
+	_wins[_current]->setFrame( FrameType::Double, AttribRole::WinFrame );
 	while (running) {
 		auto ch = getch();
 		running = execute(*vio, ch);
@@ -37,32 +38,41 @@ int main() {
 	return 0;
 }
 
+static void nextWindow(const Vio& vio, int current) {
+	_wins[_current]->setFrame( FrameType::Single, AttribRole::WinFrame );
+	if( current>=_wins.size() ) current = 0;
+	if( current<0 ) current = _wins.size()-1;
+	_current = current;
+	_wins[_current]->setFrame( FrameType::Double, AttribRole::WinFrame );
+}
+
 static bool execute(const Vio& vio, char key) {
 
 	switch(key) {
 		case 27: return false; // ESC
-		case 7: // TAB
+		case 9: // TAB
 			//if( (key.Modifiers&ConsoleModifiers.Shift)==ConsoleModifiers.Shift) {
 			//	if( --_current<0 ) _current = _wins.Length-1;
 			//} else {
-				if( ++_current>=_wins.size() ) _current = 0;
+			nextWindow(vio, _current+1);
 			//}
 			return true;
 	}
 //	auto val = toLower(key.KeyChar);
 	switch(key) {
-		case '+': if( ++_current>=0 ) _current = 0; break;
-		case '-': if( --_current<0 ) _current = _wins.size()-1; break;
+		case '+': nextWindow(vio, _current+1); break;
+		case '-': nextWindow(vio, _current-1); break;
 		case '1': _wins[0]->setVisible( !_wins[0]->isVisible() ); break;
 		case '2': _wins[1]->setVisible( !_wins[1]->isVisible() ); break;
 		case '3': _wins[2]->setVisible( !_wins[2]->isVisible() ); break;
 		case '4': _wins[3]->setVisible( !_wins[3]->isVisible() ); break;
 		case 'm': _wins[4]->setVisible( !_wins[4]->isVisible() ); break;
-		case 's': _wins[_current]->setFrame( FrameType::Single, vio.getPalette().get(AttribRole::WinFrame) ); break;
-		case 'd': _wins[_current]->setFrame( FrameType::Double, vio.getPalette().get(AttribRole::WinFrame) ); break;
-		case 't': _wins[_current]->setFrame( FrameType::Thick, vio.getPalette().get(AttribRole::WinFrame) ); break;
-		case 'b': _wins[_current]->setFrame( FrameType::Block, vio.getPalette().get(AttribRole::WinFrame) ); break;
-		case 'n': _wins[_current]->setFrame( FrameType::None, vio.getPalette().get(AttribRole::WinFrame) ); break;
+		case 's': _wins[_current]->setFrame( FrameType::Single, AttribRole::WinFrame ); break;
+		case 'd': _wins[_current]->setFrame( FrameType::Double, AttribRole::WinFrame ); break;
+		case 't': _wins[_current]->setFrame( FrameType::Thick, AttribRole::WinFrame ); break;
+		case 'b': _wins[_current]->setFrame( FrameType::Block, AttribRole::WinFrame ); break;
+		case 'n': _wins[_current]->setFrame( FrameType::None, AttribRole::WinFrame ); break;
+		case 'c': _wins[_current]->clear(); break;
 	}
 	return true;
 }
@@ -81,10 +91,10 @@ static void createWindows(const Vio& vio) {
 		_wins[i]->print( toString("Win y............: ", _wins[i]->getY()) );
 		_wins[i]->print( toString("Win width........: ", _wins[i]->getWidth()) );
 		_wins[i]->print( toString("Win height.......: ", _wins[i]->getHeight()) );
-        _wins[i]->ss( 25, 1, "ss" );
-        _wins[i]->ssa( 25, 2, "ssa", vio.getPalette().get(AttribRole::MnuHotkey));
-        _wins[i]->sz( 25, 3, 'z' );
-        _wins[i]->sza( 25, 4, 'A', vio.getPalette().get(AttribRole::MnuHotkey) );
+		_wins[i]->ss( 25, 1, "ss" );
+		_wins[i]->ssa( 25, 2, "ssa", AttribRole::MnuHotkey);
+		_wins[i]->sz( 25, 3, 'z' );
+		_wins[i]->sza( 25, 4, 'A', AttribRole::MnuHotkey );
 	}
 }
 
@@ -131,5 +141,7 @@ static Win* createWindow4(const Vio& vio) {
 static Win* createWindowM(const Vio& vio) {
 	auto win = new Win(vio, vio.centerCol(windowWidth(vio)), vio.centerRow(windowHeight(vio)), windowWidth(vio), windowHeight(vio) );
 	win->setTitle( " Zentriert ", TitlePos::TopCenter, AttribRole ::WinTitle );
+	win->setBackground(AttribRole::LstStatusInvers);
+	win->clear();
 	return win;
 }

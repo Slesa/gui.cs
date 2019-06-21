@@ -8,7 +8,6 @@ namespace OldScool {
 	// http://www.melvilletheatre.com/articles/ncurses-extended-characters/index.html
 
 	Vio::Vio()
-	: _currAttrib(0)
 	{
 		// debug(L"-----------------------------------------------------------------------------------------------------");
 		init();
@@ -29,8 +28,8 @@ namespace OldScool {
 		_palette.configure();
 		cbreak();
 		curs_set(0);
-		keypad(stdscr, TRUE);
-		notimeout(stdscr, TRUE);
+		keypad(stdscr, true);
+		notimeout(stdscr, true);
 		mousemask(ALL_MOUSE_EVENTS, NULL);
 	}
 
@@ -85,7 +84,7 @@ namespace OldScool {
 
 //	wchar_t bgChar = L'\u2592';
 
-	void Vio::doBackground()const
+	void Vio::doBackground()
 	{
 		string bg;
 		bg.append(getColumns(), ACS_CKBOARD);
@@ -94,7 +93,7 @@ namespace OldScool {
 	// cout << "Background: " << bg; getch();
 		// if( has_colors() )
 		//auto attr = _palette.get(AttribRole::Background);
-		::attrset(_palette.get(AttribRole::Background));
+		setAttr(AttribRole::Background);
 //        ::attrset(_palette.get(AttribRole::Background));
 		for(auto i=0; i<getRows(); i++) {
 			for (auto n = 0; n < getColumns(); n++) {
@@ -105,6 +104,7 @@ namespace OldScool {
 		//if( has_colors() ) {
 		//	::bkgd(/*_palette.getBackground() |*/ /*ACS_CKBOARD*/ '*');
 //		::attrset(_palette.get(AttribRole::MnuHotInvers));
+		clrAttr(AttribRole::Background);
 		::refresh();
 		//}
 	}
@@ -119,19 +119,13 @@ namespace OldScool {
 		::move(y, x);
 	}
 
-/*	void Vio::sa(int x, int y, int col) const
-	{
-		_sa(x, y, col);
-		::refresh();
-	} */
-
 	void Vio::sz(int x, int y, wchar_t ch) const
 	{
 		_sz(x, y, ch);
 		::refresh();
 	}
 
-	void Vio::sza(int x, int y, wchar_t ch, int col) const
+	void Vio::sza(int x, int y, wchar_t ch, int col)
 	{
 		_sza(x, y, ch, col);
 		::refresh();
@@ -143,13 +137,13 @@ namespace OldScool {
 		::refresh();
 	}
 
-	void Vio::ssa(int x, int y, const string& str, int col) const
+	void Vio::ssa(int x, int y, const string& str, int col)
 	{
 		_ssa(x, y, str, col);
 		::refresh();
 	}
 
-	void Vio::status(const string& str, int colnorm, int colinv) const
+	void Vio::status(const string& str, int colnorm, int colinv)
 	{
 		int x, y;
 		getyx(stdscr, y, x);
@@ -162,13 +156,15 @@ namespace OldScool {
 		auto attr = colnorm;
 		auto text = str;
 		while( !text.empty() ) {
-			::attrset(_palette.get(attr));
+			setAttr(attr);
+			//::attrset(_palette.get(attr));
 			auto pos = text.find('~');
 			if( pos!=string::npos ) {
 				auto substr = text.substr(0, pos);
 				// cout << "Substr " << substr << '\n';
 				::addstr(substr.c_str());
 				column += substr.length();
+				clrAttr(attr);
 				attr = (attr==colnorm) ? colinv : colnorm;
 				text = text.substr(pos+1);
 				// cout << "Text " << text << '\n';
@@ -185,22 +181,25 @@ namespace OldScool {
 			}
 		}
 
+		clrAttr(attr);
 		::move(y, x);
 		::refresh();
 	}
 
-	void Vio::statusOff() const
+	void Vio::statusOff()
 	{
 		status(" ", AttribRole::Background, AttribRole::Background);
 	}
 
-	int Vio::getAttr() const {
-		return _currAttrib;
+	void Vio::setAttr(int attrib) {
+		if( _usedAttribs.find(attrib)==_usedAttribs.end()) {
+			::attrset(_palette.get(attrib));
+			_usedAttribs.insert(attrib);
+		}
 	}
 
-	void Vio::setAttr(int attrib) {
-		_currAttrib = attrib;
-		::attrset(_currAttrib);
+	void Vio::clrAttr(int attrib) {
+		::attroff(attrib);
 	}
 
 	/* void Vio::_sa(int x, int y, int col) const
@@ -212,12 +211,12 @@ namespace OldScool {
 		mvaddch(y, x, ch);
 	}
 
-	void Vio::_sza(int x, int y, wchar_t ch, int col) const
+	void Vio::_sza(int x, int y, wchar_t ch, int col)
 	{
 		::move(y, x);
-		::attrset(_palette.get(col));
+		setAttr(col);
 		::addch(ch);
-		::attroff(_palette.get(col));
+		clrAttr(col);
 	}
 
 	void Vio::_ss(int x, int y, const string& str) const
@@ -225,11 +224,11 @@ namespace OldScool {
 		mvaddstr(y, x, str.c_str());
 	}
 
-	void Vio::_ssa(int x, int y, const string& str, int col) const
+	void Vio::_ssa(int x, int y, const string& str, int col)
 	{
 		::move(y, x);
-		::attrset(_palette.get(col));
+		setAttr(col);
 		::addstr(str.c_str());
-		::attroff(_palette.get(col));
+		clrAttr(col);
 	}
 }

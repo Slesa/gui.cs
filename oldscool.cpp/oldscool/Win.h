@@ -49,20 +49,19 @@ namespace OldScool {
 		}
 		bool isVisible();
 		void setVisible(bool doShow) { if (doShow) show(); else hide(); }
-		void setFrame(FrameType frame, int attr);
-		void setTitle(const string& title, TitlePos pos, int attr);
+		void setFrame(FrameType frame, AttribRole attribRole);
+		void setTitle(const string& title, TitlePos pos, AttribRole attribRole);
 		void show();
 		void hide();
-		void setBackground(int col);
+		void setBackground(AttribRole attribRole);
 		void update();
 		void clear();
-		void sa(int x, int y, int col);
 		void sz(int x, int y, char ch);
-		void sza(int x, int y, char ch, int col);
+		void sza(int x, int y, char ch, AttribRole attribRole);
 		void ss(int x, int y, const string& str);
-		void ssa(int x, int y, const string& str, int col);
+		void ssa(int x, int y, const string& str, AttribRole attribRole);
 		void print(const string& str);
-		void hot(int x, int y, const string& str, int colnorm, int colinv);
+		void hot(int x, int y, const string& str, AttribRole normRole, AttribRole invRole);
 		static int getHotkey(const string& text);
 	public:	// ---- Cursor-Functions ---------------------------------------------------------------------------------
 		void cursor(CursorType mode);
@@ -78,12 +77,12 @@ namespace OldScool {
 		const Vio& _vio;
 		_win_st*	_window; //! Windw handle
 		_win_st*	_content; //! Inner window due to frame
-		int			_textAttr;
-		int			_frameAttr;
+		AttribRole	_textAttr;
+		AttribRole	_frameAttr;
 		Frame*		_frame;
 		string		_title;
 		TitlePos	_titlePos;
-		int			_titleAttr;
+		AttribRole	_titleAttr;
 	};
 
 }

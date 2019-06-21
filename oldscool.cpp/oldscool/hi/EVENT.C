@@ -10,90 +10,8 @@
  PRIVATE BOOL     boHideMouse = FALSE;
  PRIVATE BOOL     boNoWait    = FALSE;
 
- VOID CDECL     EvInit       ( void )
- {
-  MemFill( EvMulti, 0, sizeof( EvMulti ) );
-  EvKeybInit();
-  EvMouInit();
-  #if( !defined UNIX )
-  EvSchonInit();
-  #endif
-//  EvSplInit();
- }
 
- VOID CDECL     EvDone       ( void )
- {
-  EvMouDone();
-  EvKeybDone();
-  #if( !defined UNIX )
-  EvSchonDone();
-  #endif
-//  EvSplDone();
- }
 
- VOID CDECL     EvDoMulti    ( void )
- {
-   INT           i;
-   for( i=0; i<EV_QUEUESIZE; i++ )
-   {
-    if( ( EvMulti[i].Multi ) && ( ++EvMulti[i].lCount>=EvMulti[i].lDelay ) )
-    {
-     EvMulti[i].Multi();
-     EvMulti[i].lCount = 0L;
-    }
-   }
- }
-
- INT  CDECL     EvAddMulti   ( multi, lDelay )
- FEvMulti       multi;
- LONG           lDelay;
- {
-  INT           i;
-  for( i=0; i<EV_QUEUESIZE; i++ )
-  {
-   if( EvMulti[i].Multi==NULL )
-   {
-    EvMulti[i].Multi  = multi;
-    EvMulti[i].lDelay = lDelay;
-    EvMulti[i].lCount = 0L;
-    return( i );
-   }
-  }
-  return( -1 );
- }
-
- VOID CDECL     EvDelMulti   ( iWhich )
- INT            iWhich;
- {
-  if( iWhich>=0 ) EvMulti[iWhich].Multi = NULL;
- }
-
- INT  CDECL     EvGetKey     ( void )
- {
-  INT           iRet         = 0;
-  BOOL          boFertig     = FALSE;
-  while( !boFertig )
-  {
-   EvDoMulti();
-   if( EvKeybGetch( &iRet ) ) { EvSchonReset(); break; }
-   if( !boHideMouse )
-    if( EvMouGetch( &iRet ) )  { EvSchonReset(); break; }
-   if( EvSchoner() ) return( 0 );
-   if( boNoWait )
-    break;
-  }
-  return( iRet );
- }
-
- VOID CDECL     EvHideMouse   ( BOOL flag )
- {
-  boHideMouse = flag;
- }
-
- VOID CDECL     EvNoWait      ( BOOL flag )
- {
-  boNoWait = flag;
- }
 
 #ifdef          _TEST_EVENT_
 
@@ -114,7 +32,7 @@
  }
 #endif
 
- CHAR           States[]     = { '\\', '³', '/', 'Ä' };
+ CHAR           States[]     = { '\\', 'ï¿½', '/', 'ï¿½' };
 
  VOID           Multi1       ( void )
  {
@@ -201,7 +119,7 @@
    iKey = EvGetKey();
    if( iKey!=0 )
    {
-    printf( "\n%4hX ³ %4hd ³ %c", iKey, iKey, iKey );
+    printf( "\n%4hX ï¿½ %4hd ï¿½ %c", iKey, iKey, iKey );
     if( iKey==27 ) boFertig = TRUE;
    }
 //   gotoxy( 10, 10 ); printf( "Taste........: %4d", iKey );

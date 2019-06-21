@@ -1,6 +1,7 @@
 #ifndef OLDSCOOL_VIO_H
 #define OLDSCOOL_VIO_H
 #include <string>
+#include <set>
 #include "Palette.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ namespace OldScool {
 		static bool	canColors();
 		static int	getColorCount();
 	public:
-		void doBackground() const;
+		void doBackground();
 		int centerCol(int len=0) const
 		{
 			return (getColumns()-len) / 2;
@@ -37,26 +38,27 @@ namespace OldScool {
 	public:
 		void clear() const;
 		void gotoxy(int x, int y) const;
-		void sa(int x, int y, int col) const;
 		void sz(int x, int y, wchar_t ch) const;
-		void sza(int x, int y, wchar_t ch, int col) const;
+		void sza(int x, int y, wchar_t ch, int col);
 		void ss(int x, int y, const string& str) const;
-		void ssa(int x, int y, const string& str, int col) const;
-		void status(const string& str, int colnorm, int colinv) const;
-		void statusOff() const;
+		void ssa(int x, int y, const string& str, int col);
+		void status(const string& str, int colnorm, int colinv);
+		void statusOff();
 	private:
 		int getAttr() const;
 		void setAttr(int attrib);
-		void _sa(int x, int y, int col) const;
+		void clrAttr(int attrib);
+		void _sa(int x, int y, int col);
 		void _sz(int x, int y, wchar_t ch) const;
-		void _sza(int x, int y, wchar_t ch, int col) const;
+		void _sza(int x, int y, wchar_t ch, int col);
 		void _ss(int x, int y, const string& str) const;
-		void _ssa(int x, int y, const string& str, int col) const;
+		void _ssa(int x, int y, const string& str, int col);
 	private:
 		void init();
 		void done();
 		Palette _palette;
-		int _currAttrib;
+		std::set<int> _usedAttribs;
+		friend class Win;
 	};
 
 }

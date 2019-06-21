@@ -15,7 +15,7 @@ int main() {
 	vio->doBackground();
 
 	auto mnu = new Mnu(*vio);
-	mnu->add( "  Eintrag ~1~  ", " ~F1~ Help ~F2~ Search | This is the first entry" );
+	mnu->add( "  Eintrag ~1~                ", " ~F1~ Help ~F2~ Search | This is the first entry" );
 	mnu->add( "  Eintrag ~2~  ", " ~F1~ Help ~F2~ Search | This is the second entry" );
 	mnu->add( "  Eintrag ~3~  ", " ~F1~ Help ~F2~ Search | This is the third entry" );
 	mnu->add( "  Eintrag ~4~  ", " ~F1~ Help ~F2~ Search | This is the fourth entry" );

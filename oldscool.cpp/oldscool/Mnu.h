@@ -12,7 +12,7 @@ namespace OldScool {
 
 	public:
 		MnuEntry();
-		MnuEntry(int x, int y, const string &text, int hotkey = 0, const string &status = nullptr);
+		MnuEntry(int x, int y, const string& text, const string& status, int hotkey=0);
 		int getX() const { return _x; }
 		int getY() const { return _y; }
 		int getHotkey() const { return _hotkey; }
@@ -33,9 +33,8 @@ namespace OldScool {
 		Mnu(Vio& vio);
 		~Mnu();
 		void add(MnuEntry* entry);
-		void add(const string& text, const string& status=nullptr);
-		void add(const string& text, int hotkey=0, const string& status=nullptr);
-		void add(int x, int y, const string& text, int hotkey=0, const string& status=nullptr);
+		void add(const string& text, const string& status, int hotkey=0);
+		void add(int x, int y, const string& text, const string& status, int hotkey=0);
 		int handle(const string& title, const vector<int>& exitCodes=vector<int>());
 		int handle(const string& title, int x, int y, const vector<int>& exitCodes=vector<int>());
 
