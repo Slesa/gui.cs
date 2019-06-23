@@ -26,11 +26,7 @@ namespace OldScool {
 			start_color();
 		}
 		_palette.configure();
-		cbreak();
 		curs_set(0);
-		keypad(stdscr, true);
-		notimeout(stdscr, true);
-		mousemask(ALL_MOUSE_EVENTS, NULL);
 	}
 
 	void Vio::done() {

@@ -12,37 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96feb32e-b84c-477a-aa8c-3a6158dad867" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/events.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../win/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Palette.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Palette.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/hi/EVENT.H" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/hi/EVENT.H" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mnu/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mnu/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../win/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../win/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +34,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+            <state relative-caret-position="131">
+              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -92,7 +70,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="151" />
+    <option name="y" value="31" />
     <option name="width" value="1932" />
     <option name="height" value="1055" />
   </component>
@@ -102,13 +80,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -140,25 +119,20 @@
       <option name="presentableId" value="Default" />
       <updated>1561127158293</updated>
       <workItem from="1561127159879" duration="4600000" />
+      <workItem from="1561314754158" duration="2650000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4600000" />
+    <option name="totallyTimeSpent" value="7250000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="151" width="1932" height="1055" extended-state="6" />
+    <frame x="-6" y="31" width="1692" height="1025" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1315229" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15201466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CMake" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -166,23 +140,22 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.32924107" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../oldscool/Events.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -190,10 +163,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+        <state relative-caret-position="131">
+          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

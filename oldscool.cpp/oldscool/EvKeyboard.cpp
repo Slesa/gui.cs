@@ -4,7 +4,12 @@
 namespace OldScool {
 
 	void EvKeyboard::init() {
-		keypad(stdscr, false);
+		cbreak();
+		keypad(stdscr, true);
+		cbreak();
+		// raw();
+		keypad(stdscr, true);
+		notimeout(stdscr, true);
 		nodelay(stdscr, true);
 	}
 

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="lscheidt@slesa.database.windows.net">
+  <database-model serializer="dbm" dbms="AZURE" family-id="AZURE" format-version="4.15">
+    <root id="1">
+      <ServerVersion>12.0.1400</ServerVersion>
+      <Dbms>AZURE</Dbms>
+    </root>
+    <database id="2" parent="1" name="lscheidt">
+      <ObjectId>5</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+      <Fingerprint>5.43637/A5612B09-40AA-42B1-8880-63C4B4AB0253@slesa</Fingerprint>
+    </database>
+    <database id="3" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+    </database>
+    <schema id="4" parent="2" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="12" parent="2" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="13" parent="2" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="14" parent="2" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2019-06-23.18:25:19.360</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="15" parent="2" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="16" parent="2" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="17" parent="14" name="books">
+      <ObjectId>1205579333</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:24:57.580</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:33:33.413</ModifiedTimestamp>
+    </table>
+    <table id="18" parent="14" name="dialogs">
+      <ObjectId>1317579732</ObjectId>
+      <CreatedTimestamp>2019-06-23.17:35:24.653</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-23.17:36:40.520</ModifiedTimestamp>
+    </table>
+    <table id="19" parent="14" name="lessons">
+      <ObjectId>1269579561</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:33:33.413</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-23.17:36:40.520</ModifiedTimestamp>
+    </table>
+    <table id="20" parent="14" name="topics">
+      <ObjectId>1237579447</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:29:09.030</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:29:09.260</ModifiedTimestamp>
+    </table>
+    <column id="21" parent="17" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>nvarchar(32 char)|0s</DataType>
+    </column>
+    <index id="23" parent="17" name="book_id_uindex">
+      <Position>2</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="24" parent="17" name="book_pk">
+      <Position>3</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="25" parent="17" name="book_pk">
+      <ObjectId>1221579390</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:24:57.773</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:24:57.773</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>book_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="18" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="18" name="text">
+      <Position>2</Position>
+      <DataType>nvarchar(1024 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="18" name="lesson">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="29" parent="18" name="dialogs_id_uindex">
+      <Position>2</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="30" parent="18" name="dialogs_pk">
+      <Position>3</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="18" name="dialogs_pk">
+      <ObjectId>1333579789</ObjectId>
+      <CreatedTimestamp>2019-06-23.17:35:24.853</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-23.17:35:24.853</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>dialogs_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="18" name="dialogs_lessons_id_fk">
+      <ObjectId>1365579903</ObjectId>
+      <CreatedTimestamp>2019-06-23.17:36:40.520</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-23.17:36:40.520</ModifiedTimestamp>
+      <ColNames>lesson</ColNames>
+      <RefTableId>1269579561</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>lessons</RefTableName>
+      <RefKeyName>lessons_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="33" parent="19" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="19" name="title">
+      <Position>2</Position>
+      <DataType>nvarchar(32 char)|0s</DataType>
+    </column>
+    <column id="35" parent="19" name="book">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="19" name="lessons_id_uindex">
+      <Position>2</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="37" parent="19" name="lessons_pk">
+      <Position>3</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="19" name="lessons_pk">
+      <ObjectId>1301579675</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:33:33.613</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:33:33.613</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>lessons_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="39" parent="19" name="lessons_books_id_fk">
+      <ObjectId>1285579618</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:33:33.413</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:33:33.413</ModifiedTimestamp>
+      <ColNames>book</ColNames>
+      <RefTableId>1205579333</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>books</RefTableName>
+      <RefKeyName>book_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="40" parent="20" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="20" name="title">
+      <Position>2</Position>
+      <DataType>nvarchar(64 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="20" name="descr">
+      <Position>3</Position>
+      <DataType>nvarchar(256 char)|0s</DataType>
+    </column>
+    <index id="43" parent="20" name="topics_id_uindex">
+      <Position>2</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="44" parent="20" name="topics_pk">
+      <Position>3</Position>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="20" name="topics_pk">
+      <ObjectId>1253579504</ObjectId>
+      <CreatedTimestamp>2019-06-22.22:29:09.257</CreatedTimestamp>
+      <ModifiedTimestamp>2019-06-22.22:29:09.257</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>topics_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

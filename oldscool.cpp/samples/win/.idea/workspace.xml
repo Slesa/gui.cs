@@ -12,24 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03545253-0576-4cd7-8477-2dd3dc9f8614" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Palette.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Palette.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mnu/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mnu/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,10 +26,47 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lscheidt@slesa.database.windows.net" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lscheidt@slesa.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="lscheidt: database" type="ccb7ac2a:MsImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lscheidt@slesa.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="lscheidt: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lscheidt@slesa.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="lscheidt: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="dialogs: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -53,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="102" selection-start-line="101" selection-end-line="102" />
+            <state relative-caret-position="540">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -89,14 +111,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../events" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -147,13 +169,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37980000" />
+    <option name="totallyTimeSpent" value="38549000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="151" width="1932" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="31" width="1692" height="1025" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13791268" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15811966" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -195,8 +216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="102" selection-start-line="101" selection-end-line="102" />
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

@@ -15,37 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3391686-05d2-479b-acdf-8a8696f78e51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/EvProcess.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../oldscool/Events.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/events.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../events/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../win/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Mnu.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Mnu.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Palette.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Palette.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/hi/EVENT.C" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/hi/EVENT.H" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/hi/EVENT.H" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../events/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../events/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../events/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../events/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../win/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../win/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,22 +53,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="49" lean-forward="true" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" selection-start-line="19" selection-end-line="20" />
+            <state relative-caret-position="375">
+              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,17 +103,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mnu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mnu" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -186,13 +154,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17175000" />
+    <option name="totallyTimeSpent" value="17949000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="31" width="1932" height="1055" extended-state="6" />
+    <frame x="0" y="31" width="1932" height="1055" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17092651" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18051118" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -207,7 +175,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32829374" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32829374" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,8 +285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="49" lean-forward="true" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="375">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -328,7 +296,7 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" selection-start-line="19" selection-end-line="20" />
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
         </state>
       </provider>
     </entry>

@@ -12,37 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12657297-da30-4181-8b69-9ff91a0fffb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EvKeyboard.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvKeyboard.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvMouse.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvMouse.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvProcess.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvProcess.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Events.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Events.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/events.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../samples/events/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../samples/win/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mnu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Mnu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mnu.h" beforeDir="false" afterPath="$PROJECT_DIR$/Mnu.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Palette.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Palette.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvKeyboard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EvKeyboard.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvMouse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/EvMouse.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Vio.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vio.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Win.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Win.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/Win.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hi/EVENT.C" beforeDir="false" afterPath="$PROJECT_DIR$/hi/EVENT.C" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hi/EVENT.H" beforeDir="false" afterPath="$PROJECT_DIR$/hi/EVENT.H" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../samples/events/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/events/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../samples/events/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/events/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../samples/mnu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/mnu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../samples/mnu/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/mnu/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../samples/win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/win/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../samples/win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../samples/win/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Vio.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="31" selection-start-line="30" selection-end-line="31" />
+            <state relative-caret-position="390">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -69,26 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Events.cpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EvKeyboard.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EvProcess.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -102,19 +65,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EvMouse.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hi/EVMOUSE.C">
+        <entry file="file://$PROJECT_DIR$/EvKeyboard.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360" />
+            <state relative-caret-position="270">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -128,22 +84,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EvKeyboard.cpp">
+        <entry file="file://$PROJECT_DIR$/EvMouse.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Events.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EvKeyboard.h">
+        <entry file="file://$PROJECT_DIR$/Win.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="13" selection-end-line="16" />
+            <state relative-caret-position="930">
+              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#1066#1123#0" />
+                <element signature="e#1126#1193#0" />
+                <element signature="e#1196#1265#0" />
+                <element signature="e#1268#1315#0" />
+                <element signature="e#1318#1365#0" />
+                <element signature="e#1368#1419#0" />
+                <element signature="e#1422#1474#0" />
+                <element signature="e#1477#1681#0" />
+                <element signature="e#2030#2179#0" />
+                <element signature="e#2182#2629#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,8 +129,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mnu.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+            <state relative-caret-position="2130">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Palette.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -213,7 +203,6 @@
         <option value="$PROJECT_DIR$/Win.h" />
         <option value="$PROJECT_DIR$/Win.cpp" />
         <option value="$PROJECT_DIR$/Vio.h" />
-        <option value="$PROJECT_DIR$/Vio.cpp" />
         <option value="$PROJECT_DIR$/Mnu.cpp" />
         <option value="$PROJECT_DIR$/EvProcess.h" />
         <option value="$PROJECT_DIR$/hi/EVENT.H" />
@@ -221,16 +210,17 @@
         <option value="$PROJECT_DIR$/EvKeyboard.h" />
         <option value="$PROJECT_DIR$/Events.h" />
         <option value="$PROJECT_DIR$/EvProcess.cpp" />
-        <option value="$PROJECT_DIR$/EvKeyboard.cpp" />
         <option value="$PROJECT_DIR$/Events.cpp" />
-        <option value="$PROJECT_DIR$/EvMouse.cpp" />
         <option value="$PROJECT_DIR$/EvMouse.h" />
+        <option value="$PROJECT_DIR$/Vio.cpp" />
+        <option value="$PROJECT_DIR$/EvMouse.cpp" />
+        <option value="$PROJECT_DIR$/EvKeyboard.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="151" />
+    <option name="y" value="31" />
     <option name="width" value="1932" />
     <option name="height" value="1055" />
   </component>
@@ -240,7 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,17 +240,13 @@
             <path>
               <item name="oldscool" type="b2602c69:ProjectViewProjectNode" />
               <item name="oldscool" type="462c0819:PsiDirectoryNode" />
-              <item name="hi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oldscool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oldscool" type="462c0819:PsiDirectoryNode" />
               <item name="qh" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,13 +312,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98435000" />
+    <option name="totallyTimeSpent" value="101735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="151" width="1932" height="1055" extended-state="6" />
+    <frame x="0" y="31" width="1932" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.18157615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950166" visible="true" weight="0.18157615" />
       <window_info id="Structure" order="1" sideWeight="0.50498337" side_tool="true" weight="0.18253969" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -344,7 +329,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.4994664" visible="true" weight="0.25917926" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4994664" visible="true" weight="0.25917926" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053364" side_tool="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -498,15 +483,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Palette.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="360">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Win.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+        <state relative-caret-position="315">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
           <folding>
             <element signature="e#47#64#0" expanded="true" />
           </folding>
@@ -515,8 +500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Win.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="186" column="61" selection-start-line="186" selection-start-column="61" selection-end-line="186" selection-end-column="61" />
+        <state relative-caret-position="930">
+          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#1066#1123#0" />
@@ -545,8 +530,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Palette.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="33" />
+        <state relative-caret-position="480">
+          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -608,22 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Mnu.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EvKeyboard.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="13" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Events.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="2130">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
         </state>
       </provider>
     </entry>
@@ -637,39 +608,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vio.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="31" selection-start-line="30" selection-end-line="31" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Events.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EvKeyboard.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hi/EVMOUSE.C">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Events.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvKeyboard.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EvMouse.h">
@@ -679,10 +634,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Events.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EvMouse.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvKeyboard.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

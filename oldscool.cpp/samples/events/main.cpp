@@ -37,7 +37,6 @@ int main() {
 	setlocale(LC_ALL,"");
 	initscr();
 	noecho();
-	cbreak();
 	curs_set(0);
 	//keypad(stdscr, true);
 	notimeout(stdscr, true);
