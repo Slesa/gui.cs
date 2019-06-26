@@ -6,9 +6,8 @@ namespace OldScool {
 	void EvKeyboard::init() {
 		cbreak();
 		keypad(stdscr, true);
-		cbreak();
+		// cbreak();
 		// raw();
-		keypad(stdscr, true);
 		notimeout(stdscr, true);
 		nodelay(stdscr, true);
 	}

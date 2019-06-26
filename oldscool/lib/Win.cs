@@ -1,68 +1,60 @@
 using System;
 
-namespace OldSchool 
+namespace OldScool 
 {
-	public enum TitlePosition
+	public enum TitlePos
 	{
-		TopLeft,        // oben links
-		TopCenter,      // oben zentriert
-		TopRight,       // oben rechts
-		BottomLeft,     // unten links 
-		BottomCenter,   // unten zentriert
-		BottomRight     // unten rechts
+		TopLeft,
+		TopCenter,
+		TopRight,
+		BottomLeft, 
+		BottomCenter,
+		BottomRight
 	}
 
-	public enum FrameType
-	{
-		None,           // Kein Rahmen
-		Single,         // Einfacher Rahmen
-		Double,         // Doppelter Rahmen
-		Thick,          // Dicker Rahmen
-		Block,          // Blockrahmen
-	}
 
 	public enum CursorType
 	{
-		Off,            // No cursor
-		Line,           // Line cursor
-		Block           // Block cursor
+		Off,
+		Line,
+		Block
 	}
 
 	// A window part of the screen
 	public class Win
 	{
-		public static int DefTitleAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
-		public static int DefFrameAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+		public Win(Vio vio, int x, int y, int w, int h)
+		{
+			_vio = vio;
+			PosX = x;
+			PosY = y;
+			Width = w;
+			Height = h;
 
-    int _curX; // X-Position des Cursors
-    int _curY; // Y-Position des Cursors
-    int [,,] _content;
-    int [,,] _background;
-    int _textAttr;
-//  INT           iTitlePos;                       /* Position des Titels     */
-//  WORD          wFlags;                          /* Die Fenster-Flags       */
-//  WORD          wAttrShadow;                     /* Attribut des Fensterschattens */
+			CursorType = CursorType.Off;
+			_titleAttr = AttribRole.WinTitle;
+			_frame = CreateFrame(FrameType.Single);
+			_frameAttr = AttribRole.WinFrame;
 
-	public Win(int x, int y, int w, int h)
-	{
-		PosX = x;
-		PosY = y;
-		Width = w;
-		Height = h;
-
-		CursorType = CursorType.Off;
-		_titleAttr = DefTitleAttr;
-		_frameType = FrameType.Single;
-		_frameAttr = DefFrameAttr;
-
-      _visible = false;
-      _content = new int [w, h, 2];
-      _background = new int [w, h, 2];
-      _textAttr = Colors.MakeAttr(ConsoleColor.White, ConsoleColor.DarkBlue);
+			_visible = false;
+			_content = new int [w, h, 2];
+			_background = new int [w, h, 2];
+			_textAttr = AttribRole.WinText;
 		
 
-		Cls();
-    }
+			Clear();
+		}
+
+		public void SetBackground(AttribRole attribRole)
+		{
+			
+		}
+		
+		
+		public int PosX { get; } 
+		public int PosY { get; } 
+		public int Width { get; }
+		public int Height { get; }
 
 		int CenterCol(int len=0)
 		{
@@ -73,20 +65,37 @@ namespace OldSchool
 			return (Height-height) / 2;
 		}
 
-		public int PosX { get; } 
-		public int PosY { get; } 
-		public int Width { get; }
-		public int Height { get; }
+
+
+
+
+
+
+
+		Vio _vio;
+		int _curX; // X-Position des Cursors
+		int _curY; // Y-Position des Cursors
+		int [,,] _content;
+		int [,,] _background;
+		AttribRole _textAttr;
+//  INT           iTitlePos;                       /* Position des Titels     */
+//  WORD          wFlags;                          /* Die Fenster-Flags       */
+//  WORD          wAttrShadow;                     /* Attribut des Fensterschattens */
+
+
+
+
+
 		public CursorType CursorType { get; set; }
 
 		#region Title
 
 		string _title;
-		TitlePosition _titlePosition;
-		int _titleAttr;
+		TitlePos _titlePosition;
+		AttribRole _titleAttr;
 		public string Title { get => _title; }
-		public TitlePosition TitlePosition { get => _titlePosition; }
-		public void SetTitle(string title, TitlePosition position, int attribute) { 
+		public TitlePos TitlePosition { get => _titlePosition; }
+		public void SetTitle(string title, TitlePos position, AttribRole attribute=AttribRole.WinTitle) { 
 			_title = title;
 			_titlePosition = position; 
 			_titleAttr = attribute;
@@ -98,13 +107,13 @@ namespace OldSchool
 
 		#region Frame
 
-		FrameType _frameType;
-		int _frameAttr;
+		IFrame _frame;
+		AttribRole _frameAttr;
 
-		public FrameType FrameType { get => _frameType; }
-		public void SetFrame(FrameType frameType, int attribute)
+		public FrameType FrameType { get => _frame!=null ? _frame.Type : FrameType.None; }
+		public void SetFrame(FrameType frameType, AttribRole attribute=AttribRole.WinFrame)
 		{
-			_frameType = frameType;
+			_frame = CreateFrame(frameType);
 			_frameAttr = attribute;
 			DrawFrame();
 			DrawTitle();
@@ -132,7 +141,7 @@ namespace OldSchool
 	public void Remove() {}
 
 
-    public void Cls()
+    public void Clear()
     {
       var line = new string(' ', Width-2);
       for(var i=0; i<Height-2; i++) {
@@ -140,21 +149,37 @@ namespace OldSchool
       }
     }
 
-    public void Sza(int col, int row, char ch, int attr)
+    public void Sz(int col, int row, char ch)
     {
-      if( Visible )
-        Vio.Sza(PosX+col+1, PosY+row+1, ch, attr);
-      _content[col,row,0] = ch;
-      _content[col,row,1] = attr;
+	    if( Visible )
+		    _vio.Sz(PosX+col+1, PosY+row+1, ch);
+	    _content[col,row,0] = ch;
     }
 
-    public void Ssa(int col, int row, string text, int attr)
+    public void Sza(int col, int row, char ch, AttribRole attr)
     {
       if( Visible )
-        Vio.Ssa(PosX+col+1, PosY+row+1, text, attr);
+        _vio.Sza(PosX+col+1, PosY+row+1, ch, attr);
+      _content[col,row,0] = ch;
+      _content[col,row,1] = (int) attr;
+    }
+
+    public void Ss(int col, int row, string text)
+    {
+	    if( Visible )
+		    _vio.Ss(PosX+col+1, PosY+row+1, text);
+	    for(int i=0; i<text.Length; i++) {
+		    _content[col+i,row,0] = text[i];
+	    }
+    }
+
+    public void Ssa(int col, int row, string text, AttribRole attr)
+    {
+      if( Visible )
+        _vio.Ssa(PosX+col+1, PosY+row+1, text, attr);
       for(int i=0; i<text.Length; i++) {
         _content[col+i,row,0] = text[i];
-        _content[col+i,row,1] = attr;
+        _content[col+i,row,1] = (int) attr;
       }
     }
 
@@ -179,7 +204,7 @@ namespace OldSchool
               ; //ScrollUp();
             else
               row++;
-              col = 0;
+             col = 0;
             break;
           default:
             Sza( col, row, (char)text[i], _textAttr );
@@ -201,7 +226,7 @@ namespace OldSchool
     {
       for(var i=0; i<Width-2; i++) {
         for(var n=0; n<Height-2; n++) {
-          Vio.Sza(PosX+i+1, PosY+n+1, (char)_content[i,n,0], _content[i,n,1]);
+          _vio.Sza(PosX+i+1, PosY+n+1, (char)_content[i,n,0], (AttribRole) _content[i,n,1]);
         }
       }
     }
@@ -212,7 +237,7 @@ namespace OldSchool
     {
       for(var i=0; i<Width; i++) {
         for(var n=0; n<Height; n++) {
-           Vio.Sza(i+PosX, n+PosY, (char)_background[i, n, 0], _background[i, n, 1]);
+           _vio.Sza(i+PosX, n+PosY, (char)_background[i, n, 0], (AttribRole) _background[i, n, 1]);
         }
       }
     }
@@ -221,8 +246,8 @@ namespace OldSchool
     {
       for(var i=0; i<Width; i++) {
         for(var n=0; n<Height; n++) {
-          _background[i, n, 0] = Vio.Lz(i+PosX, n+PosY);
-          _background[i, n, 1] = Vio.La(i+PosX, n+PosY);
+          _background[i, n, 0] = _vio.Lz(i+PosX, n+PosY);
+          _background[i, n, 1] = _vio.La(i+PosX, n+PosY);
         }
       }
     }
@@ -238,29 +263,29 @@ namespace OldSchool
  
 			switch(TitlePosition)
 			{
-				case TitlePosition.BottomLeft:
+				case TitlePos.BottomLeft:
 					row = PosY + Height -1;
 					col = PosX + 1;
 					break;
-				case TitlePosition.BottomCenter:
+				case TitlePos.BottomCenter:
 					row = PosY + Height -1;
 					col = PosX + CenterCol(Title.Length);
 					break;
-				case TitlePosition.BottomRight:
+				case TitlePos.BottomRight:
 					row = PosY + Height -1;
-			        col = PosX + Width - Title.Length - 1;
+					col = PosX + Width - Title.Length - 1;
 					break;
-				case TitlePosition.TopLeft:
+				case TitlePos.TopLeft:
 					col = PosX + 1;
 					break;
-				case TitlePosition.TopCenter:
+				case TitlePos.TopCenter:
 					col = PosX + CenterCol(Title.Length);
 					break;
-				case TitlePosition.TopRight:
-			        col = PosX + Width - Title.Length - 1;
+				case TitlePos.TopRight:
+					col = PosX + Width - Title.Length - 1;
 					break;
 			}
-			Vio.Ssa( col, row, Title, _titleAttr );
+			_vio.Ssa( col, row, Title, _titleAttr );
 		}
 
 		void DrawFrame()
@@ -268,29 +293,28 @@ namespace OldSchool
 			if( !Visible ) return;
 			var width = PosX+Width-1;
 			var height = PosY+Height-1;
-			var chars = GetFrameChars();
-			Vio.Sza( PosX, PosY, chars.TopLeft, _frameAttr );
-			Vio.Sza( width, PosY, chars.TopRight, _frameAttr );
-			Vio.Sza( PosX, height, chars.BottomLeft, _frameAttr );
-			Vio.Sza( width, height, chars.BottomRight, _frameAttr );
+			_vio.Sza( PosX, PosY, _frame.TopLeft, _frameAttr );
+			_vio.Sza( width, PosY, _frame.TopRight, _frameAttr );
+			_vio.Sza( PosX, height, _frame.BottomLeft, _frameAttr );
+			_vio.Sza( width, height, _frame.BottomRight, _frameAttr );
 			for(var i=PosX+1; i<width; i++)
 			{
-				Vio.Sza( i, PosY, chars.HLine, _frameAttr );
-				Vio.Sza( i, height, chars.HLine, _frameAttr );
+				_vio.Sza( i, PosY, _frame.HLine, _frameAttr );
+				_vio.Sza( i, height, _frame.HLine, _frameAttr );
 			}
 			for(var i=PosY+1; i<height; i++)
 			{
-				Vio.Sza( PosX, i, chars.VLine, _frameAttr );
-				Vio.Sza( width, i, chars.VLine, _frameAttr );
+				_vio.Sza( PosX, i, _frame.VLine, _frameAttr );
+				_vio.Sza( width, i, _frame.VLine, _frameAttr );
 			}
 		}
 
-		void DrawShadow()
-		{
-			if( !Visible ) return;
-			var stop = PosY+Height-1;
-			for(var i=0; i<=stop; i++)
-				Vio.Sa( PosX, i, _attrShadow );
+//		void DrawShadow()
+//		{
+//			if( !Visible ) return;
+//			var stop = PosY+Height-1;
+//			for(var i=0; i<=stop; i++)
+//				Vio.Sa( PosX, i, _attrShadow );
 /*
   if( wStart < VioGetMaxCol() )    
   {
@@ -313,17 +337,13 @@ namespace OldSchool
    }
   }
  */
-		IFrame GetFrameChars() 
+		IFrame CreateFrame(FrameType type) 
 		{
-			switch(FrameType)
-			{
-				case FrameType.None: return NoFrame.Instance;
-				case FrameType.Single: return SingleFrame.Instance;
-				case FrameType.Double: return DoubleFrame.Instance;
-				case FrameType.Thick: return ThickFrame.Instance;
-				case FrameType.Block: return BlockFrame.Instance;
+			if( _frame!=null ) {
+				if( _frame.Type==type )
+					return _frame;
 			}
-			return SingleFrame.Instance;
+			return Frame.CreateFrame(type);
 		}
 	}
 }

@@ -67,11 +67,11 @@ static bool execute(const Vio& vio, char key) {
 		case '3': _wins[2]->setVisible( !_wins[2]->isVisible() ); break;
 		case '4': _wins[3]->setVisible( !_wins[3]->isVisible() ); break;
 		case 'm': _wins[4]->setVisible( !_wins[4]->isVisible() ); break;
-		case 's': _wins[_current]->setFrame( FrameType::Single, AttribRole::WinFrame ); break;
-		case 'd': _wins[_current]->setFrame( FrameType::Double, AttribRole::WinFrame ); break;
-		case 't': _wins[_current]->setFrame( FrameType::Thick, AttribRole::WinFrame ); break;
-		case 'b': _wins[_current]->setFrame( FrameType::Block, AttribRole::WinFrame ); break;
-		case 'n': _wins[_current]->setFrame( FrameType::None, AttribRole::WinFrame ); break;
+		case 's': _wins[_current]->setFrame( FrameType::Single ); break;
+		case 'd': _wins[_current]->setFrame( FrameType::Double ); break;
+		case 't': _wins[_current]->setFrame( FrameType::Thick ); break;
+		case 'b': _wins[_current]->setFrame( FrameType::Block ); break;
+		case 'n': _wins[_current]->setFrame( FrameType::None ); break;
 		case 'c': _wins[_current]->clear(); break;
 	}
 	return true;
@@ -112,35 +112,35 @@ static int windowHeight(const Vio& vio) {
 
 static Win* createWindow1(const Vio& vio) {
 	auto win = new Win(vio, 1, 1, windowWidth(vio), windowHeight(vio) );
-	win->setFrame( FrameType::Single, AttribRole::WinFrame );
-	win->setTitle( " Links oben ", TitlePos::TopLeft, AttribRole::WinTitle );
+	win->setFrame( FrameType::Single );
+	win->setTitle( " Links oben ", TitlePos::TopLeft );
 	return win;
 }
 
 static Win* createWindow2(const Vio& vio) {
 	auto win = new Win(vio, vio.getColumns()-windowWidth(vio)-3, 1, windowWidth(vio), windowHeight(vio) );
-	win->setFrame( FrameType::Single, AttribRole ::WinFrame );
-	win->setTitle( " Rechts oben ", TitlePos::TopRight, AttribRole ::WinTitle );
+	win->setFrame( FrameType::Single );
+	win->setTitle( " Rechts oben ", TitlePos::TopRight );
 	return win;
 }
 
 static Win* createWindow3(const Vio& vio) {
 	auto win = new Win(vio, 1, vio.getRows()-windowHeight(vio)-4, windowWidth(vio), windowHeight(vio) );
-	win->setFrame( FrameType::Single, AttribRole::WinFrame );
-	win->setTitle( " Links unten ", TitlePos::BottomLeft, AttribRole::WinTitle );
+	win->setFrame( FrameType::Single );
+	win->setTitle( " Links unten ", TitlePos::BottomLeft );
 	return win;
 }
 
 static Win* createWindow4(const Vio& vio) {
 	auto win = new Win(vio, vio.getColumns()-windowWidth(vio)-3, vio.getRows()-windowHeight(vio)-4, windowWidth(vio), windowHeight(vio) );
-	win->setFrame( FrameType::Single, AttribRole::WinFrame );
-	win->setTitle( " Rechts unten ", TitlePos::BottomRight, AttribRole ::WinTitle );
+	win->setFrame( FrameType::Single );
+	win->setTitle( " Rechts unten ", TitlePos::BottomRight );
 	return win;
 }
 
 static Win* createWindowM(const Vio& vio) {
 	auto win = new Win(vio, vio.centerCol(windowWidth(vio)), vio.centerRow(windowHeight(vio)), windowWidth(vio), windowHeight(vio) );
-	win->setTitle( " Zentriert ", TitlePos::TopCenter, AttribRole ::WinTitle );
+	win->setTitle( " Zentriert ", TitlePos::TopCenter );
 	win->setBackground(AttribRole::LstStatusInvers);
 	win->clear();
 	return win;

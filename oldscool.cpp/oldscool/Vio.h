@@ -17,12 +17,15 @@ namespace OldScool {
 		static void	beep();
 		static void	flash();
 		static void	sleep(int msecs);
-		static int	getColumns();
-		static int	getRows();
 		static bool	canColors();
 		static int	getColorCount();
+		static int	getColumns();
+		static int	getRows();
+		const Palette& getPalette() const
+		{
+			return _palette;
+		}
 	public:
-		void doBackground();
 		int centerCol(int len=0) const
 		{
 			return (getColumns()-len) / 2;
@@ -31,11 +34,8 @@ namespace OldScool {
 		{
 			return (getRows()-height) / 2;
 		}
-		const Palette& getPalette() const
-		{
-			return _palette;
-		}
 	public:
+		void doBackground();
 		void clear() const;
 		void gotoxy(int x, int y) const;
 		void sz(int x, int y, wchar_t ch) const;

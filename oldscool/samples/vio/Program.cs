@@ -1,25 +1,33 @@
-﻿using System;
-using OldSchool;
+using System;
+using OldScool;
 
 class Demo {
 
-  static int Main ()
-  {
-    Vio.Init();                           // Bildschirm vorbereiten
-    Vio.Background();                     // Hintergrund malen
-    Vio.Status(" [~ESC~] Quit  [~F1~] Добрый день");
-    var colInfo = $"Column..: {Vio.Columns}";
-    var rowInfo = $"Rows....: {Vio.Rows}";
-    Vio.Ss(3, 3, colInfo);
-    Vio.Ssa(3, 4, rowInfo, Colors.MakeAttr(ConsoleColor.Yellow, ConsoleColor.Magenta));
+	static int LABEL_POS = 21;
+	static int VALUE_POS = 51;
+	
+	static int Main ()
+	{
+		var vio = new Vio();
+		vio.Clear();
+		vio.DoBackground();
 
-    while (true)
-    {
-        var ch = Console.ReadKey();
-        if (ch.Key == ConsoleKey.Escape) break;
-    }
+		var done = false;
+		while (!done) {
+			
+			vio.Status(" ~F1~ Please Select a driver  ~F2~ Искать \uE030", AttribRole.LstStatusLine, AttribRole.LstStatusInvers );
+		
+			vio.Ss( LABEL_POS, 2, "Columns.....:");
+			vio.Ssa( VALUE_POS, 2, $"{vio.Columns}", AttribRole.MsgFrame);
 
-    Vio.Done();                           // Bildschirm restaurieren
-    return 0;
-  }
+			vio.Ss( LABEL_POS, 3, "Rows........:");
+			vio.Ssa( VALUE_POS, 3, $"{vio.Rows}", AttribRole.MsgFrame);
+		
+			var ch = Console.ReadKey();
+			if (ch.Key == ConsoleKey.Escape) done = true;
+		}
+
+		// vio.Done();
+		return 0;
+	}
 }

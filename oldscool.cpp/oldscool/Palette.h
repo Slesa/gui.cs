@@ -5,29 +5,45 @@
 namespace OldScool {
 
 	enum AttribRole {
-		Background = 1,
-		Shadow,
-		WinFrame,
-		WinTitle,
-		WinText,
-		MsgFrame,
-		MsgTitle,
-		MsgText,
-		MsgStatusLine,
-		LstFrame,
-		LstTitle,
-		LstText,
-		LstInvers,
-		LstStatusLine,
-		LstStatusInvers,
-		MnuFrame,
-		MnuTitle,
-		MnuText,
-		MnuInvers,
-		MnuHotkey,
-		MnuHotInvers,
-		MnuStatusLine,
-		MnuStatusInvers,
+		Background = 1,             // Background of the program
+		WinFrame,                   // Windows, frame
+		WinTitle,                   // Windows, title
+		WinText,                    // Windows, text
+		WinShadow,                  // Windows, shadow
+		MsgFrame,                   // Messages, frame
+		MsgTitle,                   // Messages, title
+		MsgText,                    // Messages, text
+		MsgStatusLine,              // Messages, text in status line
+		LstFrame,                   // Lists, frame
+		LstTitle,                   // Lists, title
+		LstText,                    // Lists, text
+		LstInvers,                  // Lists, highlighted text
+		LstStatusLine,              // Lists, text in status line
+		LstStatusInvers,            // Lists, highlighted text in status line
+		MnuFrame,                   // Menus, frame
+		MnuTitle,                   // Menus, title
+		MnuText,                    // Menus, text
+		MnuInvers,                  // Menus, highlighted text
+		MnuHotkey,                  // Menus, hotkey text
+		MnuHotInvers,               // Menus, highlighted hotkey text
+		MnuStatusLine,              // Menus, text in status line
+		MnuStatusInvers,            // Menus, highlighted text in status line
+		DlgFrame,                   // Dialogs, frame
+		DlgTitle,                   // Dialogs, title
+		DlgText,                    // Dialogs, text
+		DlgInvers,                  // Dialogs, highlighted text
+		DlgHotkey,                  // Dialogs, hotkeys
+		DlgHotInvers,               // Dialogs, highlighted hotkeys
+		DlgStatusLine,              // Dialogs, status line
+		DlgStatusInvers,            // Dialogs, highlighted text in status line
+		DlgEdit,                    // Dialogs, editable text
+		DlgEditMark,                // Dialogs, marked editable text
+// #define        DLG_PAL_DISABLE     8            /* Disableter Eintrag      */
+// #define        DLG_PAL_PUSHDIS     9            /* Push-Button, disabled   */
+// #define        DLG_PAL_PUSHNORMAL  10
+// #define        DLG_PAL_PUSHINVERS  11
+// #define        DLG_PAL_PUSHHOTNORM 12
+// #define        DLG_PAL_PUSHHOTINV  13
 	};
 
 

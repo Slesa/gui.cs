@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace OldSchool 
+namespace OldScool 
 {
 	public enum MsgMode
 	{
@@ -14,6 +14,11 @@ namespace OldSchool
 
 	public class Msg
 	{
+		Msg(Vio vio)
+		{
+			_vio = vio;
+		}
+		
  		public int Show(int x, int y, string text, MsgMode mode, string status=null)
 		{
 			var width = GetWidth(text);
@@ -25,8 +30,8 @@ namespace OldSchool
 		{
 			var width = GetWidth(text);
 			var height = GetHeight(text);
-			var x = Vio.CenterCol(width);
-			var y = Vio.CenterRow(height);
+			var x = _vio.CenterCol(width);
+			var y = _vio.CenterRow(height);
 			return ShowWindow(x, y, width, height, text, mode, status);
 		}
 
@@ -37,9 +42,9 @@ namespace OldSchool
 					_win.Remove();
 				return 0;
 			}
-			Vio.Status(status, Palette.Instance.Get(AttributeRole.MsgStatusLine), Palette.Instance.Get(AttributeRole.MsgStatusLine));
+			_vio.Status(status, AttribRole.MsgStatusLine, AttribRole.MsgStatusLine);
 			if( _win==null ) { 
-				_win = new Win(x, y, width+6, height+4);
+				_win = new Win(_vio, x, y, width+6, height+4);
 				_win.CursorType = CursorType.Off;
 			}
 			// _win->setBackground(Palette.Instance.Get(AttributeRole.MsgText));
@@ -86,16 +91,17 @@ namespace OldSchool
 		{
 			var lines = text.Split('\n');
 			var maxwidth = lines.Max(x => x.Length);
-			return maxwidth+4>Vio.Columns ? Vio.Columns-4 : maxwidth;
+			return maxwidth+4>_vio.Columns ? _vio.Columns-4 : maxwidth;
 		}
 
 		int GetHeight(string text)
 		{
 			var lines = text.Split('\n');
 			var height = lines.Count();
-			return height+2>Vio.Rows ? Vio.Rows-2 : height;
+			return height+2>_vio.Rows ? _vio.Rows-2 : height;
 		}
 
+		Vio _vio;
 		Win _win;
 	}
 }

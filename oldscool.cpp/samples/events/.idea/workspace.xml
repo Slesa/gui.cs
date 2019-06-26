@@ -12,15 +12,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96feb32e-b84c-477a-aa8c-3a6158dad867" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../win/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vio/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvKeyboard.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/EvMouse.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/Palette.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Palette.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/Vio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Vio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../oldscool/Win.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../oldscool/Win.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mnu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vio/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vio/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../win/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../win/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../win/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../win/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Colors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Colors.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Frame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Frame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Mnu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Mnu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Msg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Msg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Palette.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Palette.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Vio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Vio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/lib/Win.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/lib/Win.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../oldscool/samples/vio/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../oldscool/samples/vio/Program.cs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="418">
+              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -70,7 +82,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="31" />
+    <option name="x" value="6" />
+    <option name="y" value="151" />
     <option name="width" value="1932" />
     <option name="height" value="1055" />
   </component>
@@ -80,14 +93,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -120,17 +136,22 @@
       <updated>1561127158293</updated>
       <workItem from="1561127159879" duration="4600000" />
       <workItem from="1561314754158" duration="2650000" />
+      <workItem from="1561319799728" duration="599000" />
+      <workItem from="1561443991787" duration="443000" />
+      <workItem from="1561487367738" duration="599000" />
+      <workItem from="1561539823095" duration="599000" />
+      <workItem from="1561582852343" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7250000" />
+    <option name="totallyTimeSpent" value="10089000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="31" width="1692" height="1025" extended-state="6" />
+    <frame x="0" y="151" width="1932" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15201466" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15978836" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -172,8 +193,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

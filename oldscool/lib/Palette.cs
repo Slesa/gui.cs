@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace OldSchool 
+namespace OldScool 
 {
 	// Colors of element's parts
-	public enum AttributeRole
+	public enum AttribRole
 	{
-		Background,                 // Background of the program
+		Background = 1,             // Background of the program
 		WinFrame,                   // Windows, frame
 		WinTitle,                   // Windows, title
 		WinText,                    // Windows, text
@@ -49,69 +49,60 @@ namespace OldSchool
 
 	public interface IPalette
 	{
-		int Get(AttributeRole role);
+		int Get(AttribRole role);
 	}
 
 	public class Palette : IPalette
 	{
-		private Palette()
+		public Palette()
 		{
-			CreatePalette();
+			Configure();
 		}
 
-		public int Get(AttributeRole role) {
+		public int GetBackground() {
+			return Get(AttribRole.Background);
+		}
+		
+		public int Get(AttribRole role) {
 			return _colors[role];
 		}
 
-		static Palette _instance;
-		public static Palette Instance { get {
-			if( _instance==null ) _instance = new Palette();
-			return _instance;
-		} }
-
-		Dictionary<AttributeRole, int> _colors;
-		void CreatePalette() {
-			_colors = new Dictionary<AttributeRole, int>();
-			_colors[AttributeRole.Background] = Colors.MakeAttr(Color.Black, Color.Cyan);
-			_colors[AttributeRole.WinFrame] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.WinTitle] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.WinText] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.WinShadow] = Colors.MakeAttr(Color.Gray, Color.Cyan);
-			_colors[AttributeRole.MsgFrame] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.MsgTitle] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.MsgText] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.MsgStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.LstFrame] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.LstTitle] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.LstText] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.LstInvers] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.LstStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.LstStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
-			_colors[AttributeRole.MnuFrame] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.MnuTitle] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.MnuText] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.MnuInvers] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.MnuHotkey] = Colors.MakeAttr(Color.Red, Color.White);
-			_colors[AttributeRole.MnuHotInvers] = Colors.MakeAttr(Color.Red, Color.Blue);
-			_colors[AttributeRole.MnuStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.MnuStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
-//                               , VH( SCHWARZ, WEISS )  /* Attribut eines nicht aktiven Eintrags */
-//                               , VH( GRAU, GRUEN )     /* Attribut eines nicht aktiven Push-Buttons */
-//                               , VH( ROT, GRUEN )      /* Attribut des Hotkeys eines Push-Buttons */
-//                               , VH( WEISS, GRUEN )    /* Attribut eines aktiven Push-Buttons */
-//                               , VH( GELB, BLAU )      /* Attribut eines aktiven Push-Buttons */
-//                               , VH( HELLROT, BLAU )   /* Attribut des Hotkeys eines Push-Buttons */
-			_colors[AttributeRole.DlgFrame] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.DlgTitle] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.DlgText] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.DlgInvers] = Colors.MakeAttr(Color.White, Color.Blue);
-			_colors[AttributeRole.DlgHotkey] = Colors.MakeAttr(Color.Red, Color.White);
-			_colors[AttributeRole.DlgHotInvers] = Colors.MakeAttr(Color.Red, Color.Blue);
-			_colors[AttributeRole.DlgStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
-			_colors[AttributeRole.DlgStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
-			_colors[AttributeRole.DlgEdit] = Colors.MakeAttr(Color.Black, Color.Cyan);
-			_colors[AttributeRole.DlgEditMark] = Colors.MakeAttr(Color.BrightYellow, Color.Blue);
-
+		Dictionary<AttribRole, int> _colors;
+		void Configure() {
+			_colors = new Dictionary<AttribRole, int>();
+			_colors[AttribRole.Background] = Colors.MakeAttr(Color.Black, Color.Cyan);
+			_colors[AttribRole.WinFrame] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.WinTitle] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.WinText] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.WinShadow] = Colors.MakeAttr(Color.Gray, Color.Cyan);
+			_colors[AttribRole.MsgFrame] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.MsgTitle] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.MsgText] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.MsgStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.LstFrame] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.LstTitle] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.LstText] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.LstInvers] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.LstStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.LstStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
+			_colors[AttribRole.MnuFrame] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.MnuTitle] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.MnuText] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.MnuInvers] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.MnuHotkey] = Colors.MakeAttr(Color.Red, Color.White);
+			_colors[AttribRole.MnuHotInvers] = Colors.MakeAttr(Color.Red, Color.Blue);
+			_colors[AttribRole.MnuStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.MnuStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
+			_colors[AttribRole.DlgFrame] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.DlgTitle] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.DlgText] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.DlgInvers] = Colors.MakeAttr(Color.White, Color.Blue);
+			_colors[AttribRole.DlgHotkey] = Colors.MakeAttr(Color.Red, Color.White);
+			_colors[AttribRole.DlgHotInvers] = Colors.MakeAttr(Color.Red, Color.Blue);
+			_colors[AttribRole.DlgStatusLine] = Colors.MakeAttr(Color.Black, Color.White);
+			_colors[AttribRole.DlgStatusInvers] = Colors.MakeAttr(Color.Red, Color.White);
+			_colors[AttribRole.DlgEdit] = Colors.MakeAttr(Color.Black, Color.Cyan);
+			_colors[AttribRole.DlgEditMark] = Colors.MakeAttr(Color.BrightYellow, Color.Blue);
 		}
 	}
 }

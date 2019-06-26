@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OldSchool 
+namespace OldScool 
 {
 	// One entry within the menu
 	public class MnuEntry
@@ -25,7 +25,10 @@ namespace OldSchool
 
 	public class Mnu
 	{
-		public Mnu() {}
+		public Mnu(Vio vio)
+		{
+			_vio = vio;
+		}
 
 		public void Add(MnuEntry entry) 
 		{
@@ -45,7 +48,7 @@ namespace OldSchool
 			if( !_mnuEntries.Any() ) return -1;
 			if( _win==null) _win = CreateWindow(x, y, title);
 			
-			_win.Cls();
+			_win.Clear();
 	    /*
 			foreach(var entry in _mnuEntries) {
 				_win->Hot(entry.X, entry.Y, entry.Text, TColors::MnuText, TColors::MnuHotkey);
@@ -75,14 +78,15 @@ namespace OldSchool
 			// m_Win->setFrame(TWin::FrameSingle, TColors::MnuFrame);
 			//m_Win->setTitle(title, TWin::TitleOZ, TColors::MnuTitle);
 
-			var win = new Win(x, y, _maxWidth+2, _maxHeight+2);
-			win.SetTitle(title, TitlePosition.TopCenter, Palette.Instance.Get(AttributeRole.MnuTitle));
+			var win = new Win(_vio, x, y, _maxWidth+2, _maxHeight+2);
+			win.SetTitle(title, TitlePos.TopCenter, AttribRole.MnuTitle);
 			// win.setBackground()
 			// win.Cursor = Cursor.Off;
-			win.SetFrame(FrameType.Single, Palette.Instance.Get(AttributeRole.MnuFrame));
+			win.SetFrame(FrameType.Single, AttribRole.MnuFrame);
 			return win;
 		}
 
+		Vio _vio;
 		List<MnuEntry> _mnuEntries = new List<MnuEntry>();
 		int _current;
 		int _maxWidth;

@@ -1,33 +1,32 @@
 ﻿using System;
-using OldSchool;
+using OldScool;
 
 class Demo {
 
-	static Win[] _wins;
+	static Win[] _wins = new Win[5];
 	static int _current;
 
 	static int Main ()
 	{
-		_current = 0;
-		_wins = new Win[5];
-		Vio.Init();                           // Bildschirm vorbereiten
-		Vio.Background();                     // Hintergrund malen
-		Vio.Status(" ~F1~ Fenstertest ~F2~ Test des Fensters");
+		var vio = new Vio();
+		vio.Clear();
+		vio.DoBackground();
+		vio.Status("~F1~ Help ~F2~ Искать \u2500 \u2501 | ~1~st Win ~2~nd Win ~3~rd Win ~4~th Win ~m~iddle Win", AttribRole.LstStatusLine, AttribRole.LstStatusInvers);
 
-		CreateWindows();
+		CreateWindows(vio);
 
 		var running = true;
 		while (running)
 		{
 			var ch = Console.ReadKey(true);
-			running = Execute(ch);
+			running = Execute(vio, ch);
 		}
 
-		Vio.Done();                           // Bildschirm restaurieren
+		Vio.Done();
 		return 0;
 	}
 
-	static bool Execute(ConsoleKeyInfo key) 
+	static bool Execute(Vio vio, ConsoleKeyInfo key) 
 	{
 		switch(key.Key) {
 			case ConsoleKey.Escape: return false;
@@ -48,110 +47,75 @@ class Demo {
 			case '3': _wins[2].Visible = !_wins[2].Visible; break;
 			case '4': _wins[3].Visible = !_wins[3].Visible; break;
 			case 'm': _wins[4].Visible = !_wins[4].Visible; break;
-			case 's': _wins[_current].SetFrame( FrameType.Single, Palette.Instance.Get(AttributeRole.WinFrame) ); break;
-			case 'd': _wins[_current].SetFrame( FrameType.Double, Palette.Instance.Get(AttributeRole.WinFrame) ); break;
-			case 't': _wins[_current].SetFrame( FrameType.Thick, Palette.Instance.Get(AttributeRole.WinFrame) ); break;
-			case 'b': _wins[_current].SetFrame( FrameType.Block, Palette.Instance.Get(AttributeRole.WinFrame) ); break;
-			case 'n': _wins[_current].SetFrame( FrameType.None, Palette.Instance.Get(AttributeRole.WinFrame) ); break;
+			case 's': _wins[_current].SetFrame( FrameType.Single ); break;
+			case 'd': _wins[_current].SetFrame( FrameType.Double ); break;
+			case 't': _wins[_current].SetFrame( FrameType.Thick ); break;
+			case 'b': _wins[_current].SetFrame( FrameType.Block ); break;
+			case 'n': _wins[_current].SetFrame( FrameType.None ); break;
 		}
 		return true;
 	}
 
-	static void CreateWindows() {
-		_wins[0] = CreateWindow1();
-		_wins[1] = CreateWindow2();
-		_wins[2] = CreateWindow3();
-		_wins[3] = CreateWindow4();
-		_wins[4] = CreateWindowM();
+	static void CreateWindows(Vio vio) {
+		_wins[0] = CreateWindow1(vio);
+		_wins[1] = CreateWindow2(vio);
+		_wins[2] = CreateWindow3(vio);
+		_wins[3] = CreateWindow4(vio);
+		_wins[4] = CreateWindowM(vio);
 		for(var i=0; i<5; i++) {
 			_wins[i].Printf($"This is window...: {i+1}\n");
-			_wins[i].Printf($"Vio columns......: {Vio.Columns}\n");
-			_wins[i].Printf($"Vio rows.........: {Vio.Rows}\n");
+			_wins[i].Printf($"Vio columns......: {vio.Columns}\n");
+			_wins[i].Printf($"Vio rows.........: {vio.Rows}\n");
 			_wins[i].Printf($"Win x............: {_wins[i].PosX}\n");
 			_wins[i].Printf($"Win y............: {_wins[i].PosY}\n");
 			_wins[i].Printf($"Win width........: {_wins[i].Width}\n");
 			_wins[i].Printf($"Win height.......: {_wins[i].Height}\n");
+			_wins[i].Ss( 25, 1, "ss" );
+			_wins[i].Ssa( 25, 2, "ssa", AttribRole.MnuHotkey);
+			_wins[i].Sz( 25, 3, 'z' );
+			_wins[i].Sza( 25, 4, 'A', AttribRole.MnuHotkey );
 		}
 	}
 
-	static int WindowWidth() {
-		return Vio.Columns/2-5;
+	static int WindowWidth(Vio vio) {
+		return vio.Columns/2-5;
 	}
-	static int WindowHeight() {
-		return Vio.Rows/2-5;
+	static int WindowHeight(Vio vio) {
+		return vio.Rows/2-5;
 	}
 
-	static Win CreateWindow1() {
-		var win = new Win( 1, 1, WindowWidth(), WindowHeight() );
-		win.SetFrame( FrameType.Single, Win.DefFrameAttr );
-		win.SetTitle( " Links oben ", TitlePosition.TopLeft, Win.DefTitleAttr );
+	static Win CreateWindow1(Vio vio) {
+		var win = new Win( vio, 1, 1, WindowWidth(vio), WindowHeight(vio) );
+		win.SetFrame( FrameType.Single, AttribRole.WinFrame );
+		win.SetTitle( " Links oben ", TitlePos.TopLeft );
 		return win;
 	}
 
-	static Win CreateWindow2() {
-		var win = new Win( Vio.Columns-WindowWidth()-1, 1, WindowWidth(), WindowHeight() );
-		win.SetFrame( FrameType.Single, Win.DefFrameAttr );
-		win.SetTitle( " Rechts oben ", TitlePosition.TopRight, Win.DefTitleAttr );
+	static Win CreateWindow2(Vio vio) {
+		var win = new Win( vio, vio.Columns-WindowWidth(vio)-3, 1, WindowWidth(vio), WindowHeight(vio) );
+		win.SetFrame( FrameType.Single );
+		win.SetTitle( " Rechts oben ", TitlePos.TopRight );
 		return win;
 	}
 
-	static Win CreateWindow3() {
-		var win = new Win( 1, Vio.Rows-WindowHeight()-3, WindowWidth(), WindowHeight() );
-		win.SetFrame( FrameType.Single, Win.DefFrameAttr );
-		win.SetTitle( " Links unten ", TitlePosition.BottomLeft, Win.DefTitleAttr );
+	static Win CreateWindow3(Vio vio) {
+		var win = new Win( vio, 1, vio.Rows-WindowHeight(vio)-4, WindowWidth(vio), WindowHeight(vio) );
+		win.SetFrame( FrameType.Single );
+		win.SetTitle( " Links unten ", TitlePos.BottomLeft );
 		return win;
 	}
 
-	static Win CreateWindow4() {
-		var win = new Win( Vio.Columns-WindowWidth()-1, Vio.Rows-WindowHeight()-3, WindowWidth(), WindowHeight() );
-		win.SetFrame( FrameType.Single, Win.DefFrameAttr );
-		win.SetTitle( " Rechts unten ", TitlePosition.BottomRight, Win.DefTitleAttr );
+	static Win CreateWindow4(Vio vio) {
+		var win = new Win( vio, vio.Columns-WindowWidth(vio)-3, vio.Rows-WindowHeight(vio)-4, WindowWidth(vio), WindowHeight(vio) );
+		win.SetFrame( FrameType.Single );
+		win.SetTitle( " Rechts unten ", TitlePos.BottomRight );
 		return win;
 	}
 
-	static Win CreateWindowM() {
-		var win = new Win( Vio.CenterCol(WindowWidth()), Vio.CenterRow(WindowHeight()), WindowWidth(), WindowHeight() );
-		win.SetTitle( " Zentriert ", TitlePosition.TopCenter, Win.DefTitleAttr );
+	static Win CreateWindowM(Vio vio) {
+		var win = new Win( vio, vio.CenterCol(WindowWidth(vio)), vio.CenterRow(WindowHeight(vio)), WindowWidth(vio), WindowHeight(vio) );
+		win.SetTitle( " Zentriert ", TitlePos.TopCenter );
+		win.SetBackground(AttribRole.LstStatusInvers);
 		return win;
 	}
 }
-
-/*
-  CHAR          ch;
-  SWin*         win;
-  SWin*         winold       = NULL;
-  BOOL          boFertig     = FALSE;
-
-  WinAktivieren( winm );
-  WinCls();
-  WinSetTitel( winm, " Mittiges Fenster", WIN_TITEL_OZ );
-  WinAktivieren( winm );
-  WinPrintf( "Videomodus: %d\n", ScrGetMode() );
-  WinPrintf( "Spalten...: %d\n", VioGetMaxCol() );
-  WinPrintf( "Zeilen....: %d", VioGetMaxRow() );
-  while( !boFertig )
-  {
-   switch( ch = getch() )
-   {
-    case '1': win = win1; break;
-    case '2': win = win2; break;
-    case '3': win = win3; break;
-    case '4': win = win4; break;
-    case 27: boFertig = TRUE;
-   }
-   if( winold ) WinVerstecken( winold );
-   if( boFertig ) break;
-   winold = win;
-   WinAktivieren( win );
-   WinCls();
-   WinPrintf( " Dies ist Fenster %c", ch );
-  }
-  WinPrintf( "Dies ist Fenster Eins\n" );
-  WinEntfernen( winm );
-  WinEntfernen( win1 );
-  WinEntfernen( win2 );
-  WinEntfernen( win3 );
-  WinEntfernen( win4 );
-  VioDone();
-}
-*/

@@ -35,6 +35,9 @@ namespace OldScool {
 		Win(const Vio& vio, int x, int y, int width, int height);
 		~Win();
 
+		void setBackground(AttribRole attribRole);
+
+
 		int getX();
 		int getY();
 		int getWidth();
@@ -49,11 +52,10 @@ namespace OldScool {
 		}
 		bool isVisible();
 		void setVisible(bool doShow) { if (doShow) show(); else hide(); }
-		void setFrame(FrameType frame, AttribRole attribRole);
-		void setTitle(const string& title, TitlePos pos, AttribRole attribRole);
+		void setFrame(FrameType frame, AttribRole attribRole=AttribRole::WinFrame);
+		void setTitle(const string& title, TitlePos pos, AttribRole attribRole=AttribRole::WinTitle);
 		void show();
 		void hide();
-		void setBackground(AttribRole attribRole);
 		void update();
 		void clear();
 		void sz(int x, int y, char ch);

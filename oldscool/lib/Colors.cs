@@ -1,6 +1,6 @@
 using System;
 
-namespace OldSchool 
+namespace OldScool 
 {
 	/// <summary>
 	/// Basic colors that can be used to set the foreground and background colors in console applications.  These can only be
@@ -72,29 +72,29 @@ namespace OldSchool
 		White
 	}
 
-  public static class Colors
-  {
-    public static int MakeAttr (ConsoleColor f, ConsoleColor b)
-    {
-      // Encode the colors into the int value.
-      var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
-      return value;
-    }
-    public static int MakeAttr (Color f, Color b)
-    {
-      // Encode the colors into the int value.
-      var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
-      return value;
-    }
-    public static ConsoleColor Foreground (int attr)
-    {
-      var value = (attr >> 16);
-      return (ConsoleColor) value;
-    }
-    public static ConsoleColor Background (int attr)
-    {
-      var value = ((attr) & 0xffff);
-      return (ConsoleColor) value;
-    }
-  }
+	public static class Colors
+	{
+		public static int MakeAttr (ConsoleColor f, ConsoleColor b)
+		{
+			// Encode the colors into the int value.
+			var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
+			return value;
+		}
+		 public static int MakeAttr (Color f, Color b)
+		{
+			// Encode the colors into the int value.
+			var value = ((((int)f) & 0xffff) << 16) | (((int)b) & 0xffff);
+			return value;
+		}
+		public static ConsoleColor Foreground (int attr)
+		{
+			var value = (attr >> 16);
+			return (ConsoleColor) value;
+		}
+		public static ConsoleColor Background (int attr)
+		{
+			var value = ((attr) & 0xffff);
+			return (ConsoleColor) value;
+		}
+	}
 }

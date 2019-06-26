@@ -27,6 +27,12 @@ namespace OldScool {
 		}
 		_palette.configure();
 		curs_set(0);
+		// in evkeyboard:
+		keypad(stdscr, true);
+		cbreak();
+		// raw();
+		notimeout(stdscr, true);
+		nodelay(stdscr, true);
 	}
 
 	void Vio::done() {
